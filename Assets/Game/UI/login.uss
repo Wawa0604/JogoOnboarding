@@ -1,0 +1,10 @@
+.game-title {
+    font-size: 40px;
+    align-self: center;
+    color: rgb(149, 2, 16);
+
+    -unity-font-definition: url("Fonts/static/RobotoMono-Bold-SDF.asset");
+
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: black;
+}
