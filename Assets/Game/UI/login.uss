@@ -1,10 +1,64 @@
 .game-title {
-    font-size: 40px;
+    font-size: 123px;
     align-self: center;
-    color: rgb(149, 2, 16);
-
-    -unity-font-definition: url("Fonts/static/RobotoMono-Bold-SDF.asset");
-
+    color: rgb(201, 212, 245);
+    -unity-font-definition: url("project://database/Assets/Game/UI/Fonts/static%201/RobotoSlab-SemiBold.ttf?fileID=12800000&guid=454d66cf88a1a524aa476b80321c9695&type=3#RobotoSlab-SemiBold");
     -unity-text-outline-width: 2px;
-    -unity-text-outline-color: black;
+    -unity-text-outline-color: rgb(78, 78, 141);
+    justify-content: flex-start;
+    align-items: center;
+    top: 84px;
+    -unity-font-style: bold;
+}
+
+.enterText {
+    align-self: center;
+    width: 727px;
+    height: 60px;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: flex-end;
+    left: -81px;
+    -unity-font-definition: url("project://database/Assets/Game/UI/Theme%20Style%20Sheets.tss?fileID=2230732570650464555&guid=c7f191fa5f3739b48bb803ebca883416&type=3#NotInter-Regular");
+    -unity-font-style: normal;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    background-color: rgba(252, 252, 252, 0);
+    border-left-color: rgb(98, 98, 98);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-color: rgb(98, 98, 98);
+    border-bottom-color: rgb(98, 98, 98);
+    border-right-color: rgb(98, 98, 98);
+}
+
+.EnterButton {
+    align-self: center;
+    width: 400px;
+    height: 60px;
+    padding-top: 0;
+    margin-top: 13px;
+    -unity-font-definition: url("project://database/Assets/Game/UI/Fonts/static/RobotoMono-SemiBold.ttf?fileID=12800000&guid=ef964632acd28324aaa3fa07642fa74b&type=3#RobotoMono-SemiBold");
+    font-size: 19px;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.RegisterButton {
+    align-self: center;
+    width: 400px;
+    height: 60px;
+    margin-top: 13px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(48, 48, 48);
+    color: rgb(249, 249, 249);
+    font-size: 19px;
+    -unity-font-definition: url("project://database/Assets/Game/UI/Fonts/static/RobotoMono-SemiBold.ttf?fileID=12800000&guid=ef964632acd28324aaa3fa07642fa74b&type=3#RobotoMono-SemiBold");
 }

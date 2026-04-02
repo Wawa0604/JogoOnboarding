@@ -6,10 +6,10 @@
         </ui:VisualElement>
         <ui:VisualElement name="Body" style="flex-grow: 1;">
             <ui:VisualElement name="PainelBody" style="flex-grow: 1;">
-                <ui:TextField label="Login" placeholder-text="@SeuEmailCPQD" name="Email"/>
-                <ui:TextField label="Senha" placeholder-text="filler text" name="Password" password="true" hide-placeholder-on-focus="false"/>
-                <ui:Button text="Entrar" name="LoginButton"/>
-                <ui:Button text="Criar conta" name="RegistreButton"/>
+                <ui:TextField label="Login" placeholder-text="@SeuEmailCPQD" name="Email" class="enterText"/>
+                <ui:TextField label="Senha" placeholder-text="**********" name="Password" password="true" hide-placeholder-on-focus="false" class="enterText"/>
+                <ui:Button text="Entrar" name="LoginButton" class="EnterButton"/>
+                <ui:Button text="Criar conta" name="RegistreButton" class="RegisterButton"/>
             </ui:VisualElement>
             <ui:VisualElement name="PainelHeader" style="flex-grow: 1; align-items: auto;">
                 <ui:Label text="Label"/>
