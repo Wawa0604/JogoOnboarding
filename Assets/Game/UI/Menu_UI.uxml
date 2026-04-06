@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Game/UI/Style_sheet_menu.uss?fileID=7433441132597879392&amp;guid=1b4e507689af39648aa38bece410471a&amp;type=3#Style_sheet_menu"/>
+    <ui:VisualElement name="" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/Images/27.jpg?fileID=2800000&amp;guid=8064ca1bd85b4834ab5b51444bb42304&amp;type=3#27&quot;); align-items: center; justify-content: center;">
+        <ui:VisualElement style="height: 819px; width: 686px; background-color: rgba(0, 0, 0, 0.54); align-items: center; justify-content: center;">
+            <ui:Label text="Jogo Onboarding" class="menu" style="color: rgb(255, 255, 255); font-size: 62px; -unity-font-style: bold; -unity-font-definition: url(&quot;project://database/Assets/Game/UI/Fonts/static%201/RobotoSlab-Bold.ttf?fileID=12800000&amp;guid=d654c0b0c74e8ec418b2fc198ee5feb4&amp;type=3#RobotoSlab-Bold&quot;);"/>
+            <ui:Button text="Créditos" class="unity-button" style="width: 226px; height: auto; margin-bottom: 5px; margin-top: 5px; margin-left: 5px; margin-right: 5px;"/>
+            <ui:Button text="Jogar" class="unity-button" style="width: 226px; flex-grow: 0; margin-top: 5px; margin-bottom: 5px; margin-left: 5px; margin-right: 5px;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
