@@ -5,7 +5,7 @@
 
 .menu {
     left: auto;
-    top: -241px;
+    top: -163px;
 }
 
 .unity-button {
@@ -23,4 +23,35 @@
     background-color: rgb(255, 255, 255);
     -unity-font-style: bold;
     color: rgb(27, 27, 27);
+    -unity-font-definition: initial;
+}
+
+.unity-base-text-field {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+    border-left-color: rgba(189, 189, 189, 0.62);
+    border-right-color: rgba(189, 189, 189, 0.62);
+    border-top-color: rgba(189, 189, 189, 0.62);
+    border-bottom-color: rgba(189, 189, 189, 0.62);
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url("project://database/Assets/Game/UI/Fonts/static/RobotoMono-ExtraLight.ttf?fileID=12800000&guid=3a16afb6eb6a4574085f2673b5409d4c&type=3#RobotoMono-ExtraLight");
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+
+
+.unity-progress-bar {
 }

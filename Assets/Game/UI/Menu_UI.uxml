@@ -1,10 +1,15 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Game/UI/Style_sheet_menu.uss?fileID=7433441132597879392&amp;guid=1b4e507689af39648aa38bece410471a&amp;type=3#Style_sheet_menu"/>
-    <ui:VisualElement name="" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/Images/27.jpg?fileID=2800000&amp;guid=8064ca1bd85b4834ab5b51444bb42304&amp;type=3#27&quot;); align-items: center; justify-content: center;">
-        <ui:VisualElement style="height: 819px; width: 686px; background-color: rgba(0, 0, 0, 0.54); align-items: center; justify-content: center;">
-            <ui:Label text="Jogo Onboarding" class="menu" style="color: rgb(255, 255, 255); font-size: 62px; -unity-font-style: bold; -unity-font-definition: url(&quot;project://database/Assets/Game/UI/Fonts/static%201/RobotoSlab-Bold.ttf?fileID=12800000&amp;guid=d654c0b0c74e8ec418b2fc198ee5feb4&amp;type=3#RobotoSlab-Bold&quot;);"/>
-            <ui:Button text="Créditos" class="unity-button" style="width: 226px; height: auto; margin-bottom: 5px; margin-top: 5px; margin-left: 5px; margin-right: 5px;"/>
-            <ui:Button text="Jogar" class="unity-button" style="width: 226px; flex-grow: 0; margin-top: 5px; margin-bottom: 5px; margin-left: 5px; margin-right: 5px;"/>
+    <ui:VisualElement name="TelaMenu" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/Images/27.jpg?fileID=2800000&amp;guid=8064ca1bd85b4834ab5b51444bb42304&amp;type=3#27&quot;); align-items: center; justify-content: center;">
+        <ui:VisualElement name="Container" style="height: 696px; width: 686px; background-color: rgba(0, 0, 0, 0.54); align-items: center; justify-content: center; border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px;">
+            <ui:Label text="Jogo Onboarding" name="TituloDoJogo" class="menu" style="color: rgb(255, 255, 255); font-size: 62px; -unity-font-style: bold; -unity-font-definition: url(&quot;project://database/Assets/Game/UI/Fonts/static%201/RobotoSlab-Bold.ttf?fileID=12800000&amp;guid=d654c0b0c74e8ec418b2fc198ee5feb4&amp;type=3#RobotoSlab-Bold&quot;);"/>
+            <ui:TextField label="Email" placeholder-text="Ex: seunome@cpqd.com.br" name="usuario-input" style="width: 400px;"/>
+            <ui:TextField label="Email" placeholder-text="Digite sua senha..." name="senha-input" style="width: 400px;"/>
+            <ui:Button text="Entrar" name="btn-entrar" class="unity-button" style="width: 360px; flex-grow: 0; margin-top: 10px; margin-bottom: 10px; margin-left: 10px; margin-right: 10px; -unity-font-definition: url(&quot;project://database/Assets/Game/UI/Fonts/static%201/RobotoSlab-Light.ttf?fileID=12800000&amp;guid=a49c0b1bc6a663f4f82cecaf6ec716b9&amp;type=3#RobotoSlab-Light&quot;); font-size: 30px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="LoadingContainer" style="width: 70%; height: 5%; align-items: center; justify-content: center; bottom: -8%; display: none;">
+            <ui:Label text="Carregando..." style="-unity-font-style: bold; -unity-font-definition: url(&quot;project://database/Assets/Game/UI/Fonts/static/RobotoMono-Italic.ttf?fileID=12800000&amp;guid=d18cca09ee7fb264ca49934e7d6a3c4a&amp;type=3#RobotoMono-Italic&quot;);"/>
+            <ui:ProgressBar value="0" title="" name="Carregando" style="width: 100%;"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
