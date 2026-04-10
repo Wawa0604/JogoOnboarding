@@ -4,7 +4,9 @@ using UnityEngine.UIElements;
 
 public class MissionListController : MonoBehaviour
 {
-    // Esse elemento começa desligado dentro da cena
+    // Esse script está na UI do jogo, que é um prefab
+
+    // Esse script é para ligar um elemento que começa desligado e que é um prefab
 
     //Quando aperta o botão <BtnMissions> liga o elemento <ListaMissoes> 
 

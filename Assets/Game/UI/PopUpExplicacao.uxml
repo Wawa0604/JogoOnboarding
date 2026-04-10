@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Game/UI/Dialogo.uss?fileID=7433441132597879392&amp;guid=ef781bbd97f722d41aa095517166a929&amp;type=3#Dialogo"/>
+    <ui:VisualElement name="Container" style="flex-grow: 0; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; border-left-color: rgba(115, 115, 115, 0.71); border-right-color: rgba(115, 115, 115, 0.71); border-top-color: rgba(115, 115, 115, 0.71); border-bottom-color: rgba(115, 115, 115, 0.71); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; background-color: rgba(233, 233, 233, 0.89); width: 520px; height: 285px; background-size: 520px 285px; align-items: flex-start; align-self: center; align-content: center; -unity-background-scale-mode: scale-and-crop;">
+        <ui:Label text="Label" name="TextoExplica" style="height: auto;"/>
+        <ui:VisualElement style="flex-grow: 1; flex-direction: row; align-items: flex-end; justify-content: flex-start; width: auto; position: relative; bottom: 0; right: auto; margin-bottom: 0; margin-right: 0; align-self: flex-start;">
+            <ui:Button text="Anterior" name="Anterior"/>
+            <ui:Button text="Próximo" name="Proximo"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="ContainerWeMover" style="bottom: 0; right: 0; flex-grow: 1; flex-direction: row-reverse; width: 201px; justify-content: center; position: absolute; padding-bottom: 10px; padding-top: 10px; padding-right: 10px; padding-left: 10px; background-color: rgb(173, 173, 173); border-top-left-radius: 154px; border-top-right-radius: 154px; border-bottom-right-radius: 154px; border-bottom-left-radius: 154px;">
+            <ui:Image source="project://database/Assets/Game/Images/Ww%20Movers%20Falando%20Cabe%C3%A7a.svg?fileID=7388822144124034973&amp;guid=74be1ac65c30e8348905d35c44a56106&amp;type=3#Ww Movers Falando Cabeça" tint-color="rgb(255, 255, 255)" name="Image" style="flex-shrink: 0; -unity-background-scale-mode: scale-and-crop; justify-content: space-around; align-self: flex-end; align-content: flex-end; width: 179px; height: 179px;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
