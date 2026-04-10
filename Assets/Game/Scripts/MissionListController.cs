@@ -4,30 +4,16 @@ using UnityEngine.UIElements;
 
 public class MissionListController : MonoBehaviour
 {
-    [SerializeField] private VisualTreeAsset itemTemplate; // Arraste o MissionEntry.uxml aqui
-    private ListView _listView;
-    private List<string> _missions = new List<string>(); // Sua lista de dados
+    // Esse elemento começa desligado dentro da cena
 
-    void OnEnable()
-    {
-        var root = GetComponent<UIDocument>().rootVisualElement;
-        _listView = root.Q<ListView>("ListaMissoes"); // Busca o ListView no documento
+    //Quando aperta o botão <BtnMissions> liga o elemento <ListaMissoes> 
 
-        // 1. Dados de teste (Aqui você carregaria seu sistema de missões)
-        _missions.Add("Encontrar com o presidente");
-        _missions.Add("Explorar o laboratório");
-        _missions.Add("Coletar amostras de solo");
+    //O <ListaMissoes> deve usar <StyleSheetMissionEntry> como formato padrão para os elementos da lista
 
-        // 2. Setup do ListView
-        _listView.makeItem = () => itemTemplate.Instantiate();
+    // Precisa, quando carrega a cena, verificar quais missões não foram concluidas e coloca-las no topo, 
+    // seguindo a ordemque elas foram arrumadas no array
 
-        _listView.bindItem = (VisualElement element, int index) => {
-            // Aqui associamos o texto da lista ao Label do template
-            var label = element.Q<Label>("MissionTaskLabel");
-            label.text = _missions[index];
-        };
+    //As missões que ja foram concluídas precisam estar no fim da lista. A mais em baixo sendo a primeira a ser concluída. 
+    // E todas elas com o "ctrl S" ligado (quando fica riscada no meio)
 
-        // 3. Passar a fonte de dados
-        _listView.itemsSource = _missions;
-    }
 }
