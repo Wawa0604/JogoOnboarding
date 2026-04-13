@@ -1,12 +1,10 @@
 :root {
 }
 
-.unity-list-view {
-    border-left-color: rgba(0, 0, 0, 0.96);
-    border-right-color: rgba(0, 0, 0, 0.96);
-    border-top-color: rgba(0, 0, 0, 0.96);
-    border-bottom-color: rgba(0, 0, 0, 0.96);
-}
 
-.unity-collection-view {
-}
+
+
+
+
+
+

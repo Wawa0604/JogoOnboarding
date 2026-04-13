@@ -4,18 +4,32 @@ using UnityEngine.UIElements;
 
 public class MissionListController : MonoBehaviour
 {
-    // Esse script está na UI do jogo, que é um prefab
+    private UIDocument _uiDocument;
+    private VisualElement _wrapper;
+    private ListView _listView;
+    private Button _button;
 
-    // Esse script é para ligar um elemento que começa desligado e que é um prefab
+    private void OnEnable()
+{
+    _uiDocument = GetComponent<UIDocument>();
+    var root = _uiDocument.rootVisualElement;
 
-    //Quando aperta o botão <BtnMissions> liga o elemento <ListaMissoes> 
+    // Nomes corrigidos de acordo com o seu UXML
+    _button = root.Q<Button>("Missions");
+    _listView = root.Q<ListView>("ListView");
+    // O Wraper não precisa ser escondido, pois ele contém o botão que precisamos clicar!
 
-    //O <ListaMissoes> deve usar <StyleSheetMissionEntry> como formato padrão para os elementos da lista
-
-    // Precisa, quando carrega a cena, verificar quais missões não foram concluidas e coloca-las no topo, 
-    // seguindo a ordemque elas foram arrumadas no array
-
-    //As missões que ja foram concluídas precisam estar no fim da lista. A mais em baixo sendo a primeira a ser concluída. 
-    // E todas elas com o "ctrl S" ligado (quando fica riscada no meio)
-
-}
+    if (_button != null)
+    {
+        _button.clicked += () => {
+            // Inverte o display apenas da LISTA
+            if (_listView.style.display == DisplayStyle.Flex) {
+                _listView.style.display = DisplayStyle.None;
+            } else {
+                _listView.itemsSource = MissionDataManager.Instance.GetSortedMissions();
+                _listView.Rebuild();
+                _listView.style.display = DisplayStyle.Flex;
+            }
+        };
+    }
+}}
