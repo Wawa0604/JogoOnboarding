@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Game/UI/UI_Jogo.uss?fileID=7433441132597879392&amp;guid=c7c4a9471c759df48ae85ff1e231116b&amp;type=3#UI_Jogo"/>
-    <ui:VisualElement name="Container" style="width: auto; height: auto; margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px;">
+    <ui:VisualElement name="Container" style="width: auto; height: auto; margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px; flex-grow: 1;">
         <ui:VisualElement name="Header" style="flex-grow: 1; justify-content: space-evenly; flex-direction: row; align-self: auto; align-content: flex-end; align-items: flex-start;">
             <ui:VisualElement name="Left" style="flex-grow: 0; align-items: flex-start; align-self: flex-start; justify-content: flex-start; height: 100%; width: auto;">
                 <ui:Button text="&#10;" icon-image="project://database/Assets/Game/Images/Vector%20(2).svg?fileID=7388822144124034973&amp;guid=8588ad1e4216f504097433c80c4fe474&amp;type=3#Vector (2)" name="Config" style="background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0);"/>
@@ -8,10 +8,12 @@
             <ui:VisualElement name="Right" style="flex-grow: 1; height: 100%; align-self: flex-end; align-items: flex-end; justify-content: flex-start;">
                 <ui:VisualElement name="Wraper" style="flex-grow: 1;">
                     <ui:Button text="Missions" name="Missions"/>
-                    <ui:ListView item-template="project://database/Assets/Game/UI/StyleSheetMissionEntry.uxml?fileID=9197481963319205126&amp;guid=d36965cfcde024e47b80e6889f9ac93b&amp;type=3#StyleSheetMissionEntry" binding-source-selection-mode="AutoAssign" name="ListView" style="display: none;"/>
+                    <ui:ListView item-template="project://database/Assets/Game/UI/StyleSheetMissionEntry.uxml?fileID=9197481963319205126&amp;guid=d36965cfcde024e47b80e6889f9ac93b&amp;type=3#StyleSheetMissionEntry" binding-source-selection-mode="AutoAssign" name="ListView" style="display: none; background-color: rgb(188, 188, 188);"/>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="Footer" style="flex-grow: 1;"/>
+        <ui:VisualElement name="Footer" style="flex-grow: 1; justify-content: flex-end; align-content: flex-end; bottom: auto; align-self: flex-end; align-items: flex-end;">
+            <ui:Image source="project://database/Assets/Game/Images/%7B9C4C990D-4447-463B-93F4-4BB8C5701B26%7D%201.png?fileID=2800000&amp;guid=7f2ce51166980b547b5a482a9dc6e243&amp;type=3#{9C4C990D-4447-463B-93F4-4BB8C5701B26} 1"/>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

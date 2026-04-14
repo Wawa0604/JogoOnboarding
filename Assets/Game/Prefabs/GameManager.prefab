@@ -57,3 +57,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7519aa8ea01cc5499d9ac51ee0e44f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MissionDataManager
+  missions:
+  - id: tutorial01
+    title: Encontrar com o presidente
+    isCompleted: 1
+  - id: tutorial02
+    title: Tirar foto com o presidente
+    isCompleted: 1
+  - id: missaoLab101
+    title: Encontrar com a Adaptabilidade
+    isCompleted: 0
+  - id: missaoLab102
+    title: Tirar foto no Lab da Embrapii
+    isCompleted: 0
