@@ -13,7 +13,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="Footer" style="flex-grow: 1; justify-content: flex-end; align-content: flex-end; bottom: auto; align-self: flex-end; align-items: flex-end;">
-            <ui:Image source="project://database/Assets/Game/Images/%7B9C4C990D-4447-463B-93F4-4BB8C5701B26%7D%201.png?fileID=2800000&amp;guid=7f2ce51166980b547b5a482a9dc6e243&amp;type=3#{9C4C990D-4447-463B-93F4-4BB8C5701B26} 1"/>
+            <ui:Image source="project://database/Assets/Game/Images/%7B9C4C990D-4447-463B-93F4-4BB8C5701B26%7D%201.png?fileID=2800000&amp;guid=7f2ce51166980b547b5a482a9dc6e243&amp;type=3#{9C4C990D-4447-463B-93F4-4BB8C5701B26} 1" scale-mode="ScaleToFit" uv="0,0,1,1"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
