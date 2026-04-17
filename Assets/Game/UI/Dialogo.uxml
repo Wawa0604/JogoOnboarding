@@ -1,10 +1,10 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Game/UI/Dialogo.uss?fileID=7433441132597879392&amp;guid=ef781bbd97f722d41aa095517166a929&amp;type=3#Dialogo"/>
     <ui:VisualElement name="Container" style="flex-grow: 1; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px; border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 0; background-color: rgb(229, 229, 229);">
-        <ui:Label text="Label" parse-escape-sequences="true" name="CaixaDialogo" style="font-size: 40px;"/>
+        <ui:Label text="Label" parse-escape-sequences="true" name="CaixaDialogo" style="font-size: 40px; white-space: normal; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px;"/>
         <ui:VisualElement name="Botoes" style="flex-grow: 1; flex-direction: row; justify-content: flex-end; align-content: flex-end; align-items: flex-end;">
             <ui:Button text="Anterior" name="Anterior"/>
-            <ui:Button text="Próximo" name="Proximo"/>
+            <ui:Button text="Próximo" name="Proximo" parse-escape-sequences="true"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
