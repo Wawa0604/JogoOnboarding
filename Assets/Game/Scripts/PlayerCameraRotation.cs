@@ -5,7 +5,6 @@ public class PlayerCameraRotation : MonoBehaviour
 {
     [Header("Configurações de Visão")]
     [SerializeField] private float mouseSensitivity = 0.1f;
-    [SerializeField] private float arrowSensitivity = 2.0f;
     [SerializeField] private float maxUpAngle = 80f;
     [SerializeField] private float maxDownAngle = -80f;
 
@@ -39,27 +38,20 @@ public class PlayerCameraRotation : MonoBehaviour
         RotateLook();
     }
 
-    private void RotateLook()
-    {
-        // Só rotaciona se houver input. 
-        // E se o input vier do mouse, só rotaciona se o botão direito estiver pressionado.
-        bool isMouse = _inputActions.Player.Look.activeControl?.device is Mouse;
-        
-        if (isMouse && !_isRightClicking) return;
+   private void RotateLook()
+{
+    // Só aceita mouse
+    if (!(_inputActions.Player.Look.activeControl?.device is Mouse)) return;
+    if (!_isRightClicking) return;
 
-        // Define qual sensibilidade usar
-        float sensitivity = isMouse ? mouseSensitivity : arrowSensitivity;
+    float lookX = _rotationInput.x * mouseSensitivity;
+    float lookY = _rotationInput.y * mouseSensitivity;
 
-        float lookX = _rotationInput.x * sensitivity;
-        float lookY = _rotationInput.y * sensitivity;
+    transform.Rotate(Vector3.up * lookX);
 
-        // 1. Girar o Player para os lados (Eixo Y)
-        transform.Rotate(Vector3.up * lookX);
+    _verticalRotation -= lookY;
+    _verticalRotation = Mathf.Clamp(_verticalRotation, maxDownAngle, maxUpAngle);
 
-        // 2. Girar a Câmera para cima e para baixo (Eixo X) com trava (Clamp)
-        _verticalRotation -= lookY;
-        _verticalRotation = Mathf.Clamp(_verticalRotation, maxDownAngle, maxUpAngle);
-        
-        playerCamera.localRotation = Quaternion.Euler(_verticalRotation, 0f, 0f);
-    }
+    playerCamera.localRotation = Quaternion.Euler(_verticalRotation, 0f, 0f);
+}
 }

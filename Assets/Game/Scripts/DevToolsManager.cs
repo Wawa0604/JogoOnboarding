@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem; // Importante: Adicione esta namespace
+using UnityEngine.InputSystem;
 
 public class DevToolsManager : MonoBehaviour
 {
@@ -21,7 +21,6 @@ public class DevToolsManager : MonoBehaviour
 
     private void Update()
     {
-        // Verifica se o teclado existe e se estamos em modo Debug/Editor
         if (Keyboard.current == null) return;
 
         if (Debug.isDebugBuild || Application.isEditor)
@@ -35,19 +34,19 @@ public class DevToolsManager : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int totalScenes = SceneManager.sceneCountInBuildSettings;
 
-        // R - Próxima Cena (Equivalente ao GetKeyDown)
-        if (Keyboard.current.rKey.wasPressedThisFrame)
+        // ➡️ Próxima cena (seta direita)
+        if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
         {
             int nextScene = (currentSceneIndex + 1) % totalScenes;
             SceneManager.LoadScene(nextScene);
         }
 
-        // E - Cena Anterior
-        if (Keyboard.current.eKey.wasPressedThisFrame)
+        // ⬅️ Cena anterior (seta esquerda)
+        if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
         {
             int prevScene = currentSceneIndex - 1;
             if (prevScene < 0) prevScene = totalScenes - 1;
-            
+
             SceneManager.LoadScene(prevScene);
         }
     }
