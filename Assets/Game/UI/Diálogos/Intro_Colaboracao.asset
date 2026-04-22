@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0e7d499db71a24ca9347d7d2354a3c, type: 3}
+  m_Name: Intro_Colaboracao
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  lines:
+  - characterName: "Colabora\xE7\xE3o"
+    text: "\u201CSeja muito bem-vindo(a) ao seu onboarding no CPQD!\L Preparamos
+      uma verdadeira aventura pelo nosso campus para te ajudar a se localizar melhor
+      entre os pr\xE9dios, conhecer mais sobre o CPQD e descobrir todas as informa\xE7\xF5es
+      importantes para o seu dia a dia conosco.\u201D"
+  - characterName: "Colabora\xE7\xE3o"
+    text: "\"Eu sou a Colabora\xE7\xE3o, um do We Movers do CPQD, eu e meus irm\xE3os
+      representamos os valores do CPQD. Eu trago comigo a intens\xE3o do CPQD de
+      fazer e evolu\xEDr  juntos, criando valor para a organiza\xE7\xE3o, os clientes,
+      os parceiros e a sociedade.\""
+  - characterName: "Colabora\xE7\xE3o"
+    text: "\u201CAntes de iniciarmos essa jornada, que tal personalizar seu avatar
+      para deix\xE1-lo com a sua identidade?\L Vamos l\xE1?\u201D"
