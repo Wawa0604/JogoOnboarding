@@ -6,6 +6,11 @@ public class DialogoColaboracao : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+    {
+        Debug.Log("Tecla E pressionada!"); // Adicione isso
+        Interact();
+    }
         // Interação por tecla
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -15,11 +20,11 @@ public class DialogoColaboracao : MonoBehaviour
 
     public void Interact()
     {
-        // 1. Tenta acessar o GameManager através da Instance estática
-        if (GameManager.Instance != null)
+        // 1. Corrigido para usar o nome exato da classe: Game_Manager
+        if (Game_Manager.Instance != null)
         {
-            // 2. Busca o DialogueController que está anexado ao GameManager
-            DialogueController controller = GameManager.Instance.GetComponent<DialogueController>();
+            // 2. Corrigido também aqui para manter o padrão
+            DialogueController controller = Game_Manager.Instance.GetComponent<DialogueController>();
 
             if (controller != null)
             {
@@ -32,8 +37,8 @@ public class DialogoColaboracao : MonoBehaviour
         }
         else
         {
-            // Isso acontece se você der Play direto na cena sem o GameManager
-            Debug.LogWarning("GameManager.Instance não encontrada nesta cena.");
+            // Se o erro persistir, é porque o Game_Manager ainda não deu Awake()
+            Debug.LogWarning("Game_Manager.Instance ainda não está pronta ou não existe na cena.");
         }
     }
 }
