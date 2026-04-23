@@ -11,12 +11,31 @@ public class ScormManager : MonoBehaviour
     private static extern void LMSSetValue(string key, string value);
     [DllImport("__Internal")]
     private static extern void LMSCommit();
+    [DllImport("__Internal")]
+    private static extern string LMSGetValue(string key);
 
     void Start()
     {
-        // Inicializa a comunicação com a Neolude assim que o jogo abre
         #if !UNITY_EDITOR && UNITY_WEBGL
         LMSInitialize();
+        
+        // Pega o nome ou ID do aluno na Neolude automaticamente
+        string aluno = LMSGetValue("cmi.core.student_name"); 
+        
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.SavePlayer(aluno);
+        }
+        #endif
+    }
+
+
+        public string GetStudentName()
+    {
+        #if !UNITY_EDITOR && UNITY_WEBGL
+        return LMSGetValue("cmi.core.student_name");
+        #else
+        return "Editor Mode";
         #endif
     }
 

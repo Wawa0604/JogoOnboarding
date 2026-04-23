@@ -5,36 +5,33 @@ using TMPro;
 public class MenuController : MonoBehaviour
 {
     [Header("Configurações de UI")]
-    public TMP_InputField emailInput;
+    public TMP_InputField emailInput; // Pode deixar aqui para não dar erro de referência no Inspector
     public int nextSceneIndex;
 
-    private int callCount = 0;
-
-    public void EntrarNoJogo()
+    void Start()
     {
-        callCount++;
+        // Ao iniciar a cena de Menu, ele chama automaticamente a entrada no jogo
+        AutoEntrar();
+    }
 
-        Debug.Log("===== EntrarNoJogo CHAMADO =====");
-        Debug.Log("Quantidade de chamadas: " + callCount);
-        Debug.Log("Frame atual: " + Time.frameCount);
-        Debug.Log("Email atual: " + emailInput.text);
-        Debug.Log("Objeto que chamou: " + gameObject.name);
-        Debug.Log("StackTrace:\n" + System.Environment.StackTrace);
-
-        string email = emailInput.text.Trim().ToLower();
-
-        if (email.EndsWith("@cpqd.com.br"))
+    private void AutoEntrar()
+    {
+        Debug.Log("SCORM detectado: Pulando tela de login...");
+        
+        // Se você ainda quiser salvar um identificador padrão no seu GameManager:
+        if (GameManager.Instance != null)
         {
-            Debug.Log("Email válido detectado");
-
-            GameManager.Instance.SavePlayer(email);
-
-            Debug.Log("Carregando cena...");
-            SceneManager.LoadScene(nextSceneIndex);
+            // Você pode passar um ID genérico ou capturar do SCORM depois
+            GameManager.Instance.SavePlayer("usuario_scorm"); 
         }
-        else
-        {
-            Debug.LogWarning("Email inválido");
-        }
+
+        SceneManager.LoadScene(nextSceneIndex);
+    }
+
+    // Mantemos este método apenas por segurança caso algum botão ainda o aponte, 
+    // mas ele não será mais necessário na interface.
+    public void EntrarNoJogo() 
+    {
+        SceneManager.LoadScene(nextSceneIndex);
     }
 }
