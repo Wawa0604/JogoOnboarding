@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class DialogoColaboracao : MonoBehaviour
 {
-     [SerializeField] private DialogueSequence dialogue;
+    [SerializeField] private DialogueSequence dialogue;
     private DialogueController controller;
 
     void Start()
     {
-        controller = FindObjectOfType<DialogueController>();
+        // A forma mais atualizada e performática segundo a Unity
+        controller = Object.FindAnyObjectByType<DialogueController>();
     }
 
     void Update()
     {
-        // TESTE simples (depois você troca por trigger real)
+        // Interação por tecla
         if (Input.GetKeyDown(KeyCode.E))
         {
             Interact();
@@ -21,6 +22,9 @@ public class DialogoColaboracao : MonoBehaviour
 
     public void Interact()
     {
-        controller.StartDialogue(dialogue);
+        if (controller != null && dialogue != null)
+        {
+            controller.StartDialogue(dialogue);
+        }
     }
 }

@@ -4,56 +4,45 @@ using UnityEngine.UI;
 
 public class InteractionUI : MonoBehaviour
 {
-    [Header("UI")]
-    [SerializeField] private TextMeshProUGUI characterNameText; // Nome do personagem
-    [SerializeField] private TextMeshProUGUI dialogueText;      // Texto da fala
+    [Header("Configuração de Exibição")]
+    [SerializeField] private GameObject uiPanel; // O objeto filho que aparece/some
+
+    [Header("UI Elements")]
+    [SerializeField] private TextMeshProUGUI characterNameText;
+    [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private Button btnPrevious;
     [SerializeField] private Button btnNext;
-    [SerializeField] private Canvas canvas;
-
-    private Camera mainCamera;
 
     private System.Action onNext;
     private System.Action onPrevious;
 
     void Awake()
     {
-        mainCamera = Camera.main;
+        if (btnNext != null)
+            btnNext.onClick.AddListener(() => onNext?.Invoke());
 
-        btnNext.onClick.AddListener(() => onNext?.Invoke());
-        btnPrevious.onClick.AddListener(() => onPrevious?.Invoke());
+        if (btnPrevious != null)
+            btnPrevious.onClick.AddListener(() => onPrevious?.Invoke());
     }
 
-    void LateUpdate()
-    {
-        // Faz a UI olhar pra câmera (billboard)
-        if (mainCamera != null)
-        {
-            transform.forward = mainCamera.transform.forward;
-        }
-    }
-
-    // 🔹 Atualiza nome + texto
     public void SetDialogue(string characterName, string text)
     {
-        characterNameText.text = characterName;
-        dialogueText.text = text;
+        if (characterNameText != null) characterNameText.text = characterName;
+        if (dialogueText != null) dialogueText.text = text;
     }
 
-    // 🔹 Define ações dos botões
     public void SetCallbacks(System.Action next, System.Action previous)
     {
         onNext = next;
         onPrevious = previous;
     }
 
-    // 🔹 Liga/desliga botões
     public void SetButtonState(bool hasPrevious, bool hasNext)
     {
-        btnPrevious.gameObject.SetActive(hasPrevious);
-        btnNext.gameObject.SetActive(hasNext);
+        if (btnPrevious != null) btnPrevious.interactable = hasPrevious;
+        if (btnNext != null) btnNext.interactable = hasNext;
     }
 
-    public void Show() => canvas.enabled = true;
-    public void Hide() => canvas.enabled = false;
+    public void Show() => uiPanel?.SetActive(true);
+    public void Hide() => uiPanel?.SetActive(false);
 }

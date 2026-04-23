@@ -3,31 +3,34 @@ using UnityEngine;
 public class DialogueController : MonoBehaviour
 {
     [SerializeField] private InteractionUI ui;
-
     private DialogueSequence sequence;
     private int index;
 
-    // 🔹 Inicia um diálogo (recebe o asset)
     public void StartDialogue(DialogueSequence newSequence)
     {
+        if (newSequence == null) return;
         sequence = newSequence;
         index = 0;
 
-        ui.Show();
+        if (ui != null) ui.Show();
         UpdateUI();
     }
 
-    // 🔹 Próxima fala
     private void Next()
     {
+        // Se ainda não chegou na última linha, avança
         if (index < sequence.lines.Length - 1)
         {
             index++;
             UpdateUI();
         }
+        else
+        {
+            // Se já estava na última linha e apertou "Próximo", fecha tudo
+            EndDialogue();
+        }
     }
 
-    // 🔹 Fala anterior
     private void Previous()
     {
         if (index > 0)
@@ -37,15 +40,16 @@ public class DialogueController : MonoBehaviour
         }
     }
 
-    // 🔹 Atualiza UI
     private void UpdateUI()
     {
+        if (ui == null || sequence == null) return;
+        
         DialogueLine line = sequence.lines[index];
-
         ui.SetDialogue(line.characterName, line.text);
 
-        bool hasPrevious = index > 0;
-        bool hasNext = index < sequence.lines.Length - 1;
+        // Lógica de botões:
+        bool hasPrevious = index > 0; // Desativa "Anterior" se for a primeira frase
+        bool hasNext = true;         // SEMPRE ativo para permitir fechar no último clique
 
         ui.SetButtonState(hasPrevious, hasNext);
         ui.SetCallbacks(Next, Previous);
@@ -53,6 +57,6 @@ public class DialogueController : MonoBehaviour
 
     public void EndDialogue()
     {
-        ui.Hide();
+        if (ui != null) ui.Hide();
     }
 }
