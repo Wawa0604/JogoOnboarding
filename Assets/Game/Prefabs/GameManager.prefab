@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3379917513113534126}
   - component: {fileID: 5640905313905196920}
   - component: {fileID: 360543355840590113}
-  - component: {fileID: 976365848396429020}
   - component: {fileID: 6023912142382804086}
   - component: {fileID: 4811047652337975213}
   m_Layer: 0
@@ -60,19 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7519aa8ea01cc5499d9ac51ee0e44f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MissionDataManager
---- !u!114 &976365848396429020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8499704363642672515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b372762bf5261f1438dc470c48dd0909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  ui: {fileID: 2997920823034165530, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
 --- !u!114 &6023912142382804086
 MonoBehaviour:
   m_ObjectHideFlags: 0

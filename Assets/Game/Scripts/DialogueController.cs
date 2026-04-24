@@ -58,5 +58,17 @@ public class DialogueController : MonoBehaviour
     public void EndDialogue()
     {
         if (ui != null) ui.Hide();
+
+        // --- ATUALIZAÇÃO PARA REGISTRO DE PROGRESSO ---
+        // Sempre que o diálogo fechar, avisamos o gerente global
+        if (Game_Manager.Instance != null)
+        {
+            Debug.Log("DialogueController: Notificando fim de diálogo para o Game_Manager.");
+            Game_Manager.Instance.RegistrarFimDeDialogo();
+        }
+        else
+        {
+            Debug.LogWarning("DialogueController: Game_Manager.Instance não encontrada ao finalizar diálogo.");
+        }
     }
 }
