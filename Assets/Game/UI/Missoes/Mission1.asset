@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MissaoData
   id: intro1
   descricao: Montar Avatar
-  completa: 1
+  completa: 0
