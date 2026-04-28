@@ -607,7 +607,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2997920823034165530, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
   m_PrefabInstance: {fileID: 2290222823633389129}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1239521625}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3eac2a913141f74ab2df46783bcb961, type: 3}
@@ -632,6 +632,11 @@ RectTransform:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2101310949879309947, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
   m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1239521625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6973540762500713780, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
+  m_PrefabInstance: {fileID: 2290222823633389129}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2290222823633389129
 PrefabInstance:
@@ -660,6 +665,22 @@ PrefabInstance:
     - target: {fileID: 1435716622319751225, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -6.4349
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618760362891004555, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618760362891004555, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618760362891004555, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1239521625}
+    - target: {fileID: 1618760362891004555, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1690942785219822254, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1091,9 +1112,9 @@ SceneRoots:
   - {fileID: 31302940}
   - {fileID: 335593647}
   - {fileID: 575388568}
+  - {fileID: 367085906}
+  - {fileID: 2465468186948741925}
   - {fileID: 363279755}
   - {fileID: 2290222823633389129}
   - {fileID: 844144855}
-  - {fileID: 2465468186948741925}
-  - {fileID: 367085906}
   - {fileID: 4036639361728310228}
