@@ -1,59 +1,38 @@
- using System.Runtime.InteropServices;
- using UnityEngine;
+using System.Collections;
+using System.Runtime.InteropServices;
+using UnityEngine;
 
 public class ScormManager : MonoBehaviour
-
 {
-    // Importando as funções do .jslib
-    [DllImport("__Internal")]
-    private static extern void LMSInitialize();
-    [DllImport("__Internal")]
-    private static extern void LMSSetValue(string key, string value);
-    [DllImport("__Internal")]
-    private static extern void LMSCommit();
-    [DllImport("__Internal")]
-    private static extern string LMSGetValue(string key);
+    [DllImport("__Internal")] private static extern void LMSInitialize();
+    [DllImport("__Internal")] private static extern void LMSSetValue(string key, string value);
+    [DllImport("__Internal")] private static extern void LMSCommit();
+    [DllImport("__Internal")] private static extern string LMSGetValue(string key);
 
-    void Start()
-{
-    #if !UNITY_EDITOR && UNITY_WEBGL
-    LMSInitialize();
-
-    // Captura o nome do aluno da Neolude para o seu sistema interno
-    string aluno = LMSGetValue("cmi.core.student_name"); 
-    
-    // Se o aluno for nulo ou vazio (comum em alguns LMS), define um padrão
-    if (string.IsNullOrEmpty(aluno)) aluno = "Jogador_SCORM";
-
-    if (GameManager.Instance != null)
-    {
-        GameManager.Instance.SavePlayer(aluno);
-    }
-    #endif
-}
-
-
-        public string GetStudentName()
+    IEnumerator Start()
     {
         #if !UNITY_EDITOR && UNITY_WEBGL
-        return LMSGetValue("cmi.core.student_name");
-        #else
-        return "Editor Mode";
+        yield return new WaitForSeconds(2.0f); // Tempo para o LMS injetar a API
+        LMSInitialize();
+
+        string aluno = LMSGetValue("cmi.core.student_name"); 
+        if (string.IsNullOrEmpty(aluno)) aluno = "Jogador_SCORM";
+
+        if (GameManager.Instance != null) GameManager.Instance.playerEmail = aluno;
         #endif
+        yield break;
     }
 
-    public void SalvarProgresso(int porcentagemConcluida)
+    public void SalvarProgressoFinal(int porcentagemTotal)
     {
         #if !UNITY_EDITOR && UNITY_WEBGL
-        // No SCORM, "cmi.core.score.raw" é a chave padrão para pontuação
-        LMSSetValue("cmi.core.score.raw", porcentagemConcluida.ToString());
+        LMSSetValue("cmi.core.score.raw", porcentagemTotal.ToString());
         
-        // Se chegou no fim, marca como concluído
-        if(porcentagemConcluida >= 100)
+        if(porcentagemTotal >= 100)
             LMSSetValue("cmi.core.lesson_status", "completed");
 
-        LMSCommit(); // Garante que a Neolude receba o dado agora
+        LMSCommit(); // Commit definitivo ao fim da missão
+        Debug.Log($"SCORM: Progresso de {porcentagemTotal}% enviado com sucesso.");
         #endif
     }
 }
-

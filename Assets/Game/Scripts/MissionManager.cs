@@ -14,61 +14,88 @@ public class MissionManager : MonoBehaviour
 
     private void Awake()
     {
-        // Configura o Singleton
-        if (Instance == null) 
-        {
-            Instance = this;
-        }
-        
+        if (Instance == null) Instance = this;
         CarregarProgresso();
     }
 
-    private void Start() 
-    {
-        AtualizarInterface();
-    }
+    private void Start() => AtualizarInterface();
 
     public void ConcluirMissao(string id)
+{
+    MissaoData m = todasAsMissoes.Find(x => x.id == id);
+    
+    if (m != null && !m.completa)
     {
-        // Procura a missão na lista pelo ID
-        MissaoData m = todasAsMissoes.Find(x => x.id == id);
+        m.completa = true;
+        SalvarProgressoInterno(id);
+        CalcularEEnviarProgressoSCORM();
+
+        // Procura o item visual que representa esta missão para animar
+        // Para isso funcionar, seus itens de UI precisam saber a qual ID pertencem
+        // Uma forma simples é procurar pelo texto ou manter uma referência
+        StartCoroutine(ExecutarAnimacaoVisual(id));
+    }
+}
+
+private IEnumerator ExecutarAnimacaoVisual(string id)
+{
+    // Procura na hierarquia do container o item que tem o texto da missão concluída
+    foreach (Transform child in containerLista)
+    {
+        ItemMissaoUI scriptItem = child.GetComponent<ItemMissaoUI>();
+        MissaoData data = todasAsMissoes.Find(x => x.id == id);
         
-        if (m != null)
+        if (scriptItem != null && scriptItem.textoDescricao.text == data.descricao)
         {
-            m.completa = true; // Usando 'completa' como no seu ScriptableObject
-            SalvarProgresso(id);
-            AtualizarInterface(); 
+            yield return StartCoroutine(scriptItem.AnimarConclusao());
+            break;
+        }
+    }
+}
+
+    private void CalcularEEnviarProgressoSCORM()
+    {
+        int totalConcluido = 0;
+        foreach (var m in todasAsMissoes)
+        {
+            if (m.completa) totalConcluido += m.pesoProgresso;
+        }
+
+        totalConcluido = Mathf.Clamp(totalConcluido, 0, 100);
+
+        // CORREÇÃO DO WARNING AQUI:
+        ScormManager scorm = Object.FindAnyObjectByType<ScormManager>();
+        
+        if (scorm != null)
+        {
+            scorm.SalvarProgressoFinal(totalConcluido);
+        }
+        else
+        {
+            Debug.LogWarning("MissionManager: ScormManager não encontrado na cena para salvar progresso.");
         }
     }
 
     public void AtualizarInterface()
     {
-        // 1. Limpa a lista visual atual para evitar duplicatas
-        foreach (Transform child in containerLista) 
-        {
-            Destroy(child.gameObject);
-        }
+        // Limpa a lista
+        foreach (Transform child in containerLista) Destroy(child.gameObject);
 
-        // 2. Recria os itens baseados nos dados atuais
-        foreach (MissaoData m in todasAsMissoes)
+        // Cria uma cópia da lista para ordenar visualmente sem alterar a original
+        List<MissaoData> ordenadas = new List<MissaoData>(todasAsMissoes);
+        
+        // Ordenação: Missões incompletas primeiro, completas vão para o fim
+        ordenadas.Sort((a, b) => a.completa.CompareTo(b.completa));
+
+        foreach (MissaoData m in ordenadas)
         {
             GameObject go = Instantiate(prefabMissao, containerLista);
-            
-            // Passa os dados para o script do item
             go.GetComponent<ItemMissaoUI>().Configurar(m.descricao, m.completa);
-
-            // Se a missão já foi terminada, joga para o fim da lista visual
-            if (m.completa) 
-            {
-                go.transform.SetAsLastSibling();
-            }
         }
     }
 
-    // --- SALVAMENTO ---
-    void SalvarProgresso(string id)
+    void SalvarProgressoInterno(string id)
     {
-        // Salva com um prefixo para não misturar com outros dados do jogo
         PlayerPrefs.SetInt("ProgressoMissao_" + id, 1);
         PlayerPrefs.Save();
     }
@@ -77,11 +104,7 @@ public class MissionManager : MonoBehaviour
     {
         foreach (MissaoData m in todasAsMissoes)
         {
-            // Se encontrar o valor 1 no PlayerPrefs, marca a missão como completa
-            if (PlayerPrefs.GetInt("ProgressoMissao_" + m.id, 0) == 1)
-            {
-                m.completa = true;
-            }
+            m.completa = PlayerPrefs.GetInt("ProgressoMissao_" + m.id, 0) == 1;
         }
     }
 }

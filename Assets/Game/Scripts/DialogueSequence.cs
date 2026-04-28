@@ -15,4 +15,8 @@ public class DialogueLine
 public class DialogueSequence : ScriptableObject
 {
     public DialogueLine[] lines;
+
+    [Header("Progresso de Missão")]
+    [Tooltip("Arraste aqui a missão que deve ser concluída ao terminar este diálogo.")]
+    public MissaoData missaoParaConcluir;
 }

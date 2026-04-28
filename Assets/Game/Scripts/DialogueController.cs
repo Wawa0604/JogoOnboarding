@@ -59,16 +59,24 @@ public class DialogueController : MonoBehaviour
     {
         if (ui != null) ui.Hide();
 
-        // --- ATUALIZAÇÃO PARA REGISTRO DE PROGRESSO ---
-        // Sempre que o diálogo fechar, avisamos o gerente global
+        // --- CONCLUIR MISSÃO AUTOMATICAMENTE ---
+        if (sequence != null && sequence.missaoParaConcluir != null)
+        {
+            if (MissionManager.Instance != null)
+            {
+                Debug.Log($"DialogueController: Solicitando conclusão da missão {sequence.missaoParaConcluir.id}");
+                MissionManager.Instance.ConcluirMissao(sequence.missaoParaConcluir.id);
+            }
+            else
+            {
+                Debug.LogWarning("DialogueController: MissionManager.Instance não encontrado!");
+            }
+        }
+
+        // --- NOTIFICAR GAME MANAGER ---
         if (Game_Manager.Instance != null)
         {
-            Debug.Log("DialogueController: Notificando fim de diálogo para o Game_Manager.");
             Game_Manager.Instance.RegistrarFimDeDialogo();
-        }
-        else
-        {
-            Debug.LogWarning("DialogueController: Game_Manager.Instance não encontrada ao finalizar diálogo.");
         }
     }
 }
