@@ -1,22 +1,29 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-// Representa UMA fala
+// Esta classe PRECISA estar aqui ou em um arquivo próprio chamado DialogueLine.cs
 [System.Serializable]
 public class DialogueLine
 {
     public string characterName;
-
-    [TextArea]
-    public string text;
+    [TextArea(3, 10)] public string text;
 }
 
-// Representa UMA sequência de diálogo
 [CreateAssetMenu(menuName = "Dialogue/Dialogue Sequence")]
 public class DialogueSequence : ScriptableObject
 {
+    [Header("Identificação")]
+    [Tooltip("ID único para o rádio. Ex: intro_npc, tutorial_avatar")]
+    public string id; 
+
+    [Header("Conteúdo")]
     public DialogueLine[] lines;
 
     [Header("Progresso de Missão")]
-    [Tooltip("Arraste aqui a missão que deve ser concluída ao terminar este diálogo.")]
+    [Tooltip("Missão concluída AUTOMATICAMENTE ao fechar o diálogo.")]
     public MissaoData missaoParaConcluir;
+
+    [Header("Eventos Extras")]
+    [Tooltip("Use para ligar setas ou disparar lógicas customizadas.")]
+    public UnityEvent OnSequenceComplete; 
 }

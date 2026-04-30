@@ -18,10 +18,7 @@ public class DialogueController : MonoBehaviour
 
     // MUDANÇA: Agora é PUBLIC para o botão do Inspector acessar
     public void Next()
-{
-    Debug.Log(">>> O SINAL CHEGOU NO SCRIPT! <<<");
-    Debug.Log("Botão Próximo clicado!"); // ADICIONE ESTA LINHA
-    
+{ 
     if (sequence == null) {
         Debug.LogError("Nenhuma sequência de diálogo atribuída!");
         return;
@@ -61,25 +58,25 @@ public class DialogueController : MonoBehaviour
 
         ui.SetButtonState(hasPrevious, hasNext);
 
-        // A LINHA QUE ESTAVA DANDO ERRO (SetCallbacks) FOI REMOVIDA DAQUI!
     }
 
-    public void EndDialogue()
+public void EndDialogue()
+{
+    if (ui != null) ui.Hide();
+
+    if (sequence != null)
     {
-        if (ui != null) ui.Hide();
+        // 1. O GRITO NO RÁDIO: Passa o ID para quem estiver ouvindo
+        GameEvents.OnDialogueEnded?.Invoke(sequence.id); 
 
-        // Concluir Missão (Lógica que implementamos antes)
-        if (sequence != null && sequence.missaoParaConcluir != null)
-        {
-            if (MissionManager.Instance != null)
-            {
-                MissionManager.Instance.ConcluirMissao(sequence.missaoParaConcluir.id);
-            }
-        }
+        // 2. O EVENTO DO INSPECTOR: Roda se houver algo configurado
+        sequence.OnSequenceComplete?.Invoke();
 
-        if (Game_Manager.Instance != null)
+        // 3. A MISSÃO: Se tiver uma missão no slot, conclui direto
+        if (sequence.missaoParaConcluir != null && MissionManager.Instance != null)
         {
-            Game_Manager.Instance.RegistrarFimDeDialogo();
+            MissionManager.Instance.ConcluirMissao(sequence.missaoParaConcluir.id);
         }
     }
+}
 }

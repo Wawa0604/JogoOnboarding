@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class MissionManager : MonoBehaviour
 {
@@ -22,71 +23,66 @@ public class MissionManager : MonoBehaviour
     private void Start() => AtualizarInterface();
 
     public void ConcluirMissao(string id)
-{
-    MissaoData m = todasAsMissoes.Find(x => x.id == id);
-    
-    if (m != null && !m.completa)
     {
-        m.completa = true;
-        SalvarProgressoInterno(id);
-        CalcularEEnviarProgressoSCORM();
-
-        // Procura o item visual que representa esta missão para animar
-        // Para isso funcionar, seus itens de UI precisam saber a qual ID pertencem
-        // Uma forma simples é procurar pelo texto ou manter uma referência
-        StartCoroutine(ExecutarAnimacaoVisual(id));
-    }
-}
-
-private IEnumerator ExecutarAnimacaoVisual(string id)
-{
-    // Procura na hierarquia do container o item que tem o texto da missão concluída
-    foreach (Transform child in containerLista)
-    {
-        ItemMissaoUI scriptItem = child.GetComponent<ItemMissaoUI>();
-        MissaoData data = todasAsMissoes.Find(x => x.id == id);
+        MissaoData m = todasAsMissoes.Find(x => x.id == id);
         
-        if (scriptItem != null && scriptItem.textoDescricao.text == data.descricao)
+        if (m != null && !m.completa)
         {
-            yield return StartCoroutine(scriptItem.AnimarConclusao());
-            break;
+            m.completa = true;
+            SalvarProgressoInterno(id);
+
+            // --- TRANSMISSÃO PARA O RÁDIO ---
+            // O ScormManager vai ouvir isso aqui e atualizar a nota do aluno
+            GameEvents.OnMissionCompleted?.Invoke(id);
+
+            StartCoroutine(ExecutarAnimacaoVisual(id));
         }
     }
-}
 
-    private void CalcularEEnviarProgressoSCORM()
+    // O ScormManager chama isso para saber o progresso atual
+    public int ObterPorcentagemConcluida()
     {
-        int totalConcluido = 0;
+        if (todasAsMissoes.Count == 0) return 0;
+
+        float pesoTotal = 0;
+        float pesoConcluido = 0;
+
         foreach (var m in todasAsMissoes)
         {
-            if (m.completa) totalConcluido += m.pesoProgresso;
+            pesoTotal += m.pesoProgresso;
+            if (m.completa) pesoConcluido += m.pesoProgresso;
         }
 
-        totalConcluido = Mathf.Clamp(totalConcluido, 0, 100);
+        return pesoTotal > 0 ? Mathf.RoundToInt((pesoConcluido / pesoTotal) * 100) : 0;
+    }
 
-        // CORREÇÃO DO WARNING AQUI:
-        ScormManager scorm = Object.FindAnyObjectByType<ScormManager>();
-        
-        if (scorm != null)
+    private IEnumerator ExecutarAnimacaoVisual(string id)
+    {
+        MissaoData data = todasAsMissoes.Find(x => x.id == id);
+        if (data == null) yield break;
+
+        foreach (Transform child in containerLista)
         {
-            scorm.SalvarProgressoFinal(totalConcluido);
+            ItemMissaoUI scriptItem = child.GetComponent<ItemMissaoUI>();
+            
+            // Encontra o item de UI que tem o texto da missão
+            if (scriptItem != null && scriptItem.textoDescricao.text == data.descricao)
+            {
+                yield return StartCoroutine(scriptItem.AnimarConclusao());
+                break;
+            }
         }
-        else
-        {
-            Debug.LogWarning("MissionManager: ScormManager não encontrado na cena para salvar progresso.");
-        }
+
+        // Reordena a lista: completas vão para baixo automaticamente
+        AtualizarInterface();
     }
 
     public void AtualizarInterface()
     {
-        // Limpa a lista
         foreach (Transform child in containerLista) Destroy(child.gameObject);
 
-        // Cria uma cópia da lista para ordenar visualmente sem alterar a original
-        List<MissaoData> ordenadas = new List<MissaoData>(todasAsMissoes);
-        
-        // Ordenação: Missões incompletas primeiro, completas vão para o fim
-        ordenadas.Sort((a, b) => a.completa.CompareTo(b.completa));
+        // Ordena: Incompletas em cima, Completas em baixo
+        List<MissaoData> ordenadas = todasAsMissoes.OrderBy(m => m.completa).ToList();
 
         foreach (MissaoData m in ordenadas)
         {
@@ -95,17 +91,15 @@ private IEnumerator ExecutarAnimacaoVisual(string id)
         }
     }
 
-    void SalvarProgressoInterno(string id)
+    private void SalvarProgressoInterno(string id)
     {
         PlayerPrefs.SetInt("ProgressoMissao_" + id, 1);
         PlayerPrefs.Save();
     }
 
-    void CarregarProgresso()
+    private void CarregarProgresso()
     {
         foreach (MissaoData m in todasAsMissoes)
-        {
             m.completa = PlayerPrefs.GetInt("ProgressoMissao_" + m.id, 0) == 1;
-        }
     }
 }

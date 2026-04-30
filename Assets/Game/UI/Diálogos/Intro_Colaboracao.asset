@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0e7d499db71a24ca9347d7d2354a3c, type: 3}
   m_Name: Intro_Colaboracao
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  id: boasvindas_colaboracao
   lines:
   - characterName: "Colabora\xE7\xE3o"
     text: "\u201CSeja muito bem-vindo(a) ao seu onboarding no CPQD!\L Preparamos
@@ -26,3 +27,7 @@ MonoBehaviour:
   - characterName: "Colabora\xE7\xE3o"
     text: "\u201CAntes de iniciarmos essa jornada, que tal personalizar seu avatar
       para deix\xE1-lo com a sua identidade?\L Vamos l\xE1?\u201D"
+  missaoParaConcluir: {fileID: 0}
+  OnSequenceComplete:
+    m_PersistentCalls:
+      m_Calls: []

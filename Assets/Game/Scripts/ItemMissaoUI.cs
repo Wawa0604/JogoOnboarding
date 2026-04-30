@@ -7,8 +7,8 @@ public class ItemMissaoUI : MonoBehaviour
 {
     public TextMeshProUGUI textoDescricao;
     public Toggle checkbox;
-    public Image imagemRisco; // Arraste o objeto "Linha_Risco" aqui no Inspector
-    public float velocidadeRisco = 2.0f; // Tempo da animação
+    public Image imagemRisco; 
+    public float velocidadeRisco = 2.0f;
 
     public void Configurar(string descricao, bool estaCompleta)
     {
@@ -27,13 +27,12 @@ public class ItemMissaoUI : MonoBehaviour
         }
     }
 
-    // Esta função será chamada pelo MissionManager para fazer a mágica acontecer
     public IEnumerator AnimarConclusao()
     {
         checkbox.isOn = true;
         float progresso = 0;
 
-        // Animação da caneta riscando
+        // Animação da caneta riscando (preenchimento horizontal)
         while (progresso < 1)
         {
             progresso += Time.deltaTime * velocidadeRisco;
@@ -41,12 +40,7 @@ public class ItemMissaoUI : MonoBehaviour
             yield return null;
         }
 
-        // Feedback visual de desativado
         textoDescricao.alpha = 0.5f;
-        
-        yield return new WaitForSeconds(0.5f); // Pequena pausa dramática antes de mover
-
-        // Move para o final da lista no layout
-        transform.SetAsLastSibling();
+        yield return new WaitForSeconds(0.3f); // Pausa curta para o jogador ver o risco
     }
 }
