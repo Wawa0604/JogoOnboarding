@@ -658,6 +658,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3eac2a913141f74ab2df46783bcb961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &927474231 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6825603143007051297, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &935231161 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7078008353690847723, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
@@ -682,7 +693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4541950595942057920, guid: 839962e1fe73abb4cb9a27e14fc0cc69, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6570082162684540102, guid: 839962e1fe73abb4cb9a27e14fc0cc69, type: 3}
       propertyPath: m_Pivot.x
@@ -764,6 +775,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 7698290458229156514, guid: 839962e1fe73abb4cb9a27e14fc0cc69, type: 3}
+      propertyPath: idDaSeta
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7698290458229156514, guid: 839962e1fe73abb4cb9a27e14fc0cc69, type: 3}
+      propertyPath: botaoAlvo
+      value: 
+      objectReference: {fileID: 927474231}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
