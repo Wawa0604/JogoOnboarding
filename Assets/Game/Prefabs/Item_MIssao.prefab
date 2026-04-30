@@ -155,6 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   textoDescricao: {fileID: 2788508526766052334}
   checkbox: {fileID: 7250845145028381885}
+  imagemRisco: {fileID: 1480891661992915845}
+  velocidadeRisco: 2
 --- !u!1 &7270735307854822315
 GameObject:
   m_ObjectHideFlags: 0

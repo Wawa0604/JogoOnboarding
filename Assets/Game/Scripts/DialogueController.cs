@@ -16,22 +16,30 @@ public class DialogueController : MonoBehaviour
         UpdateUI();
     }
 
-    private void Next()
-    {
-        // Se ainda não chegou na última linha, avança
-        if (index < sequence.lines.Length - 1)
-        {
-            index++;
-            UpdateUI();
-        }
-        else
-        {
-            // Se já estava na última linha e apertou "Próximo", fecha tudo
-            EndDialogue();
-        }
+    // MUDANÇA: Agora é PUBLIC para o botão do Inspector acessar
+    public void Next()
+{
+    Debug.Log(">>> O SINAL CHEGOU NO SCRIPT! <<<");
+    Debug.Log("Botão Próximo clicado!"); // ADICIONE ESTA LINHA
+    
+    if (sequence == null) {
+        Debug.LogError("Nenhuma sequência de diálogo atribuída!");
+        return;
     }
 
-    private void Previous()
+    if (index < sequence.lines.Length - 1)
+    {
+        index++;
+        UpdateUI();
+    }
+    else
+    {
+        EndDialogue();
+    }
+}
+
+    // MUDANÇA: Agora é PUBLIC para o botão do Inspector acessar
+    public void Previous()
     {
         if (index > 0)
         {
@@ -48,32 +56,27 @@ public class DialogueController : MonoBehaviour
         ui.SetDialogue(line.characterName, line.text);
 
         // Lógica de botões:
-        bool hasPrevious = index > 0; // Desativa "Anterior" se for a primeira frase
-        bool hasNext = true;         // SEMPRE ativo para permitir fechar no último clique
+        bool hasPrevious = index > 0; 
+        bool hasNext = true;         
 
         ui.SetButtonState(hasPrevious, hasNext);
-        ui.SetCallbacks(Next, Previous);
+
+        // A LINHA QUE ESTAVA DANDO ERRO (SetCallbacks) FOI REMOVIDA DAQUI!
     }
 
     public void EndDialogue()
     {
         if (ui != null) ui.Hide();
 
-        // --- CONCLUIR MISSÃO AUTOMATICAMENTE ---
+        // Concluir Missão (Lógica que implementamos antes)
         if (sequence != null && sequence.missaoParaConcluir != null)
         {
             if (MissionManager.Instance != null)
             {
-                Debug.Log($"DialogueController: Solicitando conclusão da missão {sequence.missaoParaConcluir.id}");
                 MissionManager.Instance.ConcluirMissao(sequence.missaoParaConcluir.id);
-            }
-            else
-            {
-                Debug.LogWarning("DialogueController: MissionManager.Instance não encontrado!");
             }
         }
 
-        // --- NOTIFICAR GAME MANAGER ---
         if (Game_Manager.Instance != null)
         {
             Game_Manager.Instance.RegistrarFimDeDialogo();
