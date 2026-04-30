@@ -791,7 +791,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 575703017657050892, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_RaycastTarget
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 675292759911758202, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2101310949879309947, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_SizeDelta.y
