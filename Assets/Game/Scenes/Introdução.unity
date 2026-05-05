@@ -740,6 +740,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8639913679123453294, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
   m_PrefabInstance: {fileID: 626881300}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &626881302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5317809001350357342, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
+  m_PrefabInstance: {fileID: 626881300}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcc89fdc361f724ca28bac4877c8aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TabePageUIController
 --- !u!1 &639793143
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,6 +928,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8639913679123453294, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
   m_PrefabInstance: {fileID: 738959067}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &738959069 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5317809001350357342, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
+  m_PrefabInstance: {fileID: 738959067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcc89fdc361f724ca28bac4877c8aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TabePageUIController
 --- !u!1 &753087625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,6 +1377,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8639913679123453294, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
   m_PrefabInstance: {fileID: 1001032840}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1001032842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5317809001350357342, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
+  m_PrefabInstance: {fileID: 1001032840}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcc89fdc361f724ca28bac4877c8aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TabePageUIController
 --- !u!1 &1001605533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,6 +1833,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8639913679123453294, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
   m_PrefabInstance: {fileID: 1430301452}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1430301454 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5317809001350357342, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
+  m_PrefabInstance: {fileID: 1430301452}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcc89fdc361f724ca28bac4877c8aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TabePageUIController
 --- !u!224 &1446572610 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8544635944796156622, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
@@ -1994,7 +2038,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c0d0001e1de9147bf19b838a38d5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TabController
-  tabPageUIControllers: []
+  tabPageUIControllers:
+  - {fileID: 3214576985633869756}
+  - {fileID: 738959069}
+  - {fileID: 1001032842}
+  - {fileID: 626881302}
+  - {fileID: 1430301454}
+  - {fileID: 1676581655}
+  - {fileID: 2075966119}
+  - {fileID: 2119292833}
 --- !u!1001 &1676581653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2097,6 +2149,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8639913679123453294, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
   m_PrefabInstance: {fileID: 1676581653}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1676581655 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5317809001350357342, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
+  m_PrefabInstance: {fileID: 1676581653}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcc89fdc361f724ca28bac4877c8aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TabePageUIController
 --- !u!1001 &2075966117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2199,6 +2262,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8639913679123453294, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
   m_PrefabInstance: {fileID: 2075966117}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2075966119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5317809001350357342, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
+  m_PrefabInstance: {fileID: 2075966117}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcc89fdc361f724ca28bac4877c8aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TabePageUIController
 --- !u!1 &2093172893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2411,6 +2485,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8639913679123453294, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
   m_PrefabInstance: {fileID: 2119292831}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2119292833 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5317809001350357342, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
+  m_PrefabInstance: {fileID: 2119292831}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcc89fdc361f724ca28bac4877c8aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TabePageUIController
 --- !u!1001 &2290222823633389129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2703,6 +2788,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8639913679123453294, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
   m_PrefabInstance: {fileID: 3214576985633869754}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3214576985633869756 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5317809001350357342, guid: 502ab6939a8b36443852569dcf1830b8, type: 3}
+  m_PrefabInstance: {fileID: 3214576985633869754}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcc89fdc361f724ca28bac4877c8aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TabePageUIController
 --- !u!1001 &4036639361728310228
 PrefabInstance:
   m_ObjectHideFlags: 0
