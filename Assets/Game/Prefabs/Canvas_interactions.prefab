@@ -1322,10 +1322,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1921434486584510826, guid: 96a0e9c4e57c069439daf796fbbc5f8a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4955201666934129313}
   m_SourcePrefab: {fileID: 100100000, guid: 96a0e9c4e57c069439daf796fbbc5f8a, type: 3}
 --- !u!224 &3242021356261484865 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6083681792773171648, guid: 96a0e9c4e57c069439daf796fbbc5f8a, type: 3}
   m_PrefabInstance: {fileID: 8687563959725949057}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7078008353690847723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1921434486584510826, guid: 96a0e9c4e57c069439daf796fbbc5f8a, type: 3}
+  m_PrefabInstance: {fileID: 8687563959725949057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4955201666934129313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078008353690847723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ee0cd82477df3418342c331f87c56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Setas
+  idDaSeta: 
+  botaoAlvo: {fileID: 0}

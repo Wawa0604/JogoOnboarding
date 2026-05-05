@@ -3,30 +3,32 @@ using UnityEngine.UI;
 
 public class Setas : MonoBehaviour
 {
-    public string idDaSeta; // Digite "1", "2" ou "Menu" aqui no Inspector
+    public string idDaSeta;
     public Button botaoAlvo;
+
+    [Header("Sequência")]
+    [Tooltip("Arraste aqui a seta que deve ligar quando ESTA aqui sumir.")]
+    [SerializeField] private GameObject proximaSeta; 
 
     private void OnEnable()
     {
-        // Quando a seta for ligada (SetActive(true)), ela começa a ouvir o botão
-        if (botaoAlvo != null)
-        {
-            botaoAlvo.onClick.AddListener(DesativarSeta);
-        }
+        if (botaoAlvo != null) botaoAlvo.onClick.AddListener(DesativarSeta);
     }
 
     private void OnDisable()
     {
-        // Quando a seta for desligada, removemos o "ouvido" para evitar erros de memória
-        if (botaoAlvo != null)
-        {
-            botaoAlvo.onClick.RemoveListener(DesativarSeta);
-        }
+        if (botaoAlvo != null) botaoAlvo.onClick.RemoveListener(DesativarSeta);
     }
 
     private void DesativarSeta()
     {
-        Debug.Log($"Botão {botaoAlvo.name} clicado. Desligando seta.");
+        // 1. Liga a próxima seta (se houver uma configurada)
+        if (proximaSeta != null)
+        {
+            proximaSeta.SetActive(true);
+        }
+
+        // 2. Desliga a si mesma
         gameObject.SetActive(false);
     }
 }

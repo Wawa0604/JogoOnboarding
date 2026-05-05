@@ -5,6 +5,7 @@ public class buttonsManager : MonoBehaviour
     // Arraste o objeto "PainelMissoes" para cá no Inspetor
     public GameObject painelMissoes; 
     public GameObject painelConfig;
+    public GameObject painelCustomisacao;
 
     public void TogglePainel()
     {
@@ -17,5 +18,11 @@ public class buttonsManager : MonoBehaviour
     {
         bool atual = painelConfig.activeSelf;
         painelConfig.SetActive(!atual);
+    }
+
+    public void ToggleCustomisacao()
+    {
+        bool atual = painelCustomisacao.activeSelf;
+        painelCustomisacao.SetActive(!atual);
     }
 }
