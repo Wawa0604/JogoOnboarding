@@ -7,4 +7,8 @@ public class TabPage
     public Sprite icon;
     public List<Sprite> sprites = new List<Sprite>();
     public int selectedSlotIndex = 0;
+
+    public int selectedColorIndex = 0;
+    public List<Color> cores = new List<Color>();
+    public bool useColor;
 }

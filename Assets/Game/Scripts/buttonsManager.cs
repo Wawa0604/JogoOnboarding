@@ -7,6 +7,11 @@ public class buttonsManager : MonoBehaviour
     public GameObject painelConfig;
     public GameObject painelCustomisacao;
 
+    void Start()
+    {
+        painelCustomisacao.SetActive(false);
+    }
+
     public void TogglePainel()
     {
         // Inverte o estado atual (se está ativo, desativa; se está desativado, ativa)

@@ -24,6 +24,7 @@ public class Game_Manager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
 
     public void SavePlayer(string email)
