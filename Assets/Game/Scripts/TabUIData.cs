@@ -8,7 +8,7 @@ public class TabUIData : ScriptableObject
 {
     // icone que vai aparecer na aba
     public Sprite icon;
-    public string identifier;
+    public string identificador;
     //guardar a lista de sprites de cada aba
     public List<Sprite> sprites;
     //boleana para identificar se o objeto daquela aba vai ser alterado pela cor dela

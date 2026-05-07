@@ -20,6 +20,11 @@ public class buttonsManager : MonoBehaviour
         painelConfig.SetActive(!atual);
     }
 
+    public void DesligaConfig()
+    {
+        painelConfig.SetActive(false);
+    }
+
     public void ToggleCustomisacao()
     {
         bool atual = painelCustomisacao.activeSelf;
