@@ -4,38 +4,26 @@ using System;
 
 public class CoresSprites : MonoBehaviour
 {
-    [SerializeField] private Image buttonBackground;
-    [SerializeField] private Image buttonIcon; 
+    [SerializeField] private Image buttonBackground; // O "Frame" de seleção (Pai)
+    [SerializeField] private Image buttonIcon;       // O círculo de cor (Filho)
 
-    // Propriedade para armazenar a cor que este slot representa (útil para o sistema saber qual cor foi enviada)
-    public Color MinhaCor { get; private set; } 
-
-    // Evento que avisa o TabController que ESTE botão foi clicado
     public event Action<CoresSprites> colorSlotClicked;
 
-    // Método para o TabController definir a cor do ícone (vinda do TabUIData)
-    public void SetColor(Color novaCor)
+    // Propriedade para o Controller ler a cor deste botão
+    public Color Color { get; private set; }
+
+   public void SetColor(Color corVindaDoSO)
     {
-        MinhaCor = novaCor;
-        if (buttonIcon != null)
-        {
-            buttonIcon.color = novaCor; // O ícone assume a cor da lista
-        }
-        
-        // Começa desmarcado (background transparente)
-        Select(false);
+        this.Color = corVindaDoSO; // Propriedade para o Controller ler depois
+        buttonIcon.color = corVindaDoSO; // Onde a mágica acontece na UI
     }
 
-    // Controle do Background: Só aparece quando selecionado
-    public void Select(bool isSelected)
+    public void SetSelected(bool isSelected)
     {
-        if (buttonBackground != null)
-        {
-            // Se selecionado, Alpha em 1 (visível). Se não, Alpha em 0 (transparente).
-            Color c = buttonBackground.color;
-            c.a = isSelected ? 1f : 0f; 
-            buttonBackground.color = c;
-        }
+        // Altera o alpha do background baseado na seleção
+        Color c = buttonBackground.color;
+        c.a = isSelected ? 1f : 0f;
+        buttonBackground.color = c;
     }
 
     public void SetVisibility(bool value)
@@ -43,7 +31,6 @@ public class CoresSprites : MonoBehaviour
         gameObject.SetActive(value);
     }
 
-    // Chamado pelo componente Button da Unity no OnClick()
     public void OnClick()
     {
         colorSlotClicked?.Invoke(this);

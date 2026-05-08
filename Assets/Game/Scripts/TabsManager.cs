@@ -2,40 +2,44 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
+// para que seja o primeiro rodado na cena
 [DefaultExecutionOrder(-1)]
+
 public class TabsManager : MonoBehaviour
 {
+     // Singleton pattern: onde só existe um tipo desse objeto na cena
+    public static TabsManager Instance = null; 
+
+    // referencia do tab ui controller para controlar o sistema de abas
     [SerializeField] private TabController tabController;
+    // lista contendo as informações de cada tab
     [SerializeField] private List<TabUIData> data;
     public event Action<SlotItemData> OnBodyPartChange;
 
-    // Singleton pattern
-    public static TabsManager Instance = null;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
             Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     void Start()
     {
+        // inicializar as abas
+        // para isso o for na lista de tabUIData
         data.ForEach(tabUIData =>
         {
+            // chamando o método de tab page passando uma instancia de tab page
            tabController.AddTabPage(new TabPage()
            {
+            // passando as informações 
                 icon = tabUIData.icon,
                 sprites = tabUIData.sprites,
                 identificador = tabUIData.identificador,
            });
         });
-        
+        // manager precisa ser avisado quando uma tab é selecionada
+        // assinar o on page selected e criar o método do handle
+        // que será executado quando o evento for disparado
         tabController.OnPageSelected += HandlePageSelected;
         tabController.OnSlotButtonSelected += HandleSlotButtonSelected;
         tabController.SelectTabByIndex(0);
@@ -43,10 +47,8 @@ public class TabsManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (tabController != null)
-        {
-            tabController.OnPageSelected -= HandlePageSelected;
-        }
+        // removendo a subscrição do page selected
+        tabController.OnPageSelected -= HandlePageSelected;
     }
 
     private void HandlePageSelected(TabPage obj)
@@ -59,4 +61,5 @@ public class TabsManager : MonoBehaviour
     {
         TabsManager.Instance.OnBodyPartChange?.Invoke(obj);
     }
+
 }

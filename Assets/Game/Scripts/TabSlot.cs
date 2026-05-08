@@ -5,6 +5,7 @@ using UnityEngine.UI; // precisa para usar o name space Image
 using System; // necessário para usar o namespace Action
 
 public class TabSlot : MonoBehaviour
+// script para controlar o tab slot
 {
     // referencia do background do botão
     [SerializeField] private Image buttonBackground;
@@ -41,7 +42,8 @@ public class TabSlot : MonoBehaviour
         gameObject.SetActive(value);
     }
 
-    // metodo on click para rodar a visibilidade se for clicado
+    // metodo on click para dispardo quando o botão for clicado
+    // e dispara o evento onslotbutonclicked
     public void OnClick()
     {
         OnSlotButtonClicked?.Invoke(this);

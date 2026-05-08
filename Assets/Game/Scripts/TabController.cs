@@ -1,71 +1,64 @@
 using UnityEngine;
-using System;
+using System;// precisa para usar o Action
 using System.Collections.Generic;
 
 public class TabController : MonoBehaviour
 {
+    // controlador de todo o sistema de abas
+
+//-------------- parte das abas/tabs -----------------------------------------------
+    // criar um lugar para gardar todos os tab pages ui controllers
     [SerializeField] List<TabePageUIController> tabPageUIControllers = new List<TabePageUIController>();
-    [SerializeField] List<TabSlot> tabSlots = new List<TabSlot>();
-    
-    // Lista de slots físicos na UI que representarão as cores (similar ao tabSlots)
-    [SerializeField] List<CoresSprites> coresSlotsUI = new List<CoresSprites>();
-    
-    public event Action<SlotItemData> OnSlotButtonSelected;
+   
+    //variavel para guardar qual a aba selecionada no momento
+    internal TabePageUIController selectedTabePageUI; // internal para fica só visivel para scripts
+   
+    // util para componentes externos que queiram saber quando uma aba for selecionada
     public event Action<TabPage> OnPageSelected;
     
-    // Evento novo para notificar quando uma cor for escolhida
-    public event Action<Color, string> OnColorSelected;
+// -------------parte dos slots -----------------------
 
-    internal TabePageUIController selectedTabePageUI; 
+    // lista para guardar a lista de slots
+    [SerializeField] List<TabSlot> tabSlots = new List<TabSlot>();
 
+    // evento que vai ser disparado sempre que um slot for selecionado
+    public event Action<SlotItemData> OnSlotButtonSelected;
+    
     private void Awake()
+
     {
         tabPageUIControllers.ForEach(tabPage =>
         {
-            tabPage.SetVisibility(false); 
-            tabPage.OnPageSelected += HandlePageSelected;
+            tabPage.SetVisibility(false);// oculta todas as abas
+            tabPage.OnPageSelected += HandlePageSelected;// cria um método para sempre que uma aba for selecionada
         });
 
+        // mesma função para o slot que nem a do page
         tabSlots.ForEach(slot =>
         {
-            slot.SetVisibility(false); 
-            slot.OnSlotButtonClicked += HandleSlotSelected;
+            slot.SetVisibility(false);// oculta todas
+            slot.OnSlotButtonClicked += HandleSlotSelected;// cria método para quando selecionado
         });
 
-        // Inicializa os slots de cores ocultos e assina o evento de clique
-        coresSlotsUI.ForEach(corSlot =>
-        {
-            corSlot.SetVisibility(false); 
-            // Alterado: nome deve ser igual ao definido no script CoresSprites
-            corSlot.colorSlotClicked += HandleCorSelected; 
-        });
     }
 
-    private void HandlePageSelected(TabePageUIController tabPageUIController)
-    {
-        selectedTabePageUI = tabPageUIController;
+    private void HandlePageSelected(TabePageUIController tabPageUIController) // precisa do parametro tabpageuicontroller pois o OnPageSelected ta dentro dele
 
+    {
+        selectedTabePageUI = tabPageUIController;// recebe o tab page ui controller
+        // só pode ter uma aba selecionada por vez
+        // então criamo o método que desativa todas as tabs diferentes dessa que estamos selecionando
         tabPageUIControllers.ForEach(tabPageUI =>
         {
             if (tabPageUI == selectedTabePageUI)
             {
-                tabPageUI.Selected(true); 
+                tabPageUI.Selected(true);
                 SetUpTabSlots(tabPageUI.TabPage);
-                
-                // NOVO: Ao selecionar uma página, configuramos os slots de cores dela
-                SetUpColors(tabPageUI.TabPage);
 
                 int index = selectedTabePageUI.TabPage.selectedSlotIndex;
                 if (index >= 0 && index < tabSlots.Count)
                 {
                     SelectSlotButton(tabSlots[index]);
-                }
-                
-                // NOVO: Seleciona visualmente a cor que estava salva na página (se houver)
-                int colorIndex = selectedTabePageUI.TabPage.selectedColorIndex; 
-                if (colorIndex >= 0 && colorIndex < coresSlotsUI.Count)
-                {
-                    SelectColorButton(coresSlotsUI[colorIndex]);
                 }
             }
             else
@@ -76,72 +69,56 @@ public class TabController : MonoBehaviour
 
         if (selectedTabePageUI != null)
         {
+            //por ultimo invocamos o OnPageSelected selecionando o tabpage
             OnPageSelected?.Invoke(selectedTabePageUI.TabPage);
         }
     }
 
     private void HandleSlotSelected(TabSlot tabSlot)
     {
+        // Aqui chamamos passando o slot clicado
+
         SelectSlotButton(tabSlot);
 
-        SlotItemData slotItemData;
-        slotItemData.sprite = tabSlot.Sprite;
+        SlotItemData slotItemData;// por isso pegamos a referencia aqui do struct
+        slotItemData.sprite = tabSlot.Sprite; // atualiza a variavel sprite que recebe o sprite dentro de slot selecionado
         slotItemData.tabIdentifier = selectedTabePageUI.TabPage.identificador;
-        OnSlotButtonSelected?.Invoke(slotItemData);
+        OnSlotButtonSelected?.Invoke(slotItemData);// espera o struct
     }
 
-    // NOVO: Lida com o clique no botão de cor
-    private void HandleCorSelected(CoresSprites colorSlotClicked)
-{
-    // 1. Faz o loop para ligar/desligar o background dos botões
-    SelectColorButton(colorSlotClicked);
 
-    // 2. Avisa o sistema qual cor foi escolhida (usando a cor que guardamos no slot)
-    // Supondo que você tenha esse evento Action<Color, string> OnColorSelected;
-    OnColorSelected?.Invoke(colorSlotClicked.MinhaCor, selectedTabePageUI.TabPage.identificador);
-}
-
+    // boa prática tirar as assinaturas de eventos que não estejam mais sendo utilizados
     private void OnDestroy()
+
     {
         tabPageUIControllers.ForEach(tabPage => tabPage.OnPageSelected -= HandlePageSelected);
         tabSlots.ForEach(tabSlot => tabSlot.OnSlotButtonClicked -= HandleSlotSelected);
-        // Limpeza dos eventos de cores
-        coresSlotsUI.ForEach(corSlot => corSlot.colorSlotClicked -= HandleCorSelected);
     }
 
     private void SelectSlotButton(TabSlot tabSlot)
+
     {
+        // for para navegar em cada slot
+        // começando no i=0, indo até que o i seja menor que a quantidade de slots incrementando o i+1
        for (int i = 0; i < tabSlots.Count; i++)
         {
+            // só um slot pode ser selecionado
             var slot = tabSlots[i];
             if (slot == tabSlot)
             {
+                // verdadeiro se só um for selecionado
                 slot.Select(true);
+                // sempre q o slot for selecionado tem que atualizar o indice
                 if (selectedTabePageUI != null)
                 {
+                    // atualiza o index no tabpage
                     selectedTabePageUI.TabPage.selectedSlotIndex = i;
                 }
             }
             else
             {
+                // se mais de um selecionado, é falso
                 slot.Select(false);
-            }
-        } 
-    }
-
-    // NOVO: Lógica visual idêntica ao SelectSlotButton, mas para cores
-    private void SelectColorButton(CoresSprites colorSlot)
-    {
-        for (int i = 0; i < coresSlotsUI.Count; i++)
-        {
-            // Se for o slot clicado, ele ativa o background. Senão, limpa.
-            bool estaSelecionado = (coresSlotsUI[i] == colorSlot);
-            coresSlotsUI[i].Select(estaSelecionado);
-
-            // Salva o índice para quando você trocar de aba e voltar
-            if (estaSelecionado && selectedTabePageUI != null)
-            {
-                selectedTabePageUI.TabPage.selectedColorIndex = i;
             }
         }
     }
@@ -163,40 +140,20 @@ public class TabController : MonoBehaviour
         }
     }
 
-    
-    private void SetUpColors(TabPage tabPage)
-    {
-        for (int i = 0; i < coresSlotsUI.Count; i++)
-        {
-            var slotUI = coresSlotsUI[i];
-
-            // Se a aba usa cores e ainda temos cores na lista do ScriptableObject
-            if (tabPage.useColor && i < tabPage.cores.Count)
-            {
-                slotUI.SetVisibility(true);
-                slotUI.SetColor(tabPage.cores[i]); // Define a cor do ícone
-                
-                // Verifica se este slot era o que estava selecionado anteriormente
-                slotUI.Select(i == tabPage.selectedColorIndex);
-            }
-            else
-            {
-                slotUI.SetVisibility(false);
-            }
-        }
-    }
-
+    // método para adicionar uma tab e receber um objeto do tipo TabPage
     public void AddTabPage(TabPage tabPage)
     {
+        //checar se existe uma tab disponivel
         TabePageUIController tabePageUIController = tabPageUIControllers.Find(tab => !tab.IsVisible);
-        if (tabePageUIController != null)
+        if (tabePageUIController != null) // caso retorne uma aba 
         {
-            tabePageUIController.SetVisibility(true);
-            tabePageUIController.TabPage = tabPage;
+            tabePageUIController.SetVisibility(true);// deixar ele visivel
+            tabePageUIController.TabPage = tabPage;// atualiza o tab page
         }
     }
 
     public void SelectTabByIndex(int index)
+
     {
         if (index >= 0 && index < tabPageUIControllers.Count)
         {
@@ -205,12 +162,15 @@ public class TabController : MonoBehaviour
     }
 }
 
+// struct para representar o objeto do slot, ao envez de classe
+// da mesma forma que uma classe, ele também aceita atributos
+// como se fosse uma classe mais simples que não precisa ser instanciada
+// podemos alterar os dados diretamente na instancia da struct
+// indicadas para representar dados simple como esses
 public struct SlotItemData
 
 {
-
     public string tabIdentifier;
-
     public Sprite sprite;
-
 }
+
