@@ -1,6 +1,8 @@
 using UnityEngine;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 // para que seja o primeiro rodado na cena
 [DefaultExecutionOrder(-1)]
@@ -14,6 +16,9 @@ public class TabsManager : MonoBehaviour
     [SerializeField] private TabController tabController;
     // lista contendo as informações de cada tab
     [SerializeField] private List<TabUIData> data;
+    // lista de botões de controllers
+    [SerializeField] private List<Button> buttonColors = new List<Button>();
+
     public event Action<SlotItemData> OnBodyPartChange;
 
 
@@ -55,6 +60,8 @@ public class TabsManager : MonoBehaviour
     {
         
         Debug.Log("Aba selecionada: " + obj.identificador);
+        var currentTabUIData = data.Find(tabUIData => tabUIData.identificador == obj.identificador);
+        buttonColors.ForEach(buttonColor => buttonColor.gameObject.SetActive(currentTabUIData.useColor));
     }
 
     private void HandleSlotButtonSelected(SlotItemData obj)

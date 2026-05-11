@@ -17,6 +17,8 @@ public class TabUIData : ScriptableObject
     public List<Sprite> sprites;
     //boleana para identificar se o objeto daquela aba vai ser alterado pela cor dela
     public bool useColor;
+    // lista de cores que aquela aba usa
+    public List <Color> colors;
 
    
 
