@@ -26,6 +26,8 @@ public class BodyUpdate : MonoBehaviour
         // Só muda a cor se o ID do botão clicado for igual ao ID desta parte do corpo
         if (idRecebido == identificador)
         {
+            // Forçamos o Alpha para 1 para garantir que o sprite não fique invisível
+            corRecebida.a = 1f; 
             img.color = corRecebida;
         }
     }
