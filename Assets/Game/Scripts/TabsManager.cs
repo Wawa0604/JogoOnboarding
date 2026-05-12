@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
+
+
 // para que seja o primeiro rodado na cena
 [DefaultExecutionOrder(-1)]
 
@@ -17,10 +19,11 @@ public class TabsManager : MonoBehaviour
     // lista contendo as informações de cada tab
     [SerializeField] private List<TabUIData> data;
     // lista de botões de controllers
-    [SerializeField] private List<Button> buttonColors = new List<Button>();
+    [SerializeField] private List<CoresSprites> colorButtons = new List<CoresSprites>();
 
     public event Action<SlotItemData> OnBodyPartChange;
-
+    // evento de cor
+    public event Action<string, Color> OnColorChange;
 
     private void Awake()
     {
@@ -57,11 +60,41 @@ public class TabsManager : MonoBehaviour
     }
 
     private void HandlePageSelected(TabPage obj)
+{
+    Debug.Log("Tentando selecionar aba: " + obj.identificador);
+    
+    var currentTabUIData = data.Find(tabUIData => tabUIData.identificador == obj.identificador);
+    
+    if (currentTabUIData == null)
     {
-        
-        Debug.Log("Aba selecionada: " + obj.identificador);
-        var currentTabUIData = data.Find(tabUIData => tabUIData.identificador == obj.identificador);
-        buttonColors.ForEach(buttonColor => buttonColor.gameObject.SetActive(currentTabUIData.useColor));
+        Debug.LogError("ERRO: Não encontrei nenhum TabUIData com o ID: " + obj.identificador + 
+                       ". Verifique se o nome no ScriptableObject é idêntico ao da TabPage.");
+        return;
+    }
+
+    Debug.Log("Dados encontrados! UseColor: " + currentTabUIData.useColor + " | Total de cores: " + currentTabUIData.colors.Count);
+
+    for (int i = 0; i < colorButtons.Count; i++)
+    {
+        // Se a aba usa cor E o índice atual existe na lista de cores
+        if (currentTabUIData.useColor && i < currentTabUIData.colors.Count)
+        {
+            colorButtons[i].gameObject.SetActive(true);
+            colorButtons[i].Setup(currentTabUIData.identificador, currentTabUIData.colors[i]);
+            Debug.Log("Botão " + i + " ativado com a cor: " + currentTabUIData.colors[i]);
+        }
+        else
+        {
+            colorButtons[i].gameObject.SetActive(false);
+            Debug.Log("o botão" + i + "foi desativado");
+        }
+    }
+}
+
+    //metodo que os botoes chamam ao serem clicados
+    public void NotifyColorClick(string id, Color cor)
+    {
+        TabsManager.Instance.OnColorChange?.Invoke(id, cor);
     }
 
     private void HandleSlotButtonSelected(SlotItemData obj)

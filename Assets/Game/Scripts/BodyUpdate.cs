@@ -11,16 +11,14 @@ public class BodyUpdate : MonoBehaviour
     private void Awake()
     {
         img = GetComponent<Image>();
+        
     }
 
     private void Start() 
     {
         // Subscreve nos eventos
         TabsManager.Instance.OnBodyPartChange += HandleBodyPartChange;
-        
-        // Subscreve no evento de cor do Singleton de CoresSprites
-        if (CoresSprites.Instance != null)
-            CoresSprites.Instance.OnColorChange += HandleColorChange;
+        TabsManager.Instance.OnColorChange += HandleColorChange;
     }
 
     private void HandleColorChange(string idRecebido, Color corRecebida)

@@ -186,11 +186,33 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6570082162684540102, guid: 839962e1fe73abb4cb9a27e14fc0cc69, type: 3}
   m_PrefabInstance: {fileID: 502321168}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &129290307 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1230973389073631397, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
 --- !u!224 &143124041 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6570082162684540102, guid: 839962e1fe73abb4cb9a27e14fc0cc69, type: 3}
   m_PrefabInstance: {fileID: 1387916808}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &199814797 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2308342637182871970, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
 --- !u!20 &208169169 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2605601872652594046, guid: e471e6c05284f314ab7660ffb9a20960, type: 3}
@@ -392,6 +414,10 @@ PrefabInstance:
       value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: colorButtons.Array.size
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
       propertyPath: 'buttonColors.Array.data[0]'
       value: 
       objectReference: {fileID: 4036639361728310252}
@@ -431,6 +457,46 @@ PrefabInstance:
       propertyPath: 'buttonColors.Array.data[9]'
       value: 
       objectReference: {fileID: 4036639361728310243}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1532382028}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1701850634}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1844951174}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1853447531}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2006354272}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1961897283}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1034864011}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[7]'
+      value: 
+      objectReference: {fileID: 1548109021}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[8]'
+      value: 
+      objectReference: {fileID: 1330530963}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[9]'
+      value: 
+      objectReference: {fileID: 409409875}
     - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
       propertyPath: 'buttonColors.Array.data[10]'
       value: 
@@ -487,6 +553,62 @@ PrefabInstance:
       propertyPath: 'buttonColors.Array.data[23]'
       value: 
       objectReference: {fileID: 4036639361728310229}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[10]'
+      value: 
+      objectReference: {fileID: 1090997744}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[11]'
+      value: 
+      objectReference: {fileID: 1545317144}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[12]'
+      value: 
+      objectReference: {fileID: 1124071425}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[13]'
+      value: 
+      objectReference: {fileID: 941079358}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[14]'
+      value: 
+      objectReference: {fileID: 1972393798}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[15]'
+      value: 
+      objectReference: {fileID: 129290307}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[16]'
+      value: 
+      objectReference: {fileID: 1651282111}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[17]'
+      value: 
+      objectReference: {fileID: 199814797}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[18]'
+      value: 
+      objectReference: {fileID: 493953332}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[19]'
+      value: 
+      objectReference: {fileID: 1638422131}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[20]'
+      value: 
+      objectReference: {fileID: 2040474204}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[21]'
+      value: 
+      objectReference: {fileID: 1687639569}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[22]'
+      value: 
+      objectReference: {fileID: 1622845648}
+    - target: {fileID: 8452959406616514500, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'colorButtons.Array.data[23]'
+      value: 
+      objectReference: {fileID: 2010867759}
     - target: {fileID: 8499704363642672515, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -496,6 +618,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+--- !u!114 &409409875 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 584512698549053869, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &493953332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7820746572062325192, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
 --- !u!1001 &502321168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -869,6 +1013,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7078008353690847723, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
   m_PrefabInstance: {fileID: 2290222823633389129}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &941079358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5947624031635582476, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &1034864011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5111219977488580797, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &1090997744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8706386291703881909, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &1124071425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 209581899802499011, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
 --- !u!224 &1180366372 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2101310949879309947, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
@@ -879,6 +1067,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8312452998591477061, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
   m_PrefabInstance: {fileID: 4036639361728310228}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1330530963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6535004948604827680, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
 --- !u!1001 &1387916808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -992,6 +1191,72 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 839962e1fe73abb4cb9a27e14fc0cc69, type: 3}
+--- !u!114 &1532382028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8724993247890202001, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &1545317144 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2879398031880586704, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &1548109021 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6776513423250055623, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &1622845648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6612370875775935078, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &1638422131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2652472494079176175, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &1651282111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4276840441874448392, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
 --- !u!114 &1655127230 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3714301824114779422, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
@@ -1003,6 +1268,105 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c0d0001e1de9147bf19b838a38d5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TabController
+--- !u!114 &1687639569 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8241607226931182510, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &1701850634 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7980542774023468433, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &1844951174 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7138102460782588536, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &1853447531 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8845911777279217939, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &1961897283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3509436955523425758, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &1972393798 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4665654799003507145, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &2006354272 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2892448356779405177, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &2010867759 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 831254802451935052, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
+--- !u!114 &2040474204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4737815390266478260, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 4036639361728310228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5b9b060c5ddf4989861a7cbc57792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoresSprites
 --- !u!1001 &2290222823633389129
 PrefabInstance:
   m_ObjectHideFlags: 0

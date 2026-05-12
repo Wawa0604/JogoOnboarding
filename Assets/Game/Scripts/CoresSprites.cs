@@ -7,52 +7,35 @@ public class CoresSprites : MonoBehaviour
     [SerializeField] private Image buttonBackground; // O "Frame" de seleção (Pai)
     [SerializeField] private Image buttonIcon;       // O círculo de cor (Filho)
 
-    [SerializeField] private TabUIData tabData;
-    [SerializeField] private int buttonIndex; // O índice deste botão (0, 1, 2...)
+    [SerializeField] private string currentId;
+    [SerializeField] private Color currentColor; 
 
-    // Singleton para facilitar o acesso do BodyUpdate ao evento de cor
-    public static CoresSprites Instance;
-
-    // O evento agora passa o Identificador (string) e a Cor (Color)
-    public event Action<string, Color> OnColorChange;
-
-    void Awake()
+    
+    // Chamado pelo TabsManager para "pintar" o botão
+    public void Setup(string id, Color cor)
     {
-        Instance = this;
-        ApplyTabData();
-    }
-
-    private void ApplyTabData()
-    {
-        if (tabData == null) return;
-
-        // Verifica se a aba deve usar cores e se este botão tem uma cor correspondente na lista
-        if (tabData.useColor && tabData.colors != null)
-        {
-            if (buttonIndex < tabData.colors.Count)
-            {
-                // Aplica a cor da lista ao ícone (filho)
-                buttonIcon.color = tabData.colors[buttonIndex];
-            }
-            else
-            {
-                // Caso existam mais botões que cores, você pode definir uma cor padrão ou desativar o ícone
-                buttonIcon.color = Color.white; 
-                gameObject.SetActive(false); // Opcional: desativa o botão se não houver cor para ele
-            }
-        }
+        currentId = id;
+        currentColor = cor;
+        
+        // 1. Mudamos a cor do ícone (o círculo colorido)
+        // Garantimos que o alpha do ícone seja sempre 1 (100%) para ele aparecer
+        cor.a = 1f; 
+        buttonIcon.color = cor;
+        
+        // 2. Opcional: Se você quer que o FRAME (Background) comece invisível 
+        // toda vez que troca de aba, mantenha as linhas abaixo.
+        // Se quiser que ele mantenha o estado anterior, remova estas linhas:
+        Color c = buttonBackground.color;
+        c.a = 0f; // Começa transparente (toggle desligado)
+        buttonBackground.color = c;
     }
 
     public void OnClick()
     {
-        // 1. Dispara o evento para quem estiver ouvindo (ex: BodyUpdate)
-        // Precisamos do ID da aba atual. Se o TabUIData estiver preenchido:
-        if (tabData != null)
-        {
-            OnColorChange?.Invoke(tabData.identificador, buttonIcon.color);
-        }
+        // Avisa o Manager que este botão foi clicado
+        TabsManager.Instance.NotifyColorClick(currentId, currentColor);
 
-        // 2. Lógica do Toggle de Alpha no Background
+        // Lógica do Toggle de Alpha no Background
         // Como 'buttonBackground' já é do tipo Image, acessamos .color direto
         Color tempColor = buttonBackground.color;
 
