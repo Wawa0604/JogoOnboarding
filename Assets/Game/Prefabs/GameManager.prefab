@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   todasAsMissoes:
   - {fileID: 11400000, guid: dea07769707fc3644bbfc1327e889837, type: 2}
+  - {fileID: 11400000, guid: a1cec3056f8689f44a1c869ddf508b05, type: 2}
   prefabMissao: {fileID: 6324697465083901312, guid: e564b1eae89976a4885702a38ebae356, type: 3}
   containerLista: {fileID: 0}
 --- !u!1 &5709815532494270801
@@ -96,6 +97,31 @@ MonoBehaviour:
   data:
   - {fileID: 11400000, guid: 3b11d4549acb8024bbe9de713c3fda25, type: 2}
   - {fileID: 11400000, guid: fb44cab666247284981d00229494c554, type: 2}
+  colorButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &8499704363642672515
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +166,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8499704363642672515}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1830dff6f4f15544ea04983f1fd2fd7a, type: 3}
   m_Name: 

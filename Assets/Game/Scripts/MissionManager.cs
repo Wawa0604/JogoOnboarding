@@ -42,18 +42,36 @@ public class MissionManager : MonoBehaviour
     // O ScormManager chama isso para saber o progresso atual
     public int ObterPorcentagemConcluida()
     {
-        if (todasAsMissoes.Count == 0) return 0;
-
-        float pesoTotal = 0;
-        float pesoConcluido = 0;
-
-        foreach (var m in todasAsMissoes)
+            /// 1. Verificação de segurança
+        if (todasAsMissoes.Count == 0) 
         {
-            pesoTotal += m.pesoProgresso;
-            if (m.completa) pesoConcluido += m.pesoProgresso;
+            Debug.LogWarning("Aviso: Nenhuma missão foi atribuída à lista do MissionManager!");
+            return 0;
         }
 
-        return pesoTotal > 0 ? Mathf.RoundToInt((pesoConcluido / pesoTotal) * 100) : 0;
+        // 2. Cálculos base
+        int totalMissoes = todasAsMissoes.Count;
+        int concluidas = todasAsMissoes.FindAll(m => m.completa).Count;
+        
+        // Quanto cada missão vale individualmente (ex: 100 / 4 = 25)
+        float valorPorMissao = 100f / totalMissoes;
+        
+        // Porcentagem total atual
+        float porcentagemTotal = ((float)concluidas / totalMissoes) * 100;
+
+        // 3. DEBUG LOG DETALHADO
+        Debug.Log("--- RELATÓRIO DE MISSÕES ---");
+        foreach (var missao in todasAsMissoes)
+        {
+            string status = missao.completa ? "[CONCLUÍDA]" : "[PENDENTE]";
+            Debug.Log($"Missão: {missao.id} | Status: {status} | Peso individual: {valorPorMissao}%");
+        }
+        Debug.Log($"TOTAL DE MISSÕES: {totalMissoes} | CONCLUÍDAS: {concluidas}");
+        Debug.Log($"PORCENTAGEM ATUAL PARA O SCORM: {Mathf.RoundToInt(porcentagemTotal)}%");
+        Debug.Log("---------------------------");
+
+        // 4. Retorno final (encerra o método)
+        return Mathf.RoundToInt(porcentagemTotal);
     }
 
     private IEnumerator ExecutarAnimacaoVisual(string id)

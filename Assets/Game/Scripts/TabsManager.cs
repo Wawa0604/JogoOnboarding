@@ -100,6 +100,11 @@ public class TabsManager : MonoBehaviour
     private void HandleSlotButtonSelected(SlotItemData obj)
     {
         TabsManager.Instance.OnBodyPartChange?.Invoke(obj);
+        // ID EXATO que você escreveu no ScriptableObject da missão
+        if (MissionManager.Instance != null)
+        {
+            MissionManager.Instance.ConcluirMissao("montar_avatar");
+        }
     }
 
 }
