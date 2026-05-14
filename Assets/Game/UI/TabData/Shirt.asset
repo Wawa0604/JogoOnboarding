@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c24cbcaf766dc43b5095bbd8303b9d, type: 3}
+  m_Name: Shirt
+  m_EditorClassIdentifier: Assembly-CSharp::TabUIData
+  icon: {fileID: 21300000, guid: 844cdb61bba066c45aa2992a2f3f7353, type: 3}
+  identificador: Shirt
+  sprites:
+  - {fileID: 21300000, guid: 4ce95a81f058de645afc0eb21bacd503, type: 3}
+  - {fileID: 21300000, guid: 7a38ceaad23197949b31901a4e896c55, type: 3}
+  - {fileID: 21300000, guid: d734989638dbd8b40b961c5a5484392b, type: 3}
+  - {fileID: 21300000, guid: faf5ba1513edb934995ff6727797df32, type: 3}
+  useColor: 1
+  colors:
+  - {r: 1, g: 0.8196079, b: 0.20000002, a: 0}
+  - {r: 0.5686275, g: 0.8705883, b: 0.43921572, a: 0}
+  - {r: 0, g: 0.83921576, b: 0.6901961, a: 0}
+  - {r: 0.6784314, g: 0.2901961, b: 0.9294118, a: 0}
+  - {r: 0.70980394, g: 0.3019608, b: 0.87843144, a: 0}
+  - {r: 0.9176471, g: 0.30980393, b: 0.91372555, a: 0}
+  - {r: 1, g: 0.5411765, b: 0.36862746, a: 0}
+  - {r: 1, g: 0.67058825, b: 0.20000002, a: 0}
+  - {r: 1, g: 1, b: 1, a: 0}
+  - {r: 0.29803923, g: 0.2901961, b: 0.28235295, a: 0}
+  - {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}

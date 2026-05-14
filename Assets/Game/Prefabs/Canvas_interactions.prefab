@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Colabora\xE7\xE3o"
+  m_text: Tuca
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -394,7 +394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1001512681482486965
 RectTransform:
   m_ObjectHideFlags: 0
@@ -882,10 +882,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u201CSeja muito bem-vindo(a) ao seu onboarding no CPQD!\L Preparamos
-    uma verdadeira aventura pelo nosso campus para te ajudar a se localizar melhor
-    entre os pr\xE9dios, conhecer mais sobre o CPQD e descobrir todas as informa\xE7\xF5es
-    importantes para o seu dia a dia conosco.\u201D"
+  m_text: "\u201CMuito bem-vindo(a)! Estamos muito felizes em ter voc\xEA conosco.\n\nGostaria
+    de me apresentar e compartilhar um pouco mais sobre o CPQD.\n\nQue tal iniciarmos
+    o v\xEDdeo?\u201D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1351,3 +1350,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Setas
   idDaSeta: 
   botaoAlvo: {fileID: 0}
+  proximaSeta: {fileID: 0}

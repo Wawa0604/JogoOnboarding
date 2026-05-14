@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c24cbcaf766dc43b5095bbd8303b9d, type: 3}
+  m_Name: Pants
+  m_EditorClassIdentifier: Assembly-CSharp::TabUIData
+  icon: {fileID: 21300000, guid: ceb94685d5656f54da2cb3e9f292ddbb, type: 3}
+  identificador: Pants
+  sprites:
+  - {fileID: 21300000, guid: 3b23252481caa8749a3575b8bc0bded9, type: 3}
+  - {fileID: 21300000, guid: 5b19c4c2a467e264fad4f242dfbcccb1, type: 3}
+  - {fileID: 21300000, guid: 5ffc31771da5fff40b024df42b5cef54, type: 3}
+  - {fileID: 21300000, guid: 246cae66d80f71e40b59ff1bcc420880, type: 3}
+  - {fileID: 21300000, guid: f855ebfa8ead79a4ebe61e21eb2d26b4, type: 3}
+  - {fileID: 21300000, guid: 2532d737c68b6734fa168a393d36866f, type: 3}
+  useColor: 1
+  colors:
+  - {r: 1, g: 0.8196079, b: 0.20000002, a: 0}
+  - {r: 0.5686275, g: 0.8705883, b: 0.43921572, a: 0}
+  - {r: 0, g: 0.83921576, b: 0.6901961, a: 0}
+  - {r: 0.6784314, g: 0.2901961, b: 0.9294118, a: 0}
+  - {r: 0.70980394, g: 0.3019608, b: 0.87843144, a: 0}
+  - {r: 0.9176471, g: 0.30980393, b: 0.91372555, a: 0}
+  - {r: 1, g: 0.5411765, b: 0.36862746, a: 0}
+  - {r: 1, g: 0.67058825, b: 0.20000002, a: 0}
+  - {r: 1, g: 1, b: 1, a: 0}
+  - {r: 0.2981131, g: 0.28931335, b: 0.2829262, a: 0}
+  - {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}

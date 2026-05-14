@@ -1,54 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &739773043956076787
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1605548998463046352}
-  - component: {fileID: 1237776697276908359}
-  m_Layer: 0
-  m_Name: Mission_Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1605548998463046352
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739773043956076787}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6160.2573, y: 0.00001, z: 67356.305}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3379917513113534126}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1237776697276908359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739773043956076787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc662266cd99e064b84e6f22d2badf7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  todasAsMissoes:
-  - {fileID: 11400000, guid: dea07769707fc3644bbfc1327e889837, type: 2}
-  - {fileID: 11400000, guid: a1cec3056f8689f44a1c869ddf508b05, type: 2}
-  prefabMissao: {fileID: 6324697465083901312, guid: e564b1eae89976a4885702a38ebae356, type: 3}
-  containerLista: {fileID: 0}
 --- !u!1 &5709815532494270801
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +47,10 @@ MonoBehaviour:
   tabController: {fileID: 0}
   data:
   - {fileID: 11400000, guid: 3b11d4549acb8024bbe9de713c3fda25, type: 2}
+  - {fileID: 11400000, guid: 2a1ed7c4d89ec754e971f8de7b48c2c9, type: 2}
   - {fileID: 11400000, guid: fb44cab666247284981d00229494c554, type: 2}
+  - {fileID: 11400000, guid: 22906a1c402360148a4778b794abab4a, type: 2}
+  - {fileID: 11400000, guid: a0ce793ca60799c44ac65b321a06ca6e, type: 2}
   colorButtons:
   - {fileID: 0}
   - {fileID: 0}
@@ -155,7 +109,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1605548998463046352}
   - {fileID: 5506669256658315737}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
