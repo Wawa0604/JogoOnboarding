@@ -9,11 +9,9 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton simples para a cena atual
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+        // Sem DontDestroyOnLoad! 
+        // Toda vez que a cena carregar, este Manager vira a referência principal.
+        Instance = this;
     }
 
     public void IniciarConversa(DialogueSequence sequence)

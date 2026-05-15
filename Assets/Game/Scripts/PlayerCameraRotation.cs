@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class PlayerCameraRotation : MonoBehaviour
 
+public class PlayerCameraRotation : MonoBehaviour
 {
     [Header("Configurações de Visão")]
     [SerializeField] private float mouseSensitivity = 0.1f;
+    [SerializeField] private float keyboardRotationSpeed = 50f; // Velocidade para o WASD
     [SerializeField] private float maxUpAngle = 80f;
     [SerializeField] private float maxDownAngle = -80f;
 
@@ -18,14 +19,11 @@ public class PlayerCameraRotation : MonoBehaviour
 
     void Awake()
     {
-        // Inicializa a classe gerada pelo Input System
         _inputActions = new PlayerControls();
 
-        // Configura os callbacks
         _inputActions.Player.Look.performed += ctx => _rotationInput = ctx.ReadValue<Vector2>();
         _inputActions.Player.Look.canceled += ctx => _rotationInput = Vector2.zero;
 
-        // Se você criou a action "RightClick" no mapa "Player"
         _inputActions.Player.RightClick.performed += ctx => _isRightClicking = true;
         _inputActions.Player.RightClick.canceled += ctx => _isRightClicking = false;
     }
@@ -33,25 +31,43 @@ public class PlayerCameraRotation : MonoBehaviour
     void OnEnable() => _inputActions.Enable();
     void OnDisable() => _inputActions.Disable();
 
-    void LateUpdate() // LateUpdate é melhor para câmeras para evitar trepidação
+    void LateUpdate()
     {
         RotateLook();
     }
 
-   private void RotateLook()
-{
-    // Só aceita mouse
-    if (!(_inputActions.Player.Look.activeControl?.device is Mouse)) return;
-    if (!_isRightClicking) return;
+    private void RotateLook()
+    {
+        // 1. Identifica qual dispositivo está a ser usado
+        var device = _inputActions.Player.Look.activeControl?.device;
+        if (device == null) return;
 
-    float lookX = _rotationInput.x * mouseSensitivity;
-    float lookY = _rotationInput.y * mouseSensitivity;
+        float lookX = 0f;
+        float lookY = 0f;
 
-    transform.Rotate(Vector3.up * lookX);
+        // 2. Lógica para MOUSE
+        if (device is Mouse)
+        {
+            if (!_isRightClicking) return; // Só roda se estiver a clicar
 
-    _verticalRotation -= lookY;
-    _verticalRotation = Mathf.Clamp(_verticalRotation, maxDownAngle, maxUpAngle);
+            lookX = _rotationInput.x * mouseSensitivity;
+            lookY = _rotationInput.y * mouseSensitivity;
+        }
+        // 3. Lógica para TECLADO (WASD / Setas)
+        else if (device is Keyboard)
+        {
+            // Usamos Time.deltaTime para a rotação ser suave e igual em qualquer PC
+            lookX = _rotationInput.x * keyboardRotationSpeed * Time.deltaTime;
+            lookY = _rotationInput.y * keyboardRotationSpeed * Time.deltaTime;
+        }
 
-    playerCamera.localRotation = Quaternion.Euler(_verticalRotation, 0f, 0f);
-}
+        // Aplicar a rotação Horizontal (No corpo do Player)
+        transform.Rotate(Vector3.up * lookX);
+
+        // Aplicar a rotação Vertical (Na Câmera)
+        _verticalRotation -= lookY;
+        _verticalRotation = Mathf.Clamp(_verticalRotation, maxDownAngle, maxUpAngle);
+
+        playerCamera.localRotation = Quaternion.Euler(_verticalRotation, 0f, 0f);
+    }
 }
