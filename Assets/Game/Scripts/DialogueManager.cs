@@ -4,13 +4,13 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
-    // Arraste o componente DialogueController para cá no Inspector
+    [Header("Referências Locais da Cena")]
     public DialogueController dialogueController;
 
     private void Awake()
     {
         // Sem DontDestroyOnLoad! 
-        // Toda vez que a cena carregar, este Manager vira a referência principal.
+        // O Manager da cena atual sempre será a referência ativa para os NPCs locais.
         Instance = this;
     }
 
@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("DialogueController não atribuído no DialogueManager!");
+            Debug.LogError("DialogueController não foi atribuído no DialogueManager desta cena!");
         }
     }
 }

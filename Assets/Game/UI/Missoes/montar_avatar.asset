@@ -14,4 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MissaoData
   id: montar_avatar
   descricao: Montar Avatar
-  pesoProgresso: 10

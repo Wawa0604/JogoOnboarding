@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2233898251054691417}
   - component: {fileID: 8138736043504429810}
   - component: {fileID: 1519773303306286787}
+  - component: {fileID: 1644307562984220571}
   m_Layer: 0
   m_Name: Dialogue_Manager
   m_TagString: Untagged
@@ -45,7 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b372762bf5261f1438dc470c48dd0909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueController
-  ui: {fileID: 2997920823034165530, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
+  painelDeDialogoManual: {fileID: 0}
+  ui: {fileID: 0}
 --- !u!114 &1519773303306286787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,4 +60,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddec53c22d651e46b0c3ef31d3f295e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  dialogueController: {fileID: 8138736043504429810}
+  dialogueController: {fileID: 0}
+--- !u!114 &1644307562984220571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2787198475412937066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe82a1910a1cf064dae8b50f256d1785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  painelVideoPresidente: {fileID: 0}

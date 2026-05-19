@@ -16,20 +16,22 @@ public class MissionManager : MonoBehaviour
     public Transform containerLista;     
 
     private void Awake()
+{
+    // Se o MissionManager tiver um pai (como o GameManager), usamos o objeto pai para o DontDestroyOnLoad
+    GameObject objetoParaPersistir = transform.parent != null ? transform.parent.gameObject : gameObject;
+
+    if (Instance == null) 
     {
-        // Lógica de Singleton Completa
-        if (Instance == null) 
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Garante que o gerente não morra
-            CarregarProgresso();
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+        Instance = this;
+        DontDestroyOnLoad(objetoParaPersistir); // Persiste o grupo inteiro corretamente
+        CarregarProgresso();
     }
+    else
+    {
+        Destroy(gameObject);
+        return;
+    }
+}
 
     // --- NOVO: Se inscreve no evento de carregamento de cena ---
     private void OnEnable()
@@ -42,38 +44,46 @@ public class MissionManager : MonoBehaviour
         SceneManager.sceneLoaded -= AoCarregarCena;
     }
 
-    // Função que roda toda vez que a cena muda
+   // 1. Altera a função que recebe o evento do SceneManager
     private void AoCarregarCena(Scene cena, LoadSceneMode modo)
     {
+        // Em vez de chamar direto, iniciamos uma Coroutine para esperar o Unity estabilizar
+        StartCoroutine(EsperarParaReconectar());
+    }
+
+    private IEnumerator EsperarParaReconectar()
+    {
+        // Espera até ao final do frame atual para que o Unity termine de carregar tudo
+        yield return new WaitForEndOfFrame();
         ReconectarUI();
     }
 
     private void ReconectarUI()
-{
-    // Esta versão busca inclusive em objetos desativados
-    GameObject[] todosOsObjetos = Resources.FindObjectsOfTypeAll<GameObject>();
-    GameObject painel = null;
-
-    foreach (GameObject go in todosOsObjetos)
     {
-        if (go.name == "fundo_painel" && go.scene == SceneManager.GetActiveScene())
+        // Esta versão busca inclusive em objetos desativados
+        GameObject[] todosOsObjetos = Resources.FindObjectsOfTypeAll<GameObject>();
+        GameObject painel = null;
+
+        foreach (GameObject go in todosOsObjetos)
         {
-            painel = go;
-            break;
+            if (go.name == "fundo_painel" && go.scene == SceneManager.GetActiveScene())
+            {
+                painel = go;
+                break;
+            }
+        }
+        
+        if (painel != null)
+        {
+            containerLista = painel.transform;
+            Debug.Log("<color=cyan>MissionManager: Encontrado com sucesso!</color>");
+            AtualizarInterface();
+        }
+        else
+        {
+            Debug.LogError("MissionManager: O objeto 'fundo_painel' não foi encontrado na cena atual!");
         }
     }
-    
-    if (painel != null)
-    {
-        containerLista = painel.transform;
-        Debug.Log("<color=cyan>MissionManager: Encontrado com sucesso!</color>");
-        AtualizarInterface();
-    }
-    else
-    {
-        Debug.LogError("MissionManager: O objeto 'fundo_painel' não foi encontrado na cena atual!");
-    }
-}
     // -------------------------------------------------------
 
     private void Start() 

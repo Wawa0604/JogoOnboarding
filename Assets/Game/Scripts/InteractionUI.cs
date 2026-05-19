@@ -7,7 +7,7 @@ public class InteractionUI : MonoBehaviour
     [Header("Configuração de Exibição")]
     [SerializeField] private GameObject uiPanel; 
 
-    [Header("UI Elements")]
+    [Header("UI Elements (Atribuição Manual por Cena)")]
     [SerializeField] private TextMeshProUGUI characterNameText;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private Button btnPrevious;
@@ -25,17 +25,13 @@ public class InteractionUI : MonoBehaviour
         if (btnNext != null) btnNext.interactable = hasNext;
     }
 
-   public void Show() 
+    public void Show() 
     {
         if (uiPanel != null)
         {
             uiPanel.SetActive(true);
-            Debug.Log("<color=cyan>UI: Painel ativado com sucesso!</color>");
-        }
-        else
-        {
-            Debug.LogError("UI: O campo 'uiPanel' está VAZIO no Inspector!");
         }
     }
+
     public void Hide() => uiPanel?.SetActive(false);
 }
