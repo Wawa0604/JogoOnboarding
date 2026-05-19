@@ -175,7 +175,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 8.5951, y: 1.6148}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3775213991117144296
 CanvasRenderer:
@@ -198,14 +198,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -232,9 +232,9 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 7
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
+  m_ChildAlignment: 8
+  m_Spacing: 0.11
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
@@ -402,7 +402,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4656883713543215920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1684}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -413,8 +413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -4.9235, y: -2.1387}
+  m_AnchoredPosition: {x: -0.0012001991, y: -0.6353998}
+  m_SizeDelta: {x: -4.9235, y: -0.7826}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &372716354296413698
 CanvasRenderer:
@@ -900,7 +900,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.054799795, z: 0, w: 1.334728}
+  m_margin: {x: 0, y: 0.054799795, z: 0, w: 0.113996506}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1231,22 +1231,6 @@ PrefabInstance:
     - target: {fileID: 6083681792773171648, guid: 96a0e9c4e57c069439daf796fbbc5f8a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.00000015599653
-      objectReference: {fileID: 0}
-    - target: {fileID: 6083681792773171648, guid: 96a0e9c4e57c069439daf796fbbc5f8a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.0040619834
-      objectReference: {fileID: 0}
-    - target: {fileID: 6083681792773171648, guid: 96a0e9c4e57c069439daf796fbbc5f8a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -2.9103828e-10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6083681792773171648, guid: 96a0e9c4e57c069439daf796fbbc5f8a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.000000023632307
-      objectReference: {fileID: 0}
-    - target: {fileID: 6083681792773171648, guid: 96a0e9c4e57c069439daf796fbbc5f8a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.99999183
       objectReference: {fileID: 0}
     - target: {fileID: 6083681792773171648, guid: 96a0e9c4e57c069439daf796fbbc5f8a, type: 3}
       propertyPath: m_AnchoredPosition.x

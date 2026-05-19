@@ -2186,6 +2186,10 @@ PrefabInstance:
       propertyPath: characterNameText
       value: 
       objectReference: {fileID: 1079642179}
+    - target: {fileID: 3242021356261484865, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3667603851786038999, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
       propertyPath: m_text
       value: nome
