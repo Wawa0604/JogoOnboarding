@@ -1,14 +1,19 @@
 using UnityEngine;
 using UnityEngine.Video; 
-using TMPro; // IMPORTANTE: Adicionado para controlar o texto do botão
+using UnityEngine.UI; // IMPORTANTE: Adicionado para controlar Image e Sprites da UI
 
 public class VideoController : MonoBehaviour
 {
     [Header("Componente de Vídeo")]
     [SerializeField] private VideoPlayer videoPlayerComponente;
 
-    [Header("UI do Botão Play (Opcional)")]
-    [SerializeField] private TextMeshProUGUI textoBotaoPlay; // Arraste o componente de texto do botão de Play aqui
+    [Header("UI da Barra de Progresso")]
+    [SerializeField] private Image barraProgresso; // Arraste a imagem 'video_bar' para aqui
+
+    [Header("UI do Botão Play (Feedback por Sprite)")]
+    [SerializeField] private Image imagemBotaoPlay; // Arraste o componente Image do botão de Play aqui
+    [SerializeField] private Sprite spritePlay;     // Arraste a imagem do ícone de Play (Triângulo)
+    [SerializeField] private Sprite spritePause;    // Arraste a imagem do ícone de Pause (Duas barras)
 
     [Header("Botões de Fim de Vídeo")]
     [SerializeField] private GameObject botaoReassistir;
@@ -17,15 +22,13 @@ public class VideoController : MonoBehaviour
     private void OnEnable()
     {
         OcultarBotoesDeFim();
-        AlterarTextoDoBotao("Play"); // Garante que o botão comece escrito 'Play'
+        AlterarSpriteDoBotao(spritePlay); // Garante que o botão comece com o ícone de Play
 
         if (videoPlayerComponente != null)
         {
             videoPlayerComponente.loopPointReached += AoTerminarOVideo;
             
-            // --- NOVO: FORÇA O PREVIEW DO PRIMEIRO FRAME ---
-            // Carrega o vídeo em segundo plano e renderiza o primeiro frame na tela,
-            // mas mantém o vídeo pausado até o jogador clicar no botão de Play.
+            // Força o preview do primeiro frame
             videoPlayerComponente.Prepare();
         }
     }
@@ -38,8 +41,26 @@ public class VideoController : MonoBehaviour
         }
     }
 
-    // --- NOVA FUNÇÃO ALTERNÁVEL (PLAY / PAUSE / RESUME) ---
-    // Substitua a antiga função 'PlayVideo' por esta no OnClick do seu botão
+    private void Update()
+    {
+        AtualizarBarraDeProgresso();
+    }
+
+    /// <summary>
+    /// Calcula a percentagem do vídeo e atualiza o preenchimento da barra horizontal.
+    /// </summary>
+    private void AtualizarBarraDeProgresso()
+    {
+        if (videoPlayerComponente != null && barraProgresso != null && videoPlayerComponente.length > 0)
+        {
+            // Calcula o progresso atual de 0.0 a 1.0
+            float progresso = (float)(videoPlayerComponente.time / videoPlayerComponente.length);
+            
+            // Atualiza o Fill Amount da imagem da barra
+            barraProgresso.fillAmount = progresso;
+        }
+    }
+
     public void AlternarPlayPause()
     {
         if (videoPlayerComponente == null) return;
@@ -48,15 +69,15 @@ public class VideoController : MonoBehaviour
         if (videoPlayerComponente.isPlaying)
         {
             videoPlayerComponente.Pause();
-            AlterarTextoDoBotao("Play"); // Próximo clique vai despausar
+            AlterarSpriteDoBotao(spritePlay); // Muda o ícone para Play (avisando que o próximo clique vai dar play)
             Debug.Log("<color=yellow>VideoController: Vídeo PAUSADO.</color>");
         }
         // 2. Se o vídeo está parado ou pausado -> O jogador quer COMEÇAR / DESPAUSAR
         else
         {
             videoPlayerComponente.Play();
-            AlterarTextoDoBotao("Pause"); // Próximo clique vai pausar
-            OcultarBotoesDeFim(); // Garante que esconde os botões finais se o vídeo recomeçar
+            AlterarSpriteDoBotao(spritePause); // Muda o ícone para Pause (avisando que o próximo clique vai pausar)
+            OcultarBotoesDeFim(); 
             Debug.Log("<color=cyan>VideoController: Vídeo INICIADO / DESPAUSADO.</color>");
         }
     }
@@ -65,7 +86,11 @@ public class VideoController : MonoBehaviour
     {
         if (botaoReassistir != null) botaoReassistir.SetActive(true);
         if (botaoTerminar != null) botaoTerminar.SetActive(true);
-        AlterarTextoDoBotao("Play"); // Reseta o texto quando o vídeo acaba
+        
+        AlterarSpriteDoBotao(spritePlay); // Reseta o ícone para Play quando acaba
+        
+        if (barraProgresso != null) barraProgresso.fillAmount = 1f; // Garante que a barra fica 100% cheia no fim
+        
         Debug.Log("<color=orange>VideoController: Vídeo chegou ao fim. Botões ativados!</color>");
     }
 
@@ -76,7 +101,7 @@ public class VideoController : MonoBehaviour
             OcultarBotoesDeFim();
             videoPlayerComponente.Stop(); 
             videoPlayerComponente.Play();
-            AlterarTextoDoBotao("Pause"); // Como começou a rodar, o botão vira 'Pause'
+            AlterarSpriteDoBotao(spritePause); // Como começou a rodar, o ícone vira 'Pause'
             Debug.Log("<color=cyan>VideoController: Reiniciando o vídeo...</color>");
         }
     }
@@ -87,12 +112,12 @@ public class VideoController : MonoBehaviour
         if (botaoTerminar != null) botaoTerminar.SetActive(false);
     }
 
-    // Método auxiliar para trocar o texto do botão de forma segura
-    private void AlterarTextoDoBotao(string novoTexto)
+    // MÈTODO AUXILIAR: Troca o sprite do botão de forma segura
+    private void AlterarSpriteDoBotao(Sprite novoSprite)
     {
-        if (textoBotaoPlay != null)
+        if (imagemBotaoPlay != null && novoSprite != null)
         {
-            textoBotaoPlay.text = novoTexto;
+            imagemBotaoPlay.sprite = novoSprite;
         }
     }
 }

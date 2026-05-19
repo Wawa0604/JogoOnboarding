@@ -7,6 +7,9 @@ public class buttonsManager : MonoBehaviour
     public GameObject painelConfig;
     public GameObject painelCustomisacao;
     public GameObject painelVideo;
+    //botoes que ficam invisiveis quando liga o painel de video
+    public GameObject botaoMissao;
+    public GameObject botaoMapa;
 
     private const string CHAVE_CONVERSA_NPC = "ConversouNPC_MontarAvatar";
 
@@ -93,10 +96,14 @@ public class buttonsManager : MonoBehaviour
     public void LigaVideo()
     {
         painelVideo.SetActive(true);
+        botaoMissao.SetActive(false);
+        botaoMapa.SetActive(false);
     }
 
     public void DesligaVideo()
     {
         painelVideo.SetActive(false);
+        botaoMissao.SetActive(true);
+        botaoMapa.SetActive(true);
     }
 }

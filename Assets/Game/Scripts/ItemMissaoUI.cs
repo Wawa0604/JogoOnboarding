@@ -31,7 +31,7 @@ public class ItemMissaoUI : MonoBehaviour
     public IEnumerator AnimarConclusao()
     {
         // CORREÇÃO: Encontra o teu gerenciador de botões real que está rodando na cena
-        buttonsManager managerBotoes = FindObjectOfType<buttonsManager>();
+        buttonsManager managerBotoes = FindAnyObjectByType<buttonsManager>();
 
         // Se o manager e o painel existirem, abre o painel automaticamente para o jogador ver o risco acontecer
         if (managerBotoes != null && managerBotoes.painelMissoes != null)
