@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; // Necessário para trocar de cena
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MinimapManager : MonoBehaviour
 {
@@ -16,79 +17,50 @@ public class MinimapManager : MonoBehaviour
     public Vector2 tamanhoPequeno = new Vector2(350, 250);
     public Vector2 posicaoPequeno = new Vector2(-34, 11);
 
-    [Header("Navegação")]
-    public MapLocation[] locaisNoMapa; // Arraste os ícones de locais para cá
-    public GameObject avisoInteracao; // Opcional: um texto dizendo "Aperte Espaço"
+    [Header("Configurações de Animação")]
+    [Tooltip("Velocidade com que o ícone viaja pelo mapa")]
+    public float velocidadeNavegacao = 500f; 
 
     private bool estaExpandido = false;
+    private bool estaAnimando = false; // Bloqueia cliques extras durante a viagem
     private Mask mascara;
 
     void Awake()
     {
+        Instance = this;
         mascara = molduraJanela.GetComponent<Mask>();
     }
 
     void Start()
     {
-        // Inicializa o estado visual
         estaExpandido = false;
+        estaAnimando = false;
         EntrarModoPequeno();
     }
 
     void Update()
     {
-        if (estaExpandido)
-        {
-            MoverNoModoGrande();
-            VerificarProximidadeDeDestinos(); // Nova função!
-        }
-        else
+        // Se não estiver expandido, o mapa continua a seguir o jogador normalmente (GPS)
+        if (!estaExpandido)
         {
             SincronizarVisualGPS();
         }
     }
 
-    void VerificarProximidadeDeDestinos()
+    // --- CONTROLO DOS PAINÉIS (Não é mais Toggle) ---
+
+    public void AbrirMapaGrande()
     {
-        bool pertoDeAlguem = false;
-
-        foreach (MapLocation local in locaisNoMapa)
-        {
-            // Calcula a distância entre o ícone do player e o ícone do local
-            float distancia = Vector2.Distance(playerIcon.anchoredPosition, local.GetComponent<RectTransform>().anchoredPosition);
-
-            if (distancia <= local.raioDeAtivacao)
-            {
-                pertoDeAlguem = true;
-                
-                // Se o player apertar espaço enquanto estiver perto
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    CarregarNovaCena(local.nomeDaCena);
-                }
-            }
-        }
-
-        // Liga/Desliga o aviso visual (se você tiver um)
-        if (avisoInteracao != null) avisoInteracao.SetActive(pertoDeAlguem);
+        if (estaAnimando) return;
+        estaExpandido = true;
+        EntrarModoGrande();
     }
 
-    void CarregarNovaCena(string nomeCena)
+    public void FecharMapaGrande()
     {
-        Debug.Log("Viajando para: " + nomeCena);
-        // O MinimapManager e o SceneConfigurator (Relay) sobrevivem à troca
-        SceneManager.LoadScene(nomeCena);
-    }
-
-    // Função que o Botão chama
-    public void BotaoTrocarTamanho()
-    {
-        estaExpandido = !estaExpandido;
-
-        if (estaExpandido)
-            EntrarModoGrande();
-        else
-            EntrarModoPequeno();
+        if (estaAnimando) return;
+        estaExpandido = false;
+        EntrarModoPequeno();
     }
 
     void EntrarModoPequeno()
@@ -107,30 +79,61 @@ public class MinimapManager : MonoBehaviour
         fundoEscuro.SetActive(true);
         if (mascara != null) mascara.enabled = false;
 
-        // Ocupa quase a tela toda
         molduraJanela.sizeDelta = new Vector2(Screen.width - 100, Screen.height - 100);
         molduraJanela.anchoredPosition = Vector2.zero;
 
-        // Mapa fica centralizado na moldura
         mapaGrande.anchoredPosition = Vector2.zero;
         SincronizarVisualGPS();
     }
 
-    void MoverNoModoGrande()
+    // --- NAVEGAÇÃO E ANIMAÇÃO ---
+
+    /// <summary>
+    /// Método principal que os botões de locais vão chamar ao serem clicados.
+    /// </summary>
+    public void SelecionarDestino(MapLocation localClicado)
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        // Segurança: se já estiver a viajar, ignora novos cliques
+        if (estaAnimando || localClicado == null) return;
+
+        StartCoroutine(AnimarIconeEViajar(localClicado));
+    }
+
+    private IEnumerator AnimarIconeEViajar(MapLocation destino)
+    {
+        estaAnimando = true;
         
-        if (h != 0 || v != 0)
+        // Pega a posição exata do botão na UI do mapa
+        Vector2 posicaoAlvo = destino.RetornarRectTransform().anchoredPosition;
+
+        // Enquanto o ícone do player não chegar muito perto da posição do botão...
+        while (Vector2.Distance(playerIcon.anchoredPosition, posicaoAlvo) > 0.5f)
         {
-            Vector2 movimento = new Vector2(h, v) * 300f * Time.deltaTime;
-            
-            if (SceneConfigurator.Instance != null)
-            {
-                SceneConfigurator.Instance.ultimaPosicaoSalva += movimento;
-                playerIcon.anchoredPosition = SceneConfigurator.Instance.ultimaPosicaoSalva;
-            }
+            // Move o ícone passo a passo em direção ao botão
+            playerIcon.anchoredPosition = Vector2.MoveTowards(
+                playerIcon.anchoredPosition, 
+                posicaoAlvo, 
+                velocidadeNavegacao * Time.deltaTime
+            );
+
+            // Espera o próximo frame para continuar a mover suavemente
+            yield return null;
         }
+
+        // Garante que ele crava na posição exata no fim
+        playerIcon.anchoredPosition = posicaoAlvo;
+
+        // Salva a nova posição no teu configurador para o GPS saber onde o player parou
+        if (SceneConfigurator.Instance != null)
+        {
+            SceneConfigurator.Instance.ultimaPosicaoSalva = posicaoAlvo;
+        }
+
+        // Aguarda um mini instante na posição final para dar efeito de chegada
+        yield return new WaitForSeconds(0.2f);
+
+        // Carrega a cena do destino
+        SceneManager.LoadScene(destino.nomeDaCena);
     }
 
     void SincronizarVisualGPS()
@@ -141,22 +144,13 @@ public class MinimapManager : MonoBehaviour
 
         if (!estaExpandido)
         {
-            // Ícone fica no centro da moldura, mapa desliza atrás
             playerIcon.anchoredPosition = Vector2.zero;
             mapaGrande.anchoredPosition = -posReal;
         }
-        else
+        else if (!estaAnimando)
         {
-            // Ícone vai para onde deve estar no mapa
+            // Só sincroniza automaticamente se não estiver no meio da animação de viagem
             playerIcon.anchoredPosition = posReal;
         }
-    }
-
-    public void SetPlayerPosition(Vector2 novaPos)
-    {
-        if (SceneConfigurator.Instance != null)
-            SceneConfigurator.Instance.ultimaPosicaoSalva = novaPos;
-        
-        SincronizarVisualGPS();
     }
 }

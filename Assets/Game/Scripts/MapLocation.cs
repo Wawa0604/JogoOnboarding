@@ -1,15 +1,14 @@
 using UnityEngine;
 
+[RequireComponent(typeof(RectTransform))]
 public class MapLocation : MonoBehaviour
 {
     [Header("Configuração do Destino")]
     public string nomeDaCena; // O nome exato da cena na Unity
-    public float raioDeAtivacao = 50f; // O tamanho do seu "collider" invisível
 
-    // Para nos ajudar a visualizar o collider no Editor da Unity
-    private void OnDrawGizmosSelected()
+    // Propriedade atalho para pegar o RectTransform do próprio botão
+    public RectTransform RetornarRectTransform()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, raioDeAtivacao);
+        return GetComponent<RectTransform>();
     }
 }

@@ -61,7 +61,7 @@ public class TabsManager : MonoBehaviour
 
     private void HandlePageSelected(TabPage obj)
 {
-    Debug.Log("Tentando selecionar aba: " + obj.identificador);
+    //Debug.Log("Tentando selecionar aba: " + obj.identificador);
     
     var currentTabUIData = data.Find(tabUIData => tabUIData.identificador == obj.identificador);
     
@@ -72,7 +72,7 @@ public class TabsManager : MonoBehaviour
         return;
     }
 
-    Debug.Log("Dados encontrados! UseColor: " + currentTabUIData.useColor + " | Total de cores: " + currentTabUIData.colors.Count);
+    //Debug.Log("Dados encontrados! UseColor: " + currentTabUIData.useColor + " | Total de cores: " + currentTabUIData.colors.Count);
 
     for (int i = 0; i < colorButtons.Count; i++)
     {
@@ -81,12 +81,12 @@ public class TabsManager : MonoBehaviour
         {
             colorButtons[i].gameObject.SetActive(true);
             colorButtons[i].Setup(currentTabUIData.identificador, currentTabUIData.colors[i]);
-            Debug.Log("Botão " + i + " ativado com a cor: " + currentTabUIData.colors[i]);
+           // Debug.Log("Botão " + i + " ativado com a cor: " + currentTabUIData.colors[i]);
         }
         else
         {
             colorButtons[i].gameObject.SetActive(false);
-            Debug.Log("o botão" + i + "foi desativado");
+           // Debug.Log("o botão" + i + "foi desativado");
         }
     }
 }

@@ -9,6 +9,7 @@ public class ItemMissaoUI : MonoBehaviour
     public Toggle checkbox;
     public Image imagemRisco; 
     public float velocidadeRisco = 2.0f;
+    public GameObject check; 
 
     public void Configurar(string descricao, bool estaCompleta)
     {
@@ -29,8 +30,19 @@ public class ItemMissaoUI : MonoBehaviour
 
     public IEnumerator AnimarConclusao()
     {
+        // CORREÇÃO: Encontra o teu gerenciador de botões real que está rodando na cena
+        buttonsManager managerBotoes = FindObjectOfType<buttonsManager>();
+
+        // Se o manager e o painel existirem, abre o painel automaticamente para o jogador ver o risco acontecer
+        if (managerBotoes != null && managerBotoes.painelMissoes != null)
+        {
+            managerBotoes.painelMissoes.SetActive(true);
+        }
+
         checkbox.isOn = true;
         float progresso = 0;
+
+        check.SetActive(true);
 
         // Animação da caneta riscando (preenchimento horizontal)
         while (progresso < 1)
@@ -41,6 +53,12 @@ public class ItemMissaoUI : MonoBehaviour
         }
 
         textoDescricao.alpha = 0.5f;
-        yield return new WaitForSeconds(0.3f); // Pausa curta para o jogador ver o risco
+        yield return new WaitForSeconds(0.3f); // Pausa curta para o jogador ver o risco feito
+
+        // CORREÇÃO: Fecha o painel de missões novamente após o término da animação
+        if (managerBotoes != null && managerBotoes.painelMissoes != null)
+        {
+            managerBotoes.painelMissoes.SetActive(false);
+        }
     }
 }

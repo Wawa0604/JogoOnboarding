@@ -2838,11 +2838,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8977520774050628434}
-  - {fileID: 6262257026079561399}
   - {fileID: 8544635944796156622}
   - {fileID: 2689304007264148556}
   - {fileID: 6687606390664649139}
   - {fileID: 1274026686553155141}
+  - {fileID: 6262257026079561399}
   m_Father: {fileID: 3704880191382052629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5251,10 +5251,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4739940912153023051}
-    - target: {fileID: 634268706966128365, guid: e5e158277e702774c96fae259f47f514, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BotaoTrocarTamanho
-      objectReference: {fileID: 0}
     - target: {fileID: 634268706966128365, guid: e5e158277e702774c96fae259f47f514, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MinimapManager, Assembly-CSharp

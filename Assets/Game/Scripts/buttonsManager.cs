@@ -8,6 +8,59 @@ public class buttonsManager : MonoBehaviour
     public GameObject painelCustomisacao;
     public GameObject painelVideo;
 
+    private const string CHAVE_CONVERSA_NPC = "ConversouNPC_MontarAvatar";
+
+    // Quando o script acorda, ele inscreve-se no evento global de diálogos
+    private void OnEnable()
+    {
+        GameEvents.OnDialogueEnded += VerificarFimDeDialogo;
+    }
+
+    // Se o script for destruído, ele limpa a inscrição para evitar erros de memória
+    private void OnDisable()
+    {
+        GameEvents.OnDialogueEnded -= VerificarFimDeDialogo;
+    }
+
+    /// <summary>
+    /// Esta função roda automaticamente SEMPRE que QUALQUER diálogo do jogo termina.
+    /// </summary>
+    private void VerificarFimDeDialogo(string idDialogo)
+    {
+        // Verificamos se o diálogo que terminou é o do nosso NPC (ID da foto)
+        if (idDialogo == "boasvindas_colaboracao")
+        {
+            RegistrarConversaComNPC();
+        }
+    }
+
+    public void RegistrarConversaComNPC()
+    {
+        PlayerPrefs.SetInt(CHAVE_CONVERSA_NPC, 1);
+        PlayerPrefs.Save();
+        Debug.Log(" Pré-requisito alcançado por Código: O jogador conversou com o NPC de colaboração!");
+    }
+
+    public void DesligaCustomizacao()
+    {
+        painelCustomisacao.SetActive(false);
+
+        int statusConversa = PlayerPrefs.GetInt(CHAVE_CONVERSA_NPC, 0);
+
+        if (statusConversa == 1) 
+        {
+            if (MissionManager.Instance != null)
+            {
+                MissionManager.Instance.ConcluirMissao("montar_avatar");
+                Debug.Log(" Sucesso! Missão 'montar_avatar' concluída porque o evento do NPC foi detetado.");
+            }
+        }
+        else 
+        {
+            Debug.Log(" O painel fechou, mas a missão NÃO foi concluída porque falta falar com o NPC.");
+        }
+    }
+
     void Start()
     {
         painelCustomisacao.SetActive(false);
@@ -36,33 +89,6 @@ public class buttonsManager : MonoBehaviour
         bool atual = painelCustomisacao.activeSelf;
         painelCustomisacao.SetActive(!atual);
     }
-
-    public void DesligaCustomizacao()
-{
-    // 1. Fecha o painel de customização na ecrã (ação normal do botão)
-    painelCustomisacao.SetActive(false);
-
-    // 2. A VERIFICAÇÃO: Lemos o PlayerPrefs para saber o histórico do jogador
-    // Pegamos no valor guardado na chave "ConversouNPC_MontarAvatar".
-    // Se a chave não existir (porque o jogador ainda não falou com o NPC), ele assume o valor padrão: 0.
-    int statusConversa = PlayerPrefs.GetInt("ConversouNPC_MontarAvatar", 0);
-
-    // 3. A TOMADA DE DECISÃO (if):
-    if (statusConversa == 1) 
-    {
-        // SE for igual a 1, significa que o NPC já ativou o gatilho!
-        if (MissionManager.Instance != null)
-        {
-            MissionManager.Instance.ConcluirMissao("montar_avatar");
-            Debug.Log(" Sucesso! Missão 'montar_avatar' concluída porque falaste com o NPC antes.");
-        }
-    }
-    else 
-    {
-        // SE for 0, significa que o jogador tentou fechar o painel sem falar com o NPC.
-        Debug.Log(" O painel fechou, mas a missão NÃO foi concluída porque falta falar com o NPC.");
-    }
-}
 
     public void LigaVideo()
     {

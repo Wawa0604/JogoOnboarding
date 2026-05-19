@@ -157,6 +157,7 @@ MonoBehaviour:
   checkbox: {fileID: 7250845145028381885}
   imagemRisco: {fileID: 1480891661992915845}
   velocidadeRisco: 2
+  check: {fileID: 8579911062605738399}
 --- !u!1 &7270735307854822315
 GameObject:
   m_ObjectHideFlags: 0
