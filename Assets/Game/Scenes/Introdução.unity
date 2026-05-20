@@ -859,11 +859,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3704880191382052629, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
   m_PrefabInstance: {fileID: 4036639361728310228}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &752394563 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3552216116719663490, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
-  m_PrefabInstance: {fileID: 4036639361728310228}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &844144852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,22 +1799,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 213703734514831568, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1291.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 213703734514831568, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 726.5371
-      objectReference: {fileID: 0}
-    - target: {fileID: 213703734514831568, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.010651
-      objectReference: {fileID: 0}
-    - target: {fileID: 213703734514831568, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.0013427734
-      objectReference: {fileID: 0}
     - target: {fileID: 261400598159060702, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1866,6 +1845,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 352152044501055418, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 601550500067675943, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 672339158247968944, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
@@ -3272,10 +3255,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7296358957218059048, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
-      propertyPath: painelVideo
-      value: 
-      objectReference: {fileID: 752394563}
     - target: {fileID: 7386252226001159125, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

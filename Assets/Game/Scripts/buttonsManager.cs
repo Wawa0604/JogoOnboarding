@@ -7,6 +7,7 @@ public class buttonsManager : MonoBehaviour
     public GameObject painelConfig;
     public GameObject painelCustomisacao;
     public GameObject painelVideo;
+    public GameObject painelTutorial;
     //botoes que ficam invisiveis quando liga o painel de video
     public GameObject botaoMissao;
     public GameObject botaoMapa;
@@ -105,5 +106,10 @@ public class buttonsManager : MonoBehaviour
         painelVideo.SetActive(false);
         botaoMissao.SetActive(true);
         botaoMapa.SetActive(true);
+    }
+
+    public void DesligaTutorial()
+    {
+        painelTutorial.SetActive(false);
     }
 }
