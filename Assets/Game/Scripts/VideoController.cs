@@ -18,6 +18,7 @@ public class VideoController : MonoBehaviour
     [Header("Botões de Fim de Vídeo")]
     [SerializeField] private GameObject botaoReassistir;
     [SerializeField] private GameObject botaoTerminar;
+    [SerializeField] private GameObject botaoPlay;
 
     private void OnEnable()
     {
@@ -86,6 +87,7 @@ public class VideoController : MonoBehaviour
     {
         if (botaoReassistir != null) botaoReassistir.SetActive(true);
         if (botaoTerminar != null) botaoTerminar.SetActive(true);
+        if (botaoPlay != null) botaoPlay.SetActive(false);
         
         AlterarSpriteDoBotao(spritePlay); // Reseta o ícone para Play quando acaba
         
@@ -110,6 +112,7 @@ public class VideoController : MonoBehaviour
     {
         if (botaoReassistir != null) botaoReassistir.SetActive(false);
         if (botaoTerminar != null) botaoTerminar.SetActive(false);
+        if (botaoPlay != null) botaoPlay.SetActive(true);
     }
 
     // MÈTODO AUXILIAR: Troca o sprite do botão de forma segura

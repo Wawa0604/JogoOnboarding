@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddec53c22d651e46b0c3ef31d3f295e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  dialogueController: {fileID: 0}
+  dialogueController: {fileID: 8138736043504429810}
 --- !u!114 &1644307562984220571
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -60,7 +60,7 @@ public class DialogueController : MonoBehaviour
         if (ui == null || sequence == null) return;
         
         DialogueLine line = sequence.lines[index];
-        ui.SetDialogue(line.characterName, line.text);
+        ui.SetDialogue(line.characterName, line.text, sequence.iconeAvatar);
 
         bool hasPrevious = index > 0; 
         bool hasNext = true;         

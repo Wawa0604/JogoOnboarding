@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Intro_Presidente
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
   id: boasvindas_presidente
+  iconeAvatar: {fileID: 21300000, guid: 22763f35c0cee0447bbd8e7351864444, type: 3}
   lines:
   - characterName: Tuca
     text: "\u201CMuito bem-vindo(a)! Estamos muito felizes em ter voc\xEA conosco.\n\nGostaria

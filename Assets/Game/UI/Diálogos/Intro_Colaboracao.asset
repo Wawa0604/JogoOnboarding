@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Intro_Colaboracao
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
   id: boasvindas_colaboracao
+  iconeAvatar: {fileID: 21300000, guid: 91d618bb71f9d424191d04cda64ca9fc, type: 3}
   lines:
   - characterName: "Colabora\xE7\xE3o"
     text: "\u201CSeja muito bem-vindo(a) ao seu onboarding no CPQD!\L Preparamos

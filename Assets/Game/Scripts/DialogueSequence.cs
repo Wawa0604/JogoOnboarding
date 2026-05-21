@@ -16,6 +16,9 @@ public class DialogueSequence : ScriptableObject
     [Tooltip("ID único para o rádio. Ex: intro_npc, tutorial_avatar")]
     public string id; 
 
+    [Header("Foto")]
+    public Sprite iconeAvatar;
+
     [Header("Conteúdo")]
     public DialogueLine[] lines;
 
