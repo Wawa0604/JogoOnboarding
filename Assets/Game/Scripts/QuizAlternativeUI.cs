@@ -32,7 +32,7 @@ public class QuizAlternativeUI : MonoBehaviour
         if (campoImagem != null)
         {
             campoImagem.sprite = alternativa.spriteAlternativa;
-            campoImagem.gameObject.SetActive(alternativa.spriteAlternativa != null);
+           // campoImagem.gameObject.SetActive(alternativa.spriteAlternativa != null);
         }
 
         if (campoJustificativa != null)

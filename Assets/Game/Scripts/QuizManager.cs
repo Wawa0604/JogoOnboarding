@@ -98,7 +98,9 @@ public class QuizManager : MonoBehaviour
             GameObject go = Instantiate(prefabBotaoAlternativa, containerAlternativas);
             
             // Ela força o clone a ligar na marra, independente de onde veio o prefab
-            go.SetActive(true);
+           // go.SetActive(true);
+
+            //Debug.Log($"[DETETIVE] Botão: {go.name} | Local Ativo (Caixinha): {go.activeSelf} | Ativo na Cena: {go.activeInHierarchy}");
 
             QuizAlternativeUI scriptAlt = go.GetComponent<QuizAlternativeUI>();
             
