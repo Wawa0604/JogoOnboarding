@@ -17,7 +17,6 @@ public class DialogueController : MonoBehaviour
         sequence = newSequence;
         index = 0;
 
-        // Ativa o painel físico da cena diretamente
         if (painelDeDialogoManual != null)
         {
             painelDeDialogoManual.SetActive(true);
@@ -85,10 +84,16 @@ public class DialogueController : MonoBehaviour
             // Evento customizado do Inspector
             sequence.OnSequenceComplete?.Invoke();
 
-            // Comunicação direta com a única instância global sobrevivente
+            // Sistema de Missões (Ainda usa Singleton por ser um gerenciador global persistente)
             if (sequence.missaoParaConcluir != null && MissionManager.Instance != null)
             {
                 MissionManager.Instance.ConcluirMissao(sequence.missaoParaConcluir.id);
+            }
+
+            // CORREÇÃO: Transmite o quiz pelo rádio em vez de caçar o Singleton na marra
+            if (sequence.quizParaIniciar != null)
+            {
+                GameEvents.OnQuizRequested?.Invoke(sequence.quizParaIniciar);
             }
         }
     }

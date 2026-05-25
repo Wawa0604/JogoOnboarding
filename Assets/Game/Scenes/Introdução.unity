@@ -816,8 +816,8 @@ GameObject:
   m_Component:
   - component: {fileID: 575388568}
   - component: {fileID: 575388567}
-  - component: {fileID: 575388570}
   - component: {fileID: 575388571}
+  - component: {fileID: 575388572}
   m_Layer: 0
   m_Name: Npc1
   m_TagString: Untagged
@@ -899,52 +899,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -12.412, y: 0, z: 0}
---- !u!61 &575388570
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 575388566}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.57, y: 4.28}
-    newSize: {x: 2.57, y: 4.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 2.57, y: 4.28}
-  m_EdgeRadius: 0
 --- !u!114 &575388571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -959,6 +913,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteractive
   dialogoParaDisparar: {fileID: 11400000, guid: 4ff22386dbe7cc745a9620b79a7a5244, type: 2}
   seta: {fileID: 1839004353}
+--- !u!65 &575388572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575388566}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.57, y: 4.28, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!224 &590213005 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3704880191382052629, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
@@ -3127,6 +3102,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5194108252550260357, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5209400042306360352, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3629,6 +3608,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436847881451487438, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581479119198813058, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7594156368295419561, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}

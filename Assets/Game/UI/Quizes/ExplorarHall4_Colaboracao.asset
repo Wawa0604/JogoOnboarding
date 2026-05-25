@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686406a89e255bf43b50dbe1021b76ec, type: 3}
+  m_Name: ExplorarHall4_Colaboracao
+  m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
+  id: "Hall_Colabora\xE7\xE3o"
+  perguntas:
+  - textoPergunta: "Aqui no pr\xE9dio 4, posso conseguir aux\xEDlio com o TI?"
+    alternativas:
+    - textoAlternativa: "Sim, sem hora marcada, s\xF3 aparecer. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: " Justificativa: O time atende presencialmente, mas precisa
+        de agendamento pr\xE9vio pelo Jira ou email do helpdesk.\r\n"
+    - textoAlternativa: "N\xE3o, s\xF3 fazemos aconselhamentos de forma digital."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 'Justificativa: com hora marcada, o TI atende presencialmente.'
+    - textoAlternativa: "Sim, basta mandar um Jira ou email helpdesk para um hor\xE1rio."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    - textoAlternativa: "Pode tamb\xE9m resolver de forma remota atrav\xE9s de um
+        chamado no Jira ou no email do helpdesk."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+  - textoPergunta: "Qual o funcionamento das salas de reuni\xE3o outback?"
+    alternativas:
+    - textoAlternativa: "Elas s\xE3o restritas para reuni\xF5es dos colaboradores
+        do pr\xE9dio 4."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 'Justificativa: Qualquer colaborador pode usar, basta reservar
+        a sala pelo ______.
+
+'
+    - textoAlternativa: "Se eu come\xE7ar a usar uma sem hora marcada, quem chegar
+        depois com reserva precisa esperar. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 'Justificativa: quem tem hora marcada tem prioridade.
+
+'
+    - textoAlternativa: "Posso chegar e usar uma sala se ela n\xE3o estiver sendo
+        usada e nem tiver reservas."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 

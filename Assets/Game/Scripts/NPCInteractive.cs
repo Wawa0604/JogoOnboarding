@@ -20,13 +20,23 @@ public class NPCInteractive : MonoBehaviour
 
     private void DetectarAlvo()
     {
+        // 1. Pega a posição do mouse na tela
         Vector2 mousePosition = Mouse.current.position.ReadValue();
+        
+        // 2. Cria um raio da câmera em direção ao mundo 3D
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-        RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+        
+        // 3. Estrutura que vai guardar as informações do que o raio atingir
+        RaycastHit hit;
 
-        if (hit.collider != null && hit.collider.gameObject == gameObject)
+        // 4. Dispara o Raycast usando a física 3D
+        if (Physics.Raycast(ray, out hit))
         {
-            Interact();
+            // Verifica se o colisor atingido pertence a ESTE NPC
+            if (hit.collider != null && hit.collider.gameObject == gameObject)
+            {
+                Interact();
+            }
         }
     }
 
@@ -34,7 +44,6 @@ public class NPCInteractive : MonoBehaviour
     {
         if (seta != null) seta.SetActive(false);
 
-        // Chama o manager configurado localmente na cena atual
         if (DialogueManager.Instance != null)
         {
             DialogueManager.Instance.IniciarConversa(dialogoParaDisparar);

@@ -15,6 +15,7 @@ public class PlayerCameraRotation : MonoBehaviour
     private PlayerControls _inputActions;
     private Vector2 _rotationInput;
     private float _verticalRotation = 0f;
+    private float _initialCameraY = 0f; // GUARDA O Y INICIAL DA CÂMERA
     private bool _isRightClicking = false;
 
     void Awake()
@@ -26,6 +27,19 @@ public class PlayerCameraRotation : MonoBehaviour
 
         _inputActions.Player.RightClick.performed += ctx => _isRightClicking = true;
         _inputActions.Player.RightClick.canceled += ctx => _isRightClicking = false;
+    }
+
+    void Start()
+    {
+        if (playerCamera != null)
+        {
+            // 1. Pega a rotação X inicial (vertical) e corrige o padrão 0-360 da Unity
+            _verticalRotation = playerCamera.localEulerAngles.x;
+            if (_verticalRotation > 180f) _verticalRotation -= 360f;
+
+            // 2. Pega a rotação Y inicial que você configurou na cena
+            _initialCameraY = playerCamera.localEulerAngles.y;
+        }
     }
 
     void OnEnable() => _inputActions.Enable();
@@ -61,13 +75,14 @@ public class PlayerCameraRotation : MonoBehaviour
             lookY = _rotationInput.y * keyboardRotationSpeed * Time.deltaTime;
         }
 
-        // Aplicar a rotação Horizontal (No corpo do Player)
+        // Aplicar a rotação Horizontal (No corpo do Player) - Usa Rotate(), que já é aditivo
         transform.Rotate(Vector3.up * lookX);
 
         // Aplicar a rotação Vertical (Na Câmera)
         _verticalRotation -= lookY;
         _verticalRotation = Mathf.Clamp(_verticalRotation, maxDownAngle, maxUpAngle);
 
-        playerCamera.localRotation = Quaternion.Euler(_verticalRotation, 0f, 0f);
+        // MODIFICADO: Agora passamos o _initialCameraY em vez de 0f
+        playerCamera.localRotation = Quaternion.Euler(_verticalRotation, _initialCameraY, 0f);
     }
 }

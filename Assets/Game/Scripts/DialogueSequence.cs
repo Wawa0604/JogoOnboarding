@@ -29,4 +29,7 @@ public class DialogueSequence : ScriptableObject
     [Header("Eventos Extras")]
     [Tooltip("Use para ligar setas ou disparar lógicas customizadas.")]
     public UnityEvent OnSequenceComplete; 
+
+   [Tooltip("Arraste aqui o arquivo de Quiz que deve iniciar após esse diálogo.")]
+    public QuizSequence quizParaIniciar; // <--- O SEGREDO ESTÁ AQUI (Asset chamando Asset)
 }

@@ -9,5 +9,8 @@ public static class GameEvents
 
     // Evento para Missões (passa o ID da missão)
     public static Action<string> OnMissionCompleted;
+
+    // evento para quizzes
+    public static System.Action<QuizSequence> OnQuizRequested;
 }
 
