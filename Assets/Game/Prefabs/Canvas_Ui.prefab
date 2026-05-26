@@ -1070,7 +1070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000030500814, y: 0}
+  m_AnchoredPosition: {x: -0.000030500814, y: -141}
   m_SizeDelta: {x: 1291.6, y: 726.54004}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &7727663829041824168
@@ -2040,7 +2040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 21.270874}
+  m_AnchoredPosition: {x: 0, y: 157}
   m_SizeDelta: {x: 134.8872, y: 42.5418}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3975767947836728620
@@ -2691,7 +2691,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 701960610703172556}
-  - {fileID: 8115075889509032852}
   m_Father: {fileID: 7329048218918540437}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2802,9 +2801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sair
-
-'
+  m_text: Salvar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3238,7 +3235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4160,6 +4157,7 @@ RectTransform:
   - {fileID: 6262257026079561399}
   - {fileID: 8544635944796156622}
   - {fileID: 3556595868088462425}
+  - {fileID: 8115075889509032852}
   - {fileID: 1274026686553155141}
   - {fileID: 7027999072696341359}
   - {fileID: 7247612191317465457}
@@ -4496,7 +4494,7 @@ GameObject:
   - component: {fileID: 6808060985835668901}
   - component: {fileID: 6458230191359655879}
   m_Layer: 5
-  m_Name: fimDeJogo
+  m_Name: fimDeJogo_quiz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4509,14 +4507,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4591657204119556032}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3853185752744205349}
   - {fileID: 2845946446665204625}
-  m_Father: {fileID: 3556595868088462425}
+  m_Father: {fileID: 7329048218918540437}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6047,8 +6045,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -146.8087, y: 266.09}
-  m_SizeDelta: {x: 796.3826, y: 63.824}
+  m_AnchoredPosition: {x: 35.0062, y: 266.09}
+  m_SizeDelta: {x: 1160.0127, y: 63.824}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4818270957580045681
 CanvasRenderer:
@@ -6184,11 +6182,11 @@ RectTransform:
   - {fileID: 5350002820780611930}
   m_Father: {fileID: 8544635944796156622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -695.7819, y: 378.45}
-  m_SizeDelta: {x: 82.3362, y: 72.156}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 308, y: 176}
+  m_SizeDelta: {x: 127.1249, y: 72.156}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &6324808836025815567
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6210,7 +6208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.515906, g: 0.93962264, b: 0.6738185, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6384,7 +6382,7 @@ GameObject:
   - component: {fileID: 1125100760871927264}
   - component: {fileID: 2898981001893888622}
   m_Layer: 5
-  m_Name: Novamente
+  m_Name: TextMeshPro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6437,7 +6435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Novamente
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6520,6 +6518,7 @@ GameObject:
   - component: {fileID: 8553370822574557715}
   - component: {fileID: 6960234136824665055}
   - component: {fileID: 7298284748640257575}
+  - component: {fileID: 2551618526518850102}
   m_Layer: 5
   m_Name: Alternativas
   m_TagString: Untagged
@@ -6584,6 +6583,30 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2551618526518850102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7845663950953719210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
+  m_Padding:
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 400, y: 150}
+  m_Spacing: {x: 10, y: 100}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &7862194212228442433
 GameObject:
   m_ObjectHideFlags: 0

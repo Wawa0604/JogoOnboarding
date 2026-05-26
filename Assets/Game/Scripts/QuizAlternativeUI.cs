@@ -60,8 +60,14 @@ public class QuizAlternativeUI : MonoBehaviour
     private void AtualizarVisualSelecao()
     {
         ColorBlock cb = botao.colors;
-        // Se selecionado, fica azulzinho/ciano, se não, fica branco normal
-        cb.normalColor = IsSelected ? new Color(0.2f, 0.6f, 1f) : Color.white;
+
+        // define a cor base: azul se marcado, branco se desmarcado
+        Color corAlvo = IsSelected ? new Color(0.2f, 0.6f, 1f) : Color.white;
+
+        // Aplicamos a cor para todos os estados de repouso/foco do botão
+        cb.normalColor = corAlvo;
+        cb.selectedColor = corAlvo;
+        cb.highlightedColor = corAlvo;
         botao.colors = cb;
     }
 

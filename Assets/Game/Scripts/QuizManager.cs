@@ -161,6 +161,9 @@ public class QuizManager : MonoBehaviour
     private void AvançarParaProxima()
     {
         indicePerguntaAtual++;
+        
+        // LOG DETETIVE 1: Vendo se o contador está subindo corretamente
+        Debug.Log($"[FIM DE JOGO] Avançando. Índice Atual: {indicePerguntaAtual} | Total de Perguntas: {quizAtual.perguntas.Length}");
 
         if (indicePerguntaAtual < quizAtual.perguntas.Length)
         {
@@ -168,19 +171,48 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
+            // LOG DETETIVE 2: Entrou na condição de término?
+            Debug.Log("[FIM DE JOGO] Todas as perguntas foram respondidas! Chamando FinalizarRodada().");
             FinalizarRodada();
         }
     }
 
     private void FinalizarRodada()
     {
-        painelQuiz.SetActive(false);
-        painelFimDeJogo.SetActive(true);
+        Debug.Log("[FIM DE JOGO] Iniciou a execução do método FinalizarRodada().");
 
-        botaoIrNovamente.SetActive(true);
-        botaoFechar.SetActive(!errouAlguma); 
+        if (painelQuiz != null) painelQuiz.SetActive(false);
+        
+        // VALIDAÇÃO CRÍTICA: O painel existe no Inspector?
+        if (painelFimDeJogo != null)
+        {
+            painelFimDeJogo.SetActive(true);
+            Debug.Log("[FIM DE JOGO] Comando painelFimDeJogo.SetActive(true) executado com sucesso!");
+        }
+        else
+        {
+            Debug.LogError("[FIM DE JOGO] ERRO CRÍTICO: O slot 'Painel Fim De Jogo' está VAZIO no seu QuizManager no Inspector!");
+        }
+
+        // Proteções contra falta de atribuição dos botões finais
+        if (botaoIrNovamente != null) 
+        {
+            botaoIrNovamente.SetActive(true);
+        }
+        else 
+        {
+            Debug.LogWarning("[FIM DE JOGO] Aviso: O slot 'Botao Ir Novamente' está vazio.");
+        }
+
+        if (botaoFechar != null) 
+        {
+            botaoFechar.SetActive(!errouAlguma);
+        }
+        else 
+        {
+            Debug.LogWarning("[FIM DE JOGO] Aviso: O slot 'Botao Fechar' está vazio.");
+        }
     }
-
     public void ReiniciarQuiz() => IniciarQuiz(quizAtual);
     public void FecharQuiz() => painelFimDeJogo.SetActive(false);
 }

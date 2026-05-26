@@ -1842,6 +1842,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1041746193}
+  - component: {fileID: 1041746194}
   m_Layer: 0
   m_Name: ------managers e UI -------
   m_TagString: Untagged
@@ -1870,6 +1871,19 @@ Transform:
   - {fileID: 22578277}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1041746194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041746192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bdb0ce65da708046bb06c3cc1e9e91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  videoPainel: {fileID: 0}
 --- !u!1001 &1079642171
 PrefabInstance:
   m_ObjectHideFlags: 0
