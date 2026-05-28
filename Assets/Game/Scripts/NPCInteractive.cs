@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems; // precisa para parar os clicks que passam a ui
 
 public class NPCInteractive : MonoBehaviour
 {
@@ -20,19 +21,18 @@ public class NPCInteractive : MonoBehaviour
 
     private void DetectarAlvo()
     {
-        // 1. Pega a posição do mouse na tela
+        // SE O MOUSE ESTIVER EM CIMA DE QUALQUER ELEMENTO DE UI, CANCELA O CLIQUE NO NPC
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        {
+            return; 
+        }
+
         Vector2 mousePosition = Mouse.current.position.ReadValue();
-        
-        // 2. Cria um raio da câmera em direção ao mundo 3D
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-        
-        // 3. Estrutura que vai guardar as informações do que o raio atingir
         RaycastHit hit;
 
-        // 4. Dispara o Raycast usando a física 3D
         if (Physics.Raycast(ray, out hit))
         {
-            // Verifica se o colisor atingido pertence a ESTE NPC
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
                 Interact();
