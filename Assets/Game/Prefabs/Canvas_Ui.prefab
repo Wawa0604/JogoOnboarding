@@ -4421,7 +4421,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1011411961686535774}
-  - component: {fileID: 6321071151061064532}
   m_Layer: 0
   m_Name: Avatar
   m_TagString: Untagged
@@ -4451,40 +4450,6 @@ Transform:
   - {fileID: 175648779644401519}
   m_Father: {fileID: 8544635944796156622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6321071151061064532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3913716396739727948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9c313aba50d9d74391c39469ca322e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AvatarController
-  bodyPartGroups:
-  - tabIdentifier: Body
-    parentObject: {fileID: 6113635930720481971}
-    dependeDoCorpo: 0
-  - tabIdentifier: Hair
-    parentObject: {fileID: 5629666976165593796}
-    dependeDoCorpo: 0
-  - tabIdentifier: Shoes
-    parentObject: {fileID: 8731253360140650810}
-    dependeDoCorpo: 0
-  - tabIdentifier: Pants
-    parentObject: {fileID: 1643647936271885676}
-    dependeDoCorpo: 1
-  - tabIdentifier: Shirt
-    parentObject: {fileID: 2837149701824847037}
-    dependeDoCorpo: 1
-  - tabIdentifier: Face
-    parentObject: {fileID: 8703916330121793796}
-    dependeDoCorpo: 0
-  - tabIdentifier: Bangs
-    parentObject: {fileID: 175648779644401519}
-    dependeDoCorpo: 0
 --- !u!1 &4081066091069731262
 GameObject:
   m_ObjectHideFlags: 0
