@@ -83,6 +83,7 @@ public class TabController : MonoBehaviour
         SlotItemData slotItemData;// por isso pegamos a referencia aqui do struct
         slotItemData.sprite = tabSlot.Sprite; // atualiza a variavel sprite que recebe o sprite dentro de slot selecionado
         slotItemData.tabIdentifier = selectedTabePageUI.TabPage.identificador;
+        slotItemData.itemIndex = tabSlots.IndexOf(tabSlot);// encontra o índice do slot clicado na lista de slots ativos
         OnSlotButtonSelected?.Invoke(slotItemData);// espera o struct
     }
 
@@ -168,9 +169,9 @@ public class TabController : MonoBehaviour
 // podemos alterar os dados diretamente na instancia da struct
 // indicadas para representar dados simple como esses
 public struct SlotItemData
-
 {
     public string tabIdentifier;
     public Sprite sprite;
+    public int itemIndex; //Adicionado para saber a posição do item
 }
 

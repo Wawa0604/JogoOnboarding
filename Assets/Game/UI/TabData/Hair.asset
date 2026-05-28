@@ -15,6 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: f260a27839cd2be4bbc63a54482f45a4, type: 3}
   identificador: Hair
   sprites:
+  - {fileID: 0}
   - {fileID: 21300000, guid: 36e333223c968704f9f97ec29d1c862f, type: 3}
   - {fileID: 21300000, guid: d906844cf1e14c34aa60b520db2b9bbd, type: 3}
   - {fileID: 21300000, guid: 27104a24228ac9247a4c2357afacd056, type: 3}

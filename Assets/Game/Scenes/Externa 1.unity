@@ -1883,7 +1883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bdb0ce65da708046bb06c3cc1e9e91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  videoPainel: {fileID: 0}
+  videoPainel: {fileID: 249421429}
 --- !u!1001 &1079642171
 PrefabInstance:
   m_ObjectHideFlags: 0
