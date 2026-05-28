@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0e7d499db71a24ca9347d7d2354a3c, type: 3}
+  m_Name: LicencasDeSoftware_OrientacaoAoCliente
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  id: LicencasDeSoftware_OrientacaoAoCliente
+  iconeAvatar: {fileID: 21300000, guid: 4773a519812edad4dbac3536ff29a188, type: 3}
+  lines:
+  - characterName: "Orienta\xE7\xE3o ao Cliente"
+    text: "\u201COl\xE1! Eu sou a Orienta\xE7\xE3o ao Cliente. N\xF3s, como empresa,
+      prezamos pela nossa imagem e como o mercado nos percebe. E para manter essa
+      reputa\xE7\xE3o incr\xEDvel que constru\xEDmos ao longo de d\xE9cadas, a integridade
+      \xE9 fundamental \u2014 inclusive na forma como lidamos com as nossas ferramentas
+      de trabalho!\u201D"
+  - characterName: "Orienta\xE7\xE3o ao Cliente"
+    text: "\"Quando adquirimos um software, recebemos apenas uma licen\xE7a de uso,
+      que possui valor de contrato legal. Utilizar programas fora dessas condi\xE7\xF5es
+      ou instalar programas crackeados caracteriza o crime de pirataria de software!
+      As Leis de Software (9609/98) e de Direito Autoral (9610/98) preveem multas
+      pesadas de at\xE9 3000 vezes o valor do programa e at\xE9 4 anos de pris\xE3o
+      para os envolvidos.\""
+  - characterName: "Orienta\xE7\xE3o ao Cliente"
+    text: "\u201CPor isso, aqui no CPQD, n\xE3o toleramos a pirataria. Programas
+      piratas podem trazer malwares violentos embutidos e o uso deles destr\xF3i
+      a nossa imagem de mercado, al\xE9m de impactar negativamente a carreira do
+      pr\xF3prio profissional.\u201D"
+  - characterName: "Orienta\xE7\xE3o ao Cliente"
+    text: "\u201CPrecisa de um programa para trabalhar? \xC9 super simples resolver
+      isso com total seguran\xE7a! Consulte a lista homologada no Confluence pesquisando
+      por 'padr\xF5es de recursos de TIC' ou direto pelo link: go.cpqd.com.br/padraosw.\u201D"
+  - characterName: "Orienta\xE7\xE3o ao Cliente"
+    text: "\u201CSe voc\xEA utiliza o sistema Windows, basta abrir um chamado no
+      Helpdesk para a libera\xE7\xE3o do perfil administrativo de instala\xE7\xE3o.
+      Se utiliza Linux, pode instalar direto, desde que o software esteja no reposit\xF3rio
+      oficial da sua distribui\xE7\xE3o e n\xE3o exija acesso de superusu\xE1rio.\u201D"
+  - characterName: "Orienta\xE7\xE3o ao Cliente"
+    text: "\u201CS\xF3 lembrando: licen\xE7as de uso pessoal n\xE3o s\xE3o permitidas
+      nos nossos computadores corporativos, e qualquer instala\xE7\xE3o fora da lista
+      de homologados deve ser validada previamente pela TI, combinado?\u201D"
+  missaoParaConcluir: {fileID: 0}
+  OnSequenceComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  quizParaIniciar: {fileID: 0}

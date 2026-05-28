@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ExplorarHall4_Colaboracao
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
   id: ExplorarHall4_Colaboracao
-  iconeAvatar: {fileID: 21300000, guid: 91d618bb71f9d424191d04cda64ca9fc, type: 3}
+  iconeAvatar: {fileID: 21300000, guid: 48a831e952638f34d871cc6372d04656, type: 3}
   lines:
   - characterName: "Colabora\xE7\xE3o"
     text: "\u201COlha s\xF3! Voc\xEA encontrou o pr\xE9dio 4! Aqui fica o atendimento

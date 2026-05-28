@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0e7d499db71a24ca9347d7d2354a3c, type: 3}
+  m_Name: ArmazenamentoEportaUSB_Confianca
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  id: ArmazenamentoEportaUSB_Confianca
+  iconeAvatar: {fileID: 21300000, guid: 4423566198bb37f41bea6732751efc45, type: 3}
+  lines:
+  - characterName: "Confian\xE7a"
+    text: "\u201CEu, a Confian\xE7a, tenho como valor o Profissionalismo, e acredito
+      na capacidade dos colaboradores em realizar seu trabalho de maneira plaus\xEDvel
+      e competente. Por isso, confiamos na responsabilidade de cada um de  manter
+      o computador de uso pessoal seguro e funcionando. Apesar dos dispositivos do
+      CPQD, geridos pela TI,  j\xE1 virem com uma configura\xE7\xE3o padr\xE3o de
+      seguran\xE7a, algumas pr\xE1ticas s\xE3o esperadas no dia a dia.\u201D"
+  - characterName: "Confian\xE7a"
+    text: "\u201CAqui, n\xF3s adotamos o sistema do Google Workspace, e assim a nossa
+      pol\xEDtica \xE9 de armazenar tudo em nuvem! Ou seja, no Google Drive, e por
+      isso a TI n\xE3o realiza backups dos discos r\xEDgidos. Se em algum caso especial
+      voc\xEA n\xE3o puder usar a nuvem, lembre-se de usar criptografia e fazer suas
+      pr\xF3prias c\xF3pias de seguran\xE7a.\u201D"
+  - characterName: "Confian\xE7a"
+    text: "\u201CComo notebooks s\xE3o f\xE1ceis de transportar, eles tamb\xE9m correm
+      riscos f\xEDsicos. Para evitar furtos ou roubos, o CPQD disponibiliza cabos
+      met\xE1licos de seguran\xE7a; basta solicitar o seu com a equipe da TI e mant\xEA-lo
+      conectado! Evite tamb\xE9m quedas, derramamentos de l\xEDquidos e exposi\xE7\xE3o
+      ao calor.\u201D"
+  - characterName: "Confian\xE7a"
+    text: "\u201COutro ponto de aten\xE7\xE3o s\xE3o as portas USB: o uso indiscriminado
+      delas pode executar malwares. Verifique nas configura\xE7\xF5es do Windows
+      se a op\xE7\xE3o de 'reprodu\xE7\xE3o autom\xE1tica de arquivos execut\xE1veis'
+      est\xE1 desativada para dificultar infec\xE7\xF5es.\u201D"
+  - characterName: "Confian\xE7a"
+    text: "\u201CN\xE3o se esque\xE7a de bloquear a tela sempre que se afastar do
+      posto de trabalho, seja presencial ou em home office, usando o atalho Windows
+      + L (a tecla Windows fica na parte de baixo do teclado, \xE0 esquerda da barra
+      de espa\xE7o, ao lado da tecla Alt). Isso evita acessos acidentais ou maliciosos.\u201D"
+  - characterName: "Confian\xE7a"
+    text: "\u201CAh, e o seu antiv\xEDrus Trend Micro Apex One j\xE1 vem ativo na
+      barra de status! Por fim, permita que as atualiza\xE7\xF5es de sistema (os
+      Patches) rodem automaticamente. O CPQD configura para que aconte\xE7am fora
+      do seu hor\xE1rio de trabalho, muitas vezes antes de desligar o equipamento.
+      N\xE3o desligue a m\xE1quina antes delas terminarem! E lembre-se de checar
+      o navegador Google constantemente, pois ele e alguns aplicativos n\xE3o atualizam
+      sozinhos.\u201D"
+  missaoParaConcluir: {fileID: 0}
+  OnSequenceComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  quizParaIniciar: {fileID: 0}
