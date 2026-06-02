@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0e7d499db71a24ca9347d7d2354a3c, type: 3}
+  m_Name: PoliticaSenhas_OrientacaoAoCliente
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  id: PoliticaSenhas_OrientacaoAoCliente
+  iconeAvatar: {fileID: 21300000, guid: 4773a519812edad4dbac3536ff29a188, type: 3}
+  lines:
+  - characterName: "Orienta\xE7\xE3o Ao Cliente"
+    text: "\u201COl\xE1! Como o valor Orienta\xE7\xE3o ao Cliente prezamos pela aten\xE7\xE3o
+      aos detalhes nas nossas solu\xE7\xF5es para obtermos qualidade de ponta. Quando
+      falamos da nossa primeira linha de defesa, as senhas, essa aten\xE7\xE3o \xE9
+      imprescind\xEDvel. "
+  - characterName: "Orienta\xE7\xE3o Ao Cliente"
+    text: "\u201CMuitas vezes, pela conveni\xEAncia, cometemos o erro de criar senhas
+      fracas, repeti-las em v\xE1rios sites ou anot\xE1-las em pap\xE9is ao lado
+      da tela. Isso \xE9 um prato cheio para criminosos realizarem fraudes em seu
+      nome e prejudicarem a privacidade e a reputa\xE7\xE3o da nossa organiza\xE7\xE3o!\u201D"
+  - characterName: "Orienta\xE7\xE3o Ao Cliente"
+    text: "\u201CNo CPQD, temos regras claras que todos devem seguir: as senhas s\xE3o
+      pessoais, intransfer\xEDveis e possuem validade de 3 meses. O sistema avisa
+      com 10 dias de anteced\xEAncia para voc\xEA alter\xE1-la. Se esquecer e errar
+      a senha 10 vezes, sua conta ser\xE1 bloqueada! Na hora de criar, sua senha
+      precisa ter: no m\xEDnimo 10 caracteres, misturando letras mai\xFAsculas, min\xFAsculas,
+      n\xFAmeros e caracteres especiais.\""
+  - characterName: "Orienta\xE7\xE3o Ao Cliente"
+    text: "\"Aten\xE7\xE3o: n\xE3o use palavras comuns, g\xEDrias, nomes de pessoas,
+      sobrenomes, nomes de pets, personagens de fic\xE7\xE3o, datas de anivers\xE1rio
+      ou documentos como CPF e RG. Para te ajudar, uma \xF3tima pr\xE1tica \xE9 usar
+      as iniciais de uma frase ou m\xFAsica que voc\xEA goste, como 'Olha que coisa
+      mais linda, mais cheia de gra\xE7a' e a senha fica: OqcM1+mcdg!.\u201D"
+  - characterName: "Orienta\xE7\xE3o Ao Cliente"
+    text: "\u201CAl\xE9m disso, ative sempre o MFA (Autentica\xE7\xE3o de M\xFAltiplo
+      Fator) para adicionar uma camada extra de prote\xE7\xE3o via c\xF3digo enviado
+      por SMS, e-mail ou telefone. Nunca use a op\xE7\xE3o de 'lembrar senhas' dos
+      navegadores, n\xE3o envie credenciais por e-mail ou telefone e nunca use seu
+      usu\xE1rio corporativo em servi\xE7os externos da internet.\u201D"
+  - characterName: "Orienta\xE7\xE3o Ao Cliente"
+    text: "\u201CPara gerenciar tudo isso, o CPQD disponibiliza corporativamente
+      o cofre de senhas Vault (acess\xEDvel via VPN no link vault.cpqd.com.br). Para
+      senhas pessoais de uso cotidiano, a empresa aceita gerenciadores como Bitwarden,
+      LastPass e 1Password. Caso voc\xEA lide com senhas de clientes, o cuidado \xE9
+      redobrado: o coordenador do projeto deve ter controle estrito do acesso, garantindo
+      que apenas um colaborador acesse aquela conta.\u201D"
+  - characterName: "Orienta\xE7\xE3o Ao Cliente"
+    text: "\u201CSitua\xE7\xF5es especiais com clientes devem ser submetidas \xE0
+      gest\xE3o, informadas ao cliente e enviadas por e-mail para o gestor do produto
+      com c\xF3pia para o DPO no endere\xE7o dpo@cpqd.com.br. Se suspeitar que sua
+      senha foi comprometida, informe imediatamente a DGTIC pelos canais do Helpdesk
+      e aguarde as instru\xE7\xF5es!\u201D"
+  missaoParaConcluir: {fileID: 0}
+  OnSequenceComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  quizParaIniciar: {fileID: 0}

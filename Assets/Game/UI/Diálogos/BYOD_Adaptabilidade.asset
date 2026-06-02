@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0e7d499db71a24ca9347d7d2354a3c, type: 3}
+  m_Name: BYOD_Adaptabilidade
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  id: BYOD_Adaptabilidade
+  iconeAvatar: {fileID: 21300000, guid: 99a9e747aeae9f64a82a4f10bb73edbb, type: 3}
+  lines:
+  - characterName: Adaptabilidade
+    text: "\u201COi! Eu sou a Adaptabilidade! Trago o lema: 'Evolu\xEDmos continuamente
+      em dire\xE7\xE3o ao novo'! Uma das grandes evolu\xE7\xF5es do mercado moderno
+      possibilitou que as pessoas tivessem seus pr\xF3prios dispositivos eletr\xF4nicos,
+      antes apenas possu\xEDdos e regulamentados pelas empresas. E isso trouxe, para
+      o ambiente corporativo o BYOD (Bring Your Own Device) \u2014 o uso de dispositivos
+      particulares no ambiente corporativo.\u201D"
+  - characterName: Adaptabilidade
+    text: "\"No CPQD, concedemos o uso do BYOD para facilitar sua rotina, mas aten\xE7\xE3o:
+      ele \xE9 totalmente opcional e restrito apenas ao uso do Google Workspace,
+      que opera de forma protegida em nuvem.\u201D"
+  - characterName: Adaptabilidade
+    text: "\u201C\xC9 expressamente proibido armazenar arquivos ou informa\xE7\xF5es
+      confidenciais do CPQD diretamente na mem\xF3ria do seu aparelho particular!\""
+  - characterName: Adaptabilidade
+    text: "\u201CNunca salve senhas corporativas no navegador do celular e, em caso
+      de perda ou roubo do aparelho, fa\xE7a o B.O., mude as senhas e avise a TI
+      imediatamente pelo e-mail ou intranet do Helpdesk e aconselhamos realizar o
+      Remote Wipe (apagamento remoto) do seu aparelho para a sua prote\xE7\xE3o e
+      tamb\xE9m do CPQD.\""
+  missaoParaConcluir: {fileID: 0}
+  OnSequenceComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  quizParaIniciar: {fileID: 0}
