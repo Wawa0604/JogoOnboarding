@@ -12,5 +12,8 @@ public static class GameEvents
 
     // evento para quizzes
     public static System.Action<QuizSequence> OnQuizRequested;
+
+    //evento do quiz de arrasta
+    public static System.Action<QuizDragSequence> OnDragQuizRequested;
 }
 

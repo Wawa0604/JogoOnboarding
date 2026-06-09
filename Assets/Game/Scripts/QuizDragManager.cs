@@ -11,10 +11,11 @@ public class QuizDragManager : MonoBehaviour
 
     [Header("Instanciamento")]
     [SerializeField] private GameObject prefabArrastavel;
-    [SerializeField] private Transform localSpawnElemento; // Onde o primeiro objeto vai nascer
+    [SerializeField] private Transform localSpawnElemento; 
 
-    [Header("Feedback Visual")]
-    [SerializeField] private CanvasGroup canvasGroupFeedbackCorreto; // Imagem de "Correto" com CanvasGroup
+    [Header("Feedbacks Visuais (Com CanvasGroup)")]
+    [SerializeField] private CanvasGroup canvasGroupFeedbackCorreto; // Imagem/Painel de Acerto
+    [SerializeField] private CanvasGroup canvasGroupFeedbackErrado;  // Imagem/Painel de Erro
 
     [Header("Botões Finais")]
     [SerializeField] private GameObject botaoIrNovamente;
@@ -23,12 +24,6 @@ public class QuizDragManager : MonoBehaviour
     private QuizDragSequence quizAtual;
     private int indiceAtual;
     private bool errouAlguma;
-
-    private void OnEnable()
-    {
-        // Registro no rádio (Mantenha o GameEvents atualizado com essa Action se for usar)
-        // GameEvents.OnDragQuizRequested += IniciarQuiz;
-    }
 
     public void IniciarQuiz(QuizDragSequence novoQuiz)
     {
@@ -40,7 +35,10 @@ public class QuizDragManager : MonoBehaviour
 
         painelQuizArrastar.SetActive(true);
         painelFimDeJogo.SetActive(false);
+        
+        // Garante que ambos os feedbacks comecem invisíveis
         if (canvasGroupFeedbackCorreto != null) canvasGroupFeedbackCorreto.alpha = 0f;
+        if (canvasGroupFeedbackErrado != null) canvasGroupFeedbackErrado.alpha = 0f;
 
         SpawnProximoObjeto();
     }
@@ -68,51 +66,55 @@ public class QuizDragManager : MonoBehaviour
         // 1. Executa o efeito de sumir/encolher no elemento arrastado
         elemento.ExecutarEfeitoEntrada();
 
-        // 2. Se acertou, roda o efeito pisca lento do feedback de acerto
-        if (foiCorreto && canvasGroupFeedbackCorreto != null)
+        // 2. Define dinamicamente qual painel vai piscar baseado no acerto/erro
+        CanvasGroup painelAlvo = foiCorreto ? canvasGroupFeedbackCorreto : canvasGroupFeedbackErrado;
+
+        if (painelAlvo != null)
         {
-            StartCoroutine(EfeitoPiscaLentoFeedback());
+            // Dispara o pisca lento passando o painel certo por parâmetro
+            StartCoroutine(EfeitoPiscaLentoFeedback(painelAlvo));
         }
         else
         {
-            // Se errou, não pisca o acerto, pula direto para o próximo após o tempo do encolhimento
+            // Fallback de segurança caso você esqueça de arrastar um dos slots no Inspector
             StartCoroutine(AvançarSemFeedback());
         }
     }
 
-    private IEnumerator EfeitoPiscaLentoFeedback()
+    // Coroutine inteligente: funciona para qualquer um dos dois painéis
+    private IEnumerator EfeitoPiscaLentoFeedback(CanvasGroup canvasGroupAlvo)
     {
-        // Fade In (Ganhar opacidade)
+        // Fade In (Ganhar opacidade suavemente)
         float tempo = 0;
-        float duracaoFade = 0.5f;
+        float duracaoFade = 0.4f; // Ajuste aqui para mudar a velocidade do pisca
         while (tempo < duracaoFade)
         {
             tempo += Time.deltaTime;
-            canvasGroupFeedbackCorreto.alpha = tempo / duracaoFade;
+            canvasGroupAlvo.alpha = tempo / duracaoFade;
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.4f); // Segura aceso um pouquinho
+        yield return new WaitForSeconds(0.4f); // Segura o feedback aceso na tela por um breve momento
 
-        // Fade Out (Perder opacidade)
+        // Fade Out (Perder opacidade suavemente)
         tempo = 0;
         while (tempo < duracaoFade)
         {
             tempo += Time.deltaTime;
-            canvasGroupFeedbackCorreto.alpha = 1f - (tempo / duracaoFade);
+            canvasGroupAlvo.alpha = 1f - (tempo / duracaoFade);
             yield return null;
         }
 
-        canvasGroupFeedbackCorreto.alpha = 0f;
+        canvasGroupAlvo.alpha = 0f;
 
-        // Avança a fila
+        // Avança para o próximo item da fila após o término do efeito visual
         indiceAtual++;
         SpawnProximoObjeto();
     }
 
     private IEnumerator AvançarSemFeedback()
     {
-        yield return new WaitForSeconds(0.4f); // Espera o elemento terminar de encolher
+        yield return new WaitForSeconds(0.4f); 
         indiceAtual++;
         SpawnProximoObjeto();
     }
@@ -123,7 +125,7 @@ public class QuizDragManager : MonoBehaviour
         painelFimDeJogo.SetActive(true);
 
         botaoIrNovamente.SetActive(true);
-        botaoFechar.SetActive(!errouAlguma); // Regra de ouro: Só fecha se o placar for perfeito
+        botaoFechar.SetActive(!errouAlguma); 
     }
 
     public void ReiniciarQuiz() => IniciarQuiz(quizAtual);
