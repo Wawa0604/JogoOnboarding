@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0e7d499db71a24ca9347d7d2354a3c, type: 3}
+  m_Name: ComputadorEcriptografia_FocoEmResultado
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  id: ComputadorEcriptografia_FocoEmResultado
+  iconeAvatar: {fileID: 21300000, guid: 008a1759b80d6004799b74f6e306fb50, type: 3}
+  lines:
+  - characterName: Foco em Resultado
+    text: "\u201COl\xE1! Eu sou o Foco em Resultado. N\xF3s trabalhamos criando solu\xE7\xF5es
+      que tragam o melhor resultado para o neg\xF3cio. Para alcan\xE7armos nossas
+      metas, necessitamos do engajamento das pessoas!\u201D"
+  - characterName: Foco em Resultado
+    text: "\u201CTer um profissional engajado \xE9 sin\xF4nimo de possuir uma pessoa
+      com proatividade, esfor\xE7ada e com um objetivo constante de alcan\xE7ar o
+      melhor e ajudar para o sucesso de sua empresa.\u201D"
+  - characterName: Foco em Resultado
+    text: "\u201CEssa atitude \xE9 indispens\xE1vel para mantermos nosso ambiente
+      digital seguro, tanto no campus quanto no Trabalho Remoto!\u201D"
+  - characterName: Foco em Resultado
+    text: "\u201CAo trabalhar remotamente, evite redes p\xFAblicas sem senha. Tenha
+      um cuidado extra com seu notebook fora da empresa: use o bloqueio de tela.\u201D"
+  - characterName: Foco em Resultado
+    text: "\u201CN\xE3o o compartilhe com ningu\xE9m, nem mesmo fam\xEDlia, e lembre-se
+      de que os equipamentos corporativos s\xE3o fornecidos exclusivamente para atividades
+      de trabalho, sendo mandat\xF3rio evitar o uso pessoal!\u201D"
+  - characterName: Foco em Resultado
+    text: "\u201CN\xE3o se esque\xE7a de bloquear a tela sempre que se afastar do
+      posto de trabalho, seja presencial ou em home office, usando o atalho \u201CWindows
+      + L\u201D, isso evita acessos acidentais ou maliciosos.\u201D"
+  - characterName: Foco em Resultado
+    text: "\u201CA seguran\xE7a da informa\xE7\xE3o depende de cada um de n\xF3s.
+      Mesmo que voc\xEA n\xE3o tenha certeza se \xE9 realmente um incidente, relate
+      imediatamente para a equipe de seguran\xE7a atrav\xE9s do e-mail weprotect@cpqd.com.br,
+      telefones da DGTIC ou chamados no Jira!\u201D"
+  - characterName: Foco em Resultado
+    text: "\u201CSuspeitou de infec\xE7\xE3o por malware? Avise a equipe e n\xE3o
+      utilize o dispositivo at\xE9 que seja verificado. O mesmo vale para perdas
+      e roubos de equipamentos: reporte imediatamente para que os acessos sejam revogados.\u201D"
+  missaoParaConcluir: {fileID: 0}
+  OnSequenceComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  quizParaIniciar: {fileID: 0}

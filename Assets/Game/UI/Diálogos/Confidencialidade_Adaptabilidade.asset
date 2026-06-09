@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0e7d499db71a24ca9347d7d2354a3c, type: 3}
+  m_Name: Confidencialidade_Adaptabilidade
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  id: Confidencialidade_Adaptabilidade
+  iconeAvatar: {fileID: 21300000, guid: 99a9e747aeae9f64a82a4f10bb73edbb, type: 3}
+  lines:
+  - characterName: Adaptabilidade
+    text: "\u201COl\xE1! Eu, a Adaptabilidade, levo as pessoas a solucionar problemas
+      de formas simples e pr\xE1ticas, trazendo agilidade e visando um trabalho sem
+      complexidade desnecess\xE1ria e mais solu\xE7\xF5es que obst\xE1culos. Assim
+      criamos um esquema simples para manter a confidencialidade na empresa!\u201D"
+  - characterName: Adaptabilidade
+    text: "\u201CA empresa, assim como as pessoas, t\xEAm informa\xE7\xF5es p\xFAblicas,
+      de acesso a alguns e informa\xE7\xF5es privadas. E essas informa\xE7\xF5es
+      precisam de privacidade. E para isso o CPQD utiliza um sistema que classifica
+      a informa\xE7\xE3o em 4 n\xEDveis de sigilo acoplados ao Google Workspace.\u201D"
+  - characterName: Adaptabilidade
+    text: "\u201COs n\xEDveis s\xE3o: o N\xEDvel 1 (Irrestrito), cuja divulga\xE7\xE3o
+      n\xE3o compromete a empresa; o N\xEDvel 2 (Reservado), de interesse interno;
+      o N\xEDvel 3 (Confidencial), com dados importantes internos ou de clientes
+      e fornecedores; e o N\xEDvel 4 (Secreto), focado em informa\xE7\xF5es estrat\xE9gicas
+      que exigem medidas excepcionais.\u201D"
+  - characterName: Adaptabilidade
+    text: "\u201CSe dados dos n\xEDveis 2, 3 ou 4 ca\xEDrem nas m\xE3os de concorrentes,
+      perdemos vantagem competitiva, produtividade e prejudicamos a imagem da empresa
+      e a confian\xE7a dos clientes. Por isso, seu papel \xE9 fundamental! Use sempre
+      o compartilhamento do Google Drive com as permiss\xF5es corretas.\u201D"
+  - characterName: Adaptabilidade
+    text: "\u201CEvite dispositivos m\xF3veis como pen drives ou HDs externos para
+      dados cr\xEDticos e nunca use redes Wi-Fi p\xFAblicas. Se precisar, use ferramentas
+      de criptografia homologadas, bloqueie seu computador ao se ausentar e evite
+      conversar sobre assuntos sens\xEDveis em locais p\xFAblicos, como restaurantes
+      ou \xF4nibus.\u201D"
+  - characterName: Adaptabilidade
+    text: "\u201CSe tiver d\xFAvidas, consulte o Confluence, l\xE1 voc\xEA encontra
+      a \xEDntegra de todas as pol\xEDticas (Pol\xEDtica de Prote\xE7\xE3o de Dados,
+      Pol\xEDtica de Seguran\xE7a da Informa\xE7\xE3o, Pol\xEDtica de Senhas, Pol\xEDtica
+      de Uso de Recursos de TIC, etc.) Ou acione o helpdesk@cpqd.com.br!\u201D"
+  missaoParaConcluir: {fileID: 0}
+  OnSequenceComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  quizParaIniciar: {fileID: 0}

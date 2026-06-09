@@ -17,11 +17,11 @@ MonoBehaviour:
   lines:
   - characterName: Adaptabilidade
     text: "\u201COi! Eu sou a Adaptabilidade! Trago o lema: 'Evolu\xEDmos continuamente
-      em dire\xE7\xE3o ao novo'! Uma das grandes evolu\xE7\xF5es do mercado moderno
-      possibilitou que as pessoas tivessem seus pr\xF3prios dispositivos eletr\xF4nicos,
-      antes apenas possu\xEDdos e regulamentados pelas empresas. E isso trouxe, para
-      o ambiente corporativo o BYOD (Bring Your Own Device) \u2014 o uso de dispositivos
-      particulares no ambiente corporativo.\u201D"
+      em dire\xE7\xE3o ao novo'! E uma evolu\xE7\xE3o do mercado moderno possibilitou
+      que as pessoas tivessem seus pr\xF3prios dispositivos eletr\xF4nicos.\u201D"
+  - characterName: Adaptabilidade
+    text: "\u201CIsso trouxe, para o ambiente corporativo, o BYOD (Bring Your Own
+      Device) \u2014 o uso de dispositivos particulares no ambiente corporativo.\u201D"
   - characterName: Adaptabilidade
     text: "\"No CPQD, concedemos o uso do BYOD para facilitar sua rotina, mas aten\xE7\xE3o:
       ele \xE9 totalmente opcional e restrito apenas ao uso do Google Workspace,
@@ -32,9 +32,7 @@ MonoBehaviour:
   - characterName: Adaptabilidade
     text: "\u201CNunca salve senhas corporativas no navegador do celular e, em caso
       de perda ou roubo do aparelho, fa\xE7a o B.O., mude as senhas e avise a TI
-      imediatamente pelo e-mail ou intranet do Helpdesk e aconselhamos realizar o
-      Remote Wipe (apagamento remoto) do seu aparelho para a sua prote\xE7\xE3o e
-      tamb\xE9m do CPQD.\""
+      imediatamente pelo e-mail ou intranet do Helpdesk.\""
   missaoParaConcluir: {fileID: 0}
   OnSequenceComplete:
     m_PersistentCalls:
