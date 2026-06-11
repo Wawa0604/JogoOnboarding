@@ -25,4 +25,5 @@ public class DialogueManager : MonoBehaviour
             Debug.LogError("DialogueController não foi atribuído no DialogueManager desta cena!");
         }
     }
+    
 }

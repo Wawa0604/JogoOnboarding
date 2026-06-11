@@ -57,3 +57,4 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   quizParaIniciar: {fileID: 0}
+  quizDragParaIniciar: {fileID: 11400000, guid: bdeea0b67f44c7e43addde27afa6bfd2, type: 2}

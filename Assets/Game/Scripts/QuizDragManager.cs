@@ -25,10 +25,25 @@ public class QuizDragManager : MonoBehaviour
     private int indiceAtual;
     private bool errouAlguma;
 
+    // CONECTA AO RÁDIO AO SER ATIVADO NA CENA
+    private void OnEnable()
+    {
+        GameEvents.OnDragQuizRequested += IniciarQuiz;
+        GameEvents.OnRestartDragQuizRequested += ReiniciarQuiz; // ➔ ESCUTA O REINÍCIO
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnDragQuizRequested -= IniciarQuiz;
+        GameEvents.OnRestartDragQuizRequested -= ReiniciarQuiz; // ➔ DESCONECTA POR SEGURANÇA
+    }
+
     public void IniciarQuiz(QuizDragSequence novoQuiz)
     {
-        if (novoQuiz == null || novoQuiz.itensParaArrastar.Length == 0) return;
+        // LOG DE ENTRADA:
+        Debug.Log($"[RASTREIO 4] O QuizDragManager RECEBEU o sinal do rádio! Quiz: {(novoQuiz != null ? novoQuiz.id : "NULO")}");
 
+        if (novoQuiz == null || novoQuiz.itensParaArrastar.Length == 0) return;
         quizAtual = novoQuiz;
         indiceAtual = 0;
         errouAlguma = false;
@@ -45,6 +60,9 @@ public class QuizDragManager : MonoBehaviour
 
     private void SpawnProximoObjeto()
     {
+        // LOG DE CONTROLE: Mostra em qual item o jogador está
+        Debug.Log($"[DRAG FIM] Itens processados: {indiceAtual} de {quizAtual.itensParaArrastar.Length}");
+
         if (indiceAtual < quizAtual.itensParaArrastar.Length)
         {
             GameObject novoGo = Instantiate(prefabArrastavel, localSpawnElemento);
@@ -55,6 +73,8 @@ public class QuizDragManager : MonoBehaviour
         }
         else
         {
+            // LOG DE FLUXO: Chegou ao fim dos itens
+            Debug.Log("[DRAG FIM] Todos os itens foram arrastados! Chamando FinalizarRodada().");
             FinalizarRodada();
         }
     }
@@ -121,11 +141,27 @@ public class QuizDragManager : MonoBehaviour
 
     private void FinalizarRodada()
     {
-        painelQuizArrastar.SetActive(false);
-        painelFimDeJogo.SetActive(true);
+        Debug.Log("[DRAG FIM] Iniciou a execução do método FinalizarRodada().");
 
-        botaoIrNovamente.SetActive(true);
-        botaoFechar.SetActive(!errouAlguma); 
+        if (painelQuizArrastar != null) 
+        {
+            painelQuizArrastar.SetActive(false);
+        }
+
+        // PROTEÇÃO E VALIDAÇÃO DO PAINEL FINAL
+        if (painelFimDeJogo != null)
+        {
+            painelFimDeJogo.SetActive(true);
+            Debug.Log("[DRAG FIM] O comando 'painelFimDeJogo.SetActive(true)' foi executado!");
+        }
+        else
+        {
+            Debug.LogError("[DRAG FIM] ERRO CRÍTICO: O slot 'Painel Fim De Jogo' está VAZIO no componente QuizDragManager no seu Inspector!");
+        }
+
+        // Proteções extras para os botões finais não quebrarem o código se estiverem vazios
+        if (botaoIrNovamente != null) botaoIrNovamente.SetActive(true);
+        if (botaoFechar != null) botaoFechar.SetActive(!errouAlguma);
     }
 
     public void ReiniciarQuiz() => IniciarQuiz(quizAtual);

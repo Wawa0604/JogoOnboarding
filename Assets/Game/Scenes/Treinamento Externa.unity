@@ -1100,6 +1100,14 @@ PrefabInstance:
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: 9592a9068d7fe0e47ae54d7668f977d9, type: 2}
+    - target: {fileID: 4287980442194889348, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: gerenciador
+      value: 
+      objectReference: {fileID: 1361568326}
+    - target: {fileID: 4287980442194889348, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: idDestaZona
+      value: No
+      objectReference: {fileID: 0}
     - target: {fileID: 4563644585020995444, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_Name
       value: Canvas_Ui
@@ -1704,6 +1712,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8624924375618769287, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: gerenciador
+      value: 
+      objectReference: {fileID: 1361568326}
+    - target: {fileID: 8624924375618769287, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: idDestaZona
+      value: Safe
+      objectReference: {fileID: 0}
     - target: {fileID: 8673190664393024652, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2238,7 +2254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4006b9e96c365e643a7b57c261cc992c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteractive
-  dialogoParaDisparar: {fileID: 11400000, guid: ad0698d7d5396784582920491730f8e2, type: 2}
+  dialogoParaDisparar: {fileID: 11400000, guid: 226c541624067e848b365a3e1e7b327b, type: 2}
   seta: {fileID: 13405454}
 --- !u!212 &1091730529
 SpriteRenderer:
@@ -2319,6 +2335,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3760914694677694455, guid: 44be27dbc4941524ab0dd0ee7a390a20, type: 3}
   m_PrefabInstance: {fileID: 1880200808}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1361568326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3026324360907856235, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 387494264}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c01abc722a0514eae6a8de44fd34a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuizDragManager
 --- !u!1 &1540438354
 GameObject:
   m_ObjectHideFlags: 0

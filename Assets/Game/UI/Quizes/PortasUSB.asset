@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14f80db6bf39824ba311d831dca2aaf, type: 3}
   m_Name: PortasUSB
   m_EditorClassIdentifier: Assembly-CSharp::QuizDragSequence
-  id: 
-  itensParaArrastar: []
+  id: PortasUSB
+  itensParaArrastar:
+  - idItem: Pendrive
+    descricao: "Encontrado na cal\xE7ada do CPQD"
+    spriteObjeto: {fileID: 21300000, guid: 5c5932cef06d51645a3ac3569c68d046, type: 3}
+    idTargetCorreto: No

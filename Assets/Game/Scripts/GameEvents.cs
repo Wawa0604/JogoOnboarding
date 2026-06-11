@@ -15,5 +15,8 @@ public static class GameEvents
 
     //evento do quiz de arrasta
     public static System.Action<QuizDragSequence> OnDragQuizRequested;
+
+    //evento para recome
+    public static System.Action OnRestartDragQuizRequested;
 }
 

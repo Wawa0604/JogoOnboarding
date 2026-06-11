@@ -69,6 +69,8 @@ public class DialogueController : MonoBehaviour
 
     public void EndDialogue()
     {
+        Debug.Log("[RASTREIO 1] Método EndDialogue foi executado!");
+
         if (ui != null) ui.Hide();
 
         if (painelDeDialogoManual != null)
@@ -78,23 +80,31 @@ public class DialogueController : MonoBehaviour
 
         if (sequence != null)
         {
-            // Transmissão de eventos de áudio
             GameEvents.OnDialogueEnded?.Invoke(sequence.id); 
-
-            // Evento customizado do Inspector
             sequence.OnSequenceComplete?.Invoke();
 
-            // Sistema de Missões (Ainda usa Singleton por ser um gerenciador global persistente)
             if (sequence.missaoParaConcluir != null && MissionManager.Instance != null)
             {
                 MissionManager.Instance.ConcluirMissao(sequence.missaoParaConcluir.id);
             }
 
-            // CORREÇÃO: Transmite o quiz pelo rádio em vez de caçar o Singleton na marra
             if (sequence.quizParaIniciar != null)
             {
                 GameEvents.OnQuizRequested?.Invoke(sequence.quizParaIniciar);
             }
+
+            // DETETIVE DO DRAG QUIZ:
+            Debug.Log($"[RASTREIO 2] Checando slot de Quiz Drag. Ele está nulo? {(sequence.quizDragParaIniciar == null ? "SIM" : "NÃO")}");
+
+            if (sequence.quizDragParaIniciar != null)
+            {
+                Debug.Log($"[RASTREIO 3] Disparando evento no rádio para o quiz: {sequence.quizDragParaIniciar.id}");
+                GameEvents.OnDragQuizRequested?.Invoke(sequence.quizDragParaIniciar);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("[RASTREIO] A sequência de diálogo é nula!");
         }
     }
 }

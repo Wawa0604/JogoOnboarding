@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-// Esta classe PRECISA estar aqui ou em um arquivo próprio chamado DialogueLine.cs
 [System.Serializable]
 public class DialogueLine
 {
@@ -30,6 +29,11 @@ public class DialogueSequence : ScriptableObject
     [Tooltip("Use para ligar setas ou disparar lógicas customizadas.")]
     public UnityEvent OnSequenceComplete; 
 
-   [Tooltip("Arraste aqui o arquivo de Quiz que deve iniciar após esse diálogo.")]
-    public QuizSequence quizParaIniciar; // <--- O SEGREDO ESTÁ AQUI (Asset chamando Asset)
+    [Header("Conexão com Quizzes")]
+    [Tooltip("Arraste aqui o arquivo de Quiz TRADICIONAL que deve iniciar.")]
+    public QuizSequence quizParaIniciar; 
+
+    // NOVO SLOT ADICIONADO AQUI:
+    [Tooltip("Arraste aqui o arquivo de Quiz de ARRASTAR que deve iniciar.")]
+    public QuizDragSequence quizDragParaIniciar; 
 }

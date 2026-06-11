@@ -13,6 +13,9 @@ public class buttonsManager : MonoBehaviour
     public GameObject botaoMapa;
     // botão play que desativa quando termina o vídeo
     public GameObject botaoPlay;
+    //Botões para fechar quizes ou ir novamente no quiz arrasta
+    public GameObject painelQuizArrasta;
+    public GameObject painelQuizArrastaFimDeJogo;
 
     private const string CHAVE_CONVERSA_NPC = "ConversouNPC_MontarAvatar";
 
@@ -109,5 +112,20 @@ public class buttonsManager : MonoBehaviour
     public void DesligaTutorial()
     {
         painelTutorial.SetActive(false);
+    }
+
+    public void TerminaQuiz ()
+    {
+        painelQuizArrasta.SetActive (false);
+        painelQuizArrastaFimDeJogo.SetActive(false);
+    }
+
+   public void NovamenteQuiz()
+    {
+        painelQuizArrasta.SetActive(true);
+        painelQuizArrastaFimDeJogo.SetActive(false);
+        
+        // ➔ DISPARA O SINAL VISANDO REINICIAR O QUIZ
+        GameEvents.OnRestartDragQuizRequested?.Invoke(); 
     }
 }
