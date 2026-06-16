@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686406a89e255bf43b50dbe1021b76ec, type: 3}
+  m_Name: QuizConfidencialidade_Adaptabilidade
+  m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
+  id: QuizConfidencialidade_Adaptabilidade
+  perguntas:
+  - textoPergunta: " \"Qual das seguintes atitudes viola a nossa pol\xEDtica de confidencialidade
+      de informa\xE7\xF5es?\""
+    alternativas:
+    - textoAlternativa: "Bloquear a tela do computador ao ir buscar um caf\xE9."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Isso \xE9 uma pr\xE1tica recomendada."
+    - textoAlternativa: "Discutir os detalhes de um projeto estrat\xE9gico de N\xEDvel
+        4 (Secreto) com um colega em voz alta dentro do \xF4nibus."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: "Justificativa: Informa\xE7\xF5es sigilosas nunca devem ser
+        discutidas em canais n\xE3o seguros ou locais p\xFAblicos por risco de vazamento."
+    - textoAlternativa: "Armazenar dados do N\xEDvel 3 (Confidencial) estritamente
+        no Google Drive corporativo. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: O ecossistema Google Workspace \xE9 o canal
+        oficial protegido."
+    - textoAlternativa: "Enviar um email contendo informa\xE7\xF5es Reservadas classificando
+        ele como de N\xEDvel 2. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Essa \xE9 a pr\xE1tica recomendada. Avisar o
+        receptor sobre o n\xEDvel de sigilo das informa\xE7\xF5es \xE9 essencial
+        para mant\xEA-lo."

@@ -51,4 +51,5 @@ MonoBehaviour:
   OnSequenceComplete:
     m_PersistentCalls:
       m_Calls: []
-  quizParaIniciar: {fileID: 0}
+  quizParaIniciar: {fileID: 11400000, guid: a7ea838063adc3c47949f05a3ce72f24, type: 2}
+  quizDragParaIniciar: {fileID: 0}

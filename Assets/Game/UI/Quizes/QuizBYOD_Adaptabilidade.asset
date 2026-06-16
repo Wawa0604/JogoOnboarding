@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686406a89e255bf43b50dbe1021b76ec, type: 3}
+  m_Name: QuizBYOD_Adaptabilidade
+  m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
+  id: QuizBYOD_Adaptabilidade
+  perguntas:
+  - textoPergunta: "\"Voc\xEA optou por usar seu celular particular (BYOD) para ler
+      os e-mails do CPQD no caminho para o trabalho. Qual das seguintes condutas
+      est\xE1 perfeitamente alinhada com as nossas regras de seguran\xE7a?\""
+    alternativas:
+    - textoAlternativa: Acessar as ferramentas estritamente pela nuvem do Google
+        Workspace e, se o celular for perdido ou roubado, registrar o B.O., mudar
+        as senhas e avisar a TI imediatamente.
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: "Justificativa: Perfeito! Como o Google Workspace opera em nuvem,
+        o acesso \xE9 seguro. Reportar a perda imediatamente garante que a TI revogue
+        os acessos do aparelho antes que qualquer dado corra risco."
+    - textoAlternativa: "Baixar relat\xF3rios de projetos em PDF na mem\xF3ria do
+        celular para conseguir ler offline caso o sinal da internet caia."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Incorreto! O manual \xE9 categ\xF3rico: \xE9
+        expressamente proibido armazenar arquivos ou informa\xE7\xF5es confidenciais
+        do CPQD diretamente na mem\xF3ria f\xEDsica do seu aparelho particular. O
+        BYOD \xE9 restrito apenas ao uso protegido em nuvem."
+    - textoAlternativa: "Ativar a op\xE7\xE3o de 'lembrar senhas' no navegador do
+        celular pessoal para n\xE3o precisar digitar as credenciais corporativas
+        toda vez."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Incorreto! Nunca salve senhas corporativas no
+        navegador do seu dispositivo pessoal. Em caso de perda, roubo ou acesso de
+        terceiros ao seu celular, as contas do CPQD ficariam vulner\xE1veis."
+    - textoAlternativa: "Se o celular pessoal for roubado, apenas fazer o boletim
+        de ocorr\xEAncia, sem necessidade de avisar a equipe de TI do CPQD."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Incorreto! Qualquer perda de dispositivo com
+        acessos corporativos ativos deve ser reportada na hora para o Helpdesk para
+        que as chaves de seguran\xE7a sejam desativadas remotamente."

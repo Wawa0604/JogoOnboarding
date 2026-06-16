@@ -13,5 +13,6 @@ public class DragItemData
 public class QuizDragSequence : ScriptableObject
 {
     public string id;
+    public string pergunta;
     public DragItemData[] itensParaArrastar;
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686406a89e255bf43b50dbe1021b76ec, type: 3}
-  m_Name: ExplorarHall4_Colaboracao
+  m_Name: QuizExplorarHall4_Colaboracao
   m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
   id: "Hall_Colabora\xE7\xE3o"
   perguntas:
