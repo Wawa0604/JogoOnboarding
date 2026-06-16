@@ -5,7 +5,9 @@ public class QuizDropZone : MonoBehaviour, IDropHandler
 {
     [Tooltip("ID que identifica este slot. Ex: slot_ti, slot_rh")]
     [SerializeField] private string idDestaZona;
-    [SerializeField] private QuizDragManager gerenciador;
+    
+    // CORRIGIDO: Agora aponta para o QuizManager unificado!
+    [SerializeField] private QuizManager gerenciador;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -20,7 +22,7 @@ public class QuizDropZone : MonoBehaviour, IDropHandler
                 elementoArrastado.transform.SetParent(transform);
                 elementoArrastado.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
 
-                // Envia a validação para o Manager
+                // Envia a validação para o Manager unificado
                 bool ehCorreto = (elementoArrastado.Dados.idTargetCorreto == idDestaZona);
                 gerenciador.ProcessarDrop(elementoArrastado, ehCorreto);
             }

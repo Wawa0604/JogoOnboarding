@@ -14,29 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
   id: QuizConfidencialidade_Adaptabilidade
   perguntas:
-  - textoPergunta: " \"Qual das seguintes atitudes viola a nossa pol\xEDtica de confidencialidade
-      de informa\xE7\xF5es?\""
+  - tipoDaEtapa: 0
+    textoPergunta: "Qual das seguintes atitudes viola a nossa pol\xEDtica de confidencialidade
+      de informa\xE7\xF5es?"
     alternativas:
-    - textoAlternativa: "Bloquear a tela do computador ao ir buscar um caf\xE9."
+    - textoAlternative: "Bloquear a tela do computador ao ir buscar um caf\xE9. "
       spriteAlternativa: {fileID: 0}
       ehCorreta: 0
       justificativa: "Justificativa: Isso \xE9 uma pr\xE1tica recomendada."
-    - textoAlternativa: "Discutir os detalhes de um projeto estrat\xE9gico de N\xEDvel
-        4 (Secreto) com um colega em voz alta dentro do \xF4nibus."
+    - textoAlternative: "Discutir os detalhes de um projeto estrat\xE9gico de N\xEDvel
+        4 (Secreto) com um colega em voz alta dentro do \xF4nibus. "
       spriteAlternativa: {fileID: 0}
       ehCorreta: 1
       justificativa: "Justificativa: Informa\xE7\xF5es sigilosas nunca devem ser
         discutidas em canais n\xE3o seguros ou locais p\xFAblicos por risco de vazamento."
-    - textoAlternativa: "Armazenar dados do N\xEDvel 3 (Confidencial) estritamente
-        no Google Drive corporativo. "
+    - textoAlternative: "Armazenar dados do N\xEDvel 3 (Confidencial) estritamente
+        no Google Drive corporativo."
       spriteAlternativa: {fileID: 0}
       ehCorreta: 0
       justificativa: "Justificativa: O ecossistema Google Workspace \xE9 o canal
         oficial protegido."
-    - textoAlternativa: "Enviar um email contendo informa\xE7\xF5es Reservadas classificando
-        ele como de N\xEDvel 2. "
+    - textoAlternative: "Enviar um email contendo informa\xE7\xF5es Reservadas classificando
+        ele como de N\xEDvel 2."
       spriteAlternativa: {fileID: 0}
       ehCorreta: 0
       justificativa: "Justificativa: Essa \xE9 a pr\xE1tica recomendada. Avisar o
         receptor sobre o n\xEDvel de sigilo das informa\xE7\xF5es \xE9 essencial
         para mant\xEA-lo."
+    itensParaArrastar: []

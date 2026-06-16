@@ -14,27 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
   id: QuizPrivacidadeDados_Respeito
   perguntas:
-  - textoPergunta: "\"Se um titular de dados entrar em contato com voc\xEA fazendo
+  - tipoDaEtapa: 0
+    textoPergunta: "\"Se um titular de dados entrar em contato com voc\xEA fazendo
       um questionamento ou requisi\xE7\xE3o de direitos com base na LGPD, como voc\xEA
       deve agir?\""
     alternativas:
-    - textoAlternativa: "Responder diretamente anexando as planilhas de dados solicitadas
-        para prestar um suporte r\xE1pido. "
+    - textoAlternative: "Responder diretamente anexando as planilhas de dados solicitadas
+        para prestar um suporte r\xE1pido."
       spriteAlternativa: {fileID: 0}
       ehCorreta: 0
       justificativa: 
-    - textoAlternativa: "Ignorar o e-mail, pois o tratamento de dados externos \xE9
-        de responsabilidade exclusiva dos parceiros comerciais"
+    - textoAlternative: "Ignorar o e-mail, pois o tratamento de dados externos \xE9
+        de responsabilidade exclusiva dos parceiros comerciais."
       spriteAlternativa: {fileID: 0}
       ehCorreta: 0
       justificativa: 
-    - textoAlternativa: "N\xE3o responder diretamente e encaminhar a mensagem imediatamente
+    - textoAlternative: "N\xE3o responder diretamente e encaminhar a mensagem imediatamente
         para o Encarregado de Dados (DPO) no e-mail dpo@cpqd.com.br."
       spriteAlternativa: {fileID: 0}
       ehCorreta: 1
       justificativa: 
-    - textoAlternativa: "Compartilhar o questionamento no grupo de conversas informais
+    - textoAlternative: "Compartilhar o questionamento no grupo de conversas informais
         do WhatsApp para colher opini\xF5es."
       spriteAlternativa: {fileID: 0}
       ehCorreta: 0
       justificativa: 
+    itensParaArrastar: []

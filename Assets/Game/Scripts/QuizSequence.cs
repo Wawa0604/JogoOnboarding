@@ -1,29 +1,48 @@
 using UnityEngine;
 
+public enum TipoEtapaQuiz { MultiplaEscolha, ArrastarESoltar }
+
+[System.Serializable]
+public class DragItemData
+{
+    public string idItem; 
+    public string descricao;
+    public Sprite spriteObjeto;
+    public string idTargetCorreto; 
+}
+
 [System.Serializable]
 public class QuizAlternative
 {
     [Header("Conteúdo da Alternativa")]
-    public string textoAlternativa;
-    public Sprite spriteAlternativa; // Se quiser uma imagem no lugar de texto
+    public string textoAlternative;
+    public Sprite spriteAlternativa; 
 
     [Header("Validação")]
     public bool ehCorreta;
     
-    [TextArea(2, 5)] 
-    public string justificativa; // <--- NOVA: O texto explicando por que está errada/certa
+    [TextArea(2, 5)] public string justificativa; 
 }
 
 [System.Serializable]
 public class QuizQuestion
 {
-    [TextArea(3, 5)] public string textoPergunta;
+    [Header("Configuração da Etapa")]
+    public TipoEtapaQuiz tipoDaEtapa;
+    
+    [TextArea(3, 5)] 
+    public string textoPergunta; // Serve como a pergunta do texto OU o título da rodada de arrastar!
+
+    [Header("Se for Múltipla Escolha:")]
     public QuizAlternative[] alternativas;
+
+    [Header("Se for Arrastar e Soltar:")]
+    public DragItemData[] itensParaArrastar;
 }
 
-[CreateAssetMenu(fileName = "NovoQuiz", menuName = "Quiz/Sequencia de Quiz")]
+[CreateAssetMenu(fileName = "NovoQuizUnificado", menuName = "Quiz/Sequencia de Quiz Unificado")]
 public class QuizSequence : ScriptableObject
 {
-    public string id; // ID para o rádio, se precisar
-    public QuizQuestion[] perguntas;
+    public string id; 
+    public QuizQuestion[] perguntas; // Array de etapas mistas!
 }

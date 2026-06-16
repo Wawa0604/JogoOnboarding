@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686406a89e255bf43b50dbe1021b76ec, type: 3}
+  m_Name: PoliticaSenhas_OrientacaoAoCliente
+  m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
+  id: 
+  perguntas:
+  - tipoDaEtapa: 0
+    textoPergunta: "Para ajudar a lembrar senhas, uma pr\xE1tica segura e recomendada
+      \xE9:"
+    alternativas:
+    - textoAlternative: "Usar a mesma senha para tudo assim fica f\xE1cil de lembrar
+        e n\xE3o preciso anotar em lugar algum e assim correr riscos"
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 
+    - textoAlternative: 'Anotar minhas senhas em um caderno pequeno bem seguro pois
+        ou eu levo comigo para todo lugar ou deixo em casa bem escondido. '
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 
+    - textoAlternative: "Deixar o sistema de senhas salvas no navegador ativado j\xE1
+        que o \xE9 seguro pois tenho que logar nele primeiro para acess\xE1-las. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 
+    - textoAlternative: "N\xE3o devo usar palavras reconhec\xEDveis nas senhas. Devo
+        fazer uma sequ\xEAncia de letras e n\xFAmeros que tenha um significado para
+        mim."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    itensParaArrastar: []
+  - tipoDaEtapa: 0
+    textoPergunta: "Qual das alternativas n\xE3o condiz com a pol\xEDtica de senhas
+      :"
+    alternativas:
+    - textoAlternative: "Devo mudar minha senha a cada 3 meses., para uma senha diferente
+        das \xFAltimas 10. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 
+    - textoAlternative: "As senhas devem ter no m\xEDnimo 10 caracteres e misturar
+        letras min\xFAsculas, mai\xFAsculas, n\xFAmeros e s\xEDmbolos."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 
+    - textoAlternative: "A op\xE7\xE3o autentica\xE7\xE3o de m\xFAltiplos fatores
+        \xE9 burocracia a mais, n\xE3o precisa estar ligada. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: "Justificativa: A autentica\xE7\xE3o de m\xFAltiplos fatores
+        \xE9 uma medida de seguran\xE7a importante que deve estar ligada!"
+    - textoAlternative: "N\xE3o devo utilizar a conta de email corporativa para uso
+        pessoal."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 
+    itensParaArrastar: []
+  - tipoDaEtapa: 1
+    textoPergunta: "Separe as senhas em Seguras e Recomendadas das N\xE3o Recomendadas/
+      N\xE3o Permitidas."
+    alternativas: []
+    itensParaArrastar:
+    - idItem: Senha1
+      descricao: "NfqEd1saC5o6rEff1c! (Da letra da m\xFAsica Aquarela)"
+      spriteObjeto: {fileID: 0}
+      idTargetCorreto: yes
+    - idItem: Senha2
+      descricao: "Pq&3ghiT*90 (Sequ\xEAncia aleat\xF3ria de letras)"
+      spriteObjeto: {fileID: 0}
+      idTargetCorreto: no
+    - idItem: Senha3
+      descricao: Carlos2026!#
+      spriteObjeto: {fileID: 0}
+      idTargetCorreto: no
+    - idItem: Senha4
+      descricao: MinhaGataMia2006!
+      spriteObjeto: {fileID: 0}
+      idTargetCorreto: no
+    - idItem: Senha5
+      descricao: "+V1PssNMdq2V (Abrevia\xE7\xE3o de um ditado popular)"
+      spriteObjeto: {fileID: 0}
+      idTargetCorreto: yes
+    - idItem: Senha6
+      descricao: SenhaCPQD02!
+      spriteObjeto: {fileID: 0}
+      idTargetCorreto: no
+    - idItem: Senha7
+      descricao: "OqcM1+mcdg! ( Da letra da m\xFAsica Garota de Ipanema)"
+      spriteObjeto: {fileID: 0}
+      idTargetCorreto: yes

@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7722254705275087629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3517409101941545236}
+  - component: {fileID: 1065107818328788477}
+  m_Layer: 0
+  m_Name: QuizzManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3517409101941545236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722254705275087629}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1065107818328788477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722254705275087629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdae2a418eb57834bb5c5ee309653483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuizManager
+  painelGeralQuiz: {fileID: 0}
+  abaMultiplaEscolha: {fileID: 0}
+  abaArrastar: {fileID: 0}
+  painelFimDeJogo: {fileID: 0}
+  textoPerguntaMultiplaUI: {fileID: 0}
+  textoPerguntaDragUI: {fileID: 0}
+  containerAlternativas: {fileID: 0}
+  prefabBotaoAlternativa: {fileID: 3381194858618243743, guid: 26ddb586d5ecb8643b4fcb8046211bc6, type: 3}
+  btnConfirmar: {fileID: 0}
+  txtBtnConfirmar: {fileID: 0}
+  canvasPrincipal: {fileID: 0}
+  prefabArrastavel: {fileID: 2891474611790136284, guid: d1895a19521887a4e994c57558b9e76f, type: 3}
+  localSpawnElemento: {fileID: 0}
+  canvasGroupFeedbackCorreto: {fileID: 0}
+  canvasGroupFeedbackErrado: {fileID: 0}
+  botaoIrNovamente: {fileID: 0}
+  botaoFechar: {fileID: 0}

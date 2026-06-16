@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+// Devolvido aqui para o Unity voltar a reconhecer as linhas de texto!
 [System.Serializable]
 public class DialogueLine
 {
@@ -12,28 +13,13 @@ public class DialogueLine
 public class DialogueSequence : ScriptableObject
 {
     [Header("Identificação")]
-    [Tooltip("ID único para o rádio. Ex: intro_npc, tutorial_avatar")]
     public string id; 
-
-    [Header("Foto")]
     public Sprite iconeAvatar;
-
-    [Header("Conteúdo")]
     public DialogueLine[] lines;
-
-    [Header("Progresso de Missão")]
-    [Tooltip("Missão concluída AUTOMATICAMENTE ao fechar o diálogo.")]
     public MissaoData missaoParaConcluir;
-
-    [Header("Eventos Extras")]
-    [Tooltip("Use para ligar setas ou disparar lógicas customizadas.")]
     public UnityEvent OnSequenceComplete; 
 
-    [Header("Conexão com Quizzes")]
-    [Tooltip("Arraste aqui o arquivo de Quiz TRADICIONAL que deve iniciar.")]
+    [Header("Conexão com Quiz")]
+    [Tooltip("Arraste aqui o Quiz Unificado (pode conter perguntas normais, de arrastar ou misturadas).")]
     public QuizSequence quizParaIniciar; 
-
-    // NOVO SLOT ADICIONADO AQUI:
-    [Tooltip("Arraste aqui o arquivo de Quiz de ARRASTAR que deve iniciar.")]
-    public QuizDragSequence quizDragParaIniciar; 
 }

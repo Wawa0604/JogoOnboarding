@@ -1,218 +1,257 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI; 
+using System.Collections;
 using System.Collections.Generic;
 
 public class QuizManager : MonoBehaviour
 {
-    [Header("Painéis de UI")]
-    [SerializeField] private GameObject painelQuiz;
+    [Header("Abas Visuais do Painel")]
+    [SerializeField] private GameObject painelGeralQuiz;
+    [SerializeField] private GameObject abaMultiplaEscolha;
+    [SerializeField] private GameObject abaArrastar;
     [SerializeField] private GameObject painelFimDeJogo;
 
-    [Header("Elementos da Pergunta")]
-    [SerializeField] private TextMeshProUGUI textoPerguntaUI;
+    [Header("Componentes de Texto Compartilhados")]
+    [SerializeField] private TextMeshProUGUI textoPerguntaMultiplaUI;
+    [SerializeField] private TextMeshProUGUI textoPerguntaDragUI;
+
+    [Header("Configurações: Múltipla Escolha")]
     [SerializeField] private Transform containerAlternativas;
     [SerializeField] private GameObject prefabBotaoAlternativa;
-
-    [Header("Botão de Ação Central")]
     [SerializeField] private Button btnConfirmar;
     [SerializeField] private TextMeshProUGUI txtBtnConfirmar; 
 
-    [Header("Botões de Fim de Jogo")]
+    [Header("Configurações: Arrastar e Soltar")]
+    [SerializeField] private Canvas canvasPrincipal;
+    [SerializeField] private GameObject prefabArrastavel;
+    [SerializeField] private Transform localSpawnElemento; 
+    [SerializeField] private CanvasGroup canvasGroupFeedbackCorreto;
+    [SerializeField] private CanvasGroup canvasGroupFeedbackErrado;
+
+    [Header("Componentes Compartilhados de Fim de Jogo")]
     [SerializeField] private GameObject botaoIrNovamente;
     [SerializeField] private GameObject botaoFechar;
 
+    // Variáveis de Controle de Fluxo
     private QuizSequence quizAtual;
-    private int indicePerguntaAtual;
-    private bool errouAlguma; 
-
-    public bool ExibindoJustificativa { get; private set; }
+    private int indicePerguntaGlobal; // Qual pergunta do array estamos
+    private int indiceDragItemLocal;  // Qual objeto do arraste atual está na tela
+    private bool errouAlgumaNoQuizInteiro; 
+    private bool exibindoJustificativa;
     
     private List<QuizAlternativeUI> alternativasNaTela = new List<QuizAlternativeUI>();
+    public bool ExibindoJustificativa => exibindoJustificativa;
 
     private void OnEnable()
     {
-        // Conecta ao rádio de eventos esperando uma chamada de quiz
-        GameEvents.OnQuizRequested += IniciarQuiz;
+        GameEvents.OnQuizRequested += IniciarQuizGeral;
+        GameEvents.OnRestartDragQuizRequested += ReiniciarQuizAtual; // Escuta o botão jogar novamente
     }
 
     private void OnDisable()
     {
-        // Desconecta ao desativar o objeto para evitar vazamentos de memória
-        GameEvents.OnQuizRequested -= IniciarQuiz;
+        GameEvents.OnQuizRequested -= IniciarQuizGeral;
+        GameEvents.OnRestartDragQuizRequested -= ReiniciarQuizAtual;
     }
 
-    public void IniciarQuiz(QuizSequence novoQuiz)
+    public void IniciarQuizGeral(QuizSequence novoQuiz)
     {
-        // PASSO 1: O rádio funcionou?
-        Debug.Log($"[QUIZ] 1. O rádio funcionou! Quiz recebido: {(novoQuiz != null ? novoQuiz.id : "NULO")}");
-
-        if (novoQuiz == null) {
-            Debug.LogError("[QUIZ] ERRO: O arquivo de Quiz enviado pelo diálogo está NULO!");
-            return;
-        }
-        if (novoQuiz.perguntas == null || novoQuiz.perguntas.Length == 0) {
-            Debug.LogError("[QUIZ] ERRO: O seu arquivo de Quiz não tem NENHUMA pergunta cadastrada no Inspector!");
-            return;
-        }
+        if (novoQuiz == null || novoQuiz.perguntas.Length == 0) return;
 
         quizAtual = novoQuiz;
-        indicePerguntaAtual = 0;
-        errouAlguma = false;
+        indicePerguntaGlobal = 0;
+        errouAlgumaNoQuizInteiro = false;
 
-        painelQuiz.SetActive(true);
-        painelFimDeJogo.SetActive(false);
+        painelGeralQuiz.SetActive(true);
+        if (painelFimDeJogo != null) painelFimDeJogo.SetActive(false);
+
+        DefinirEConfigurarEtapaAtual();
+    }
+
+    private void DefinirEConfigurarEtapaAtual()
+    {
+        // Se passamos do limite do array, o quiz inteiro acabou!
+        if (indicePerguntaGlobal >= quizAtual.perguntas.Length)
+        {
+            FinalizarRodadaGeral();
+            return;
+        }
+
+        QuizQuestion etapaAtual = quizAtual.perguntas[indicePerguntaGlobal];
+
+        // Reseta os painéis de feedback visual
+        if (canvasGroupFeedbackCorreto != null) canvasGroupFeedbackCorreto.alpha = 0f;
+        if (canvasGroupFeedbackErrado != null) canvasGroupFeedbackErrado.alpha = 0f;
+
+        if (etapaAtual.tipoDaEtapa == TipoEtapaQuiz.MultiplaEscolha)
+        {
+            abaMultiplaEscolha.SetActive(true);
+            abaArrastar.SetActive(false);
+            ConfigurarEtapaMultiplaEscolha(etapaAtual);
+        }
+        else if (etapaAtual.tipoDaEtapa == TipoEtapaQuiz.ArrastarESoltar)
+        {
+            abaMultiplaEscolha.SetActive(false);
+            abaArrastar.SetActive(true);
+            indiceDragItemLocal = 0; // Começa o sub-contador de itens do zero
+            ConfigurarEtapaArrastar(etapaAtual);
+        }
+    }
+
+    // =================================================================
+    // PROCESSAMENTO: MÚLTIPLA ESCOLHA
+    // =================================================================
+    private void ConfigurarEtapaMultiplaEscolha(QuizQuestion pergunta)
+    {
+        exibindoJustificativa = false;
+        txtBtnConfirmar.text = "Confirmar";
+        btnConfirmar.interactable = false; 
+
+        foreach (Transform child in containerAlternativas) Destroy(child.gameObject);
+        alternativasNaTela.Clear();
+
+        if (textoPerguntaMultiplaUI != null) textoPerguntaMultiplaUI.text = pergunta.textoPergunta;
 
         btnConfirmar.onClick.RemoveAllListeners();
         btnConfirmar.onClick.AddListener(OnBotaoAcaoPrincipalClick);
 
-        ExibirPergunta();
-    }
-
-    private void ExibirPergunta()
-    {
-        ExibindoJustificativa = false;
-        txtBtnConfirmar.text = "Confirmar";
-        btnConfirmar.interactable = false; 
-
-        // Limpa alternativas anteriores
-        foreach (Transform child in containerAlternativas) Destroy(child.gameObject);
-        alternativasNaTela.Clear();
-
-        QuizQuestion pergunta = quizAtual.perguntas[indicePerguntaAtual];
-        textoPerguntaUI.text = pergunta.textoPergunta;
-
-        // PASSO 2: Quantas alternativas existem?
-        Debug.Log($"[QUIZ] 2. Exibindo pergunta: '{pergunta.textoPergunta}'. Total de alternativas encontradas: {pergunta.alternativas.Length}");
-
-        if (pergunta.alternativas == null || pergunta.alternativas.Length == 0) {
-            Debug.LogWarning("[QUIZ] Aviso: Essa pergunta específica não tem nenhuma alternativa criada!");
-        }
-
-        // Cria os botões das alternativas
         foreach (QuizAlternative alt in pergunta.alternativas)
         {
-            // PASSO 3: Tentando instanciar
-            Debug.Log($"[QUIZ] 3. Instanciando botão para a alternativa: '{alt.textoAlternativa}'");
-
             GameObject go = Instantiate(prefabBotaoAlternativa, containerAlternativas);
-            
-            // Ela força o clone a ligar na marra, independente de onde veio o prefab
-           // go.SetActive(true);
-
-            //Debug.Log($"[DETETIVE] Botão: {go.name} | Local Ativo (Caixinha): {go.activeSelf} | Ativo na Cena: {go.activeInHierarchy}");
-
             QuizAlternativeUI scriptAlt = go.GetComponent<QuizAlternativeUI>();
-            
-            // PASSO 4: O Prefab está correto?
-            if (scriptAlt == null) {
-                Debug.LogError($"[QUIZ] ERRO CRÍTICO: O seu prefab de botão não possui o script 'QuizAlternativeUI' anexado a ele! A criação parou aqui.");
-                continue;
+            if (scriptAlt != null)
+            {
+                scriptAlt.Configurar(alt, this);
+                alternativasNaTela.Add(scriptAlt);
             }
-
-            scriptAlt.Configurar(alt, this);
-            alternativasNaTela.Add(scriptAlt);
         }
-
-        // PASSO 5: Finalização
-        Debug.Log($"[QUIZ] 4. Renderização finalizada. Botões na tela: {alternativasNaTela.Count}");
     }
 
-    public void AtualizarBotaoConfirmar()
+    public void AtivarBotaoConfirmar()
     {
-        if (ExibindoJustificativa) return;
-
+        if (exibindoJustificativa) return;
         btnConfirmar.interactable = alternativasNaTela.Exists(x => x.IsSelected);
     }
 
     private void OnBotaoAcaoPrincipalClick()
     {
-        if (!ExibindoJustificativa)
+        if (!exibindoJustificativa)
         {
-            MostrarJustificativasEResultados();
+            exibindoJustificativa = true;
+            txtBtnConfirmar.text = "Avançar"; 
+            bool acertouTudoNessaQuestao = true;
+
+            foreach (QuizAlternativeUI altUI in alternativasNaTela)
+            {
+                altUI.RevelarResultado(); 
+                if ((altUI.Dados.ehCorreta && !altUI.IsSelected) || (!altUI.Dados.ehCorreta && altUI.IsSelected))
+                {
+                    acertouTudoNessaQuestao = false;
+                }
+            }
+
+            if (!acertouTudoNessaQuestao) errouAlgumaNoQuizInteiro = true; 
         }
         else
         {
-            AvançarParaProxima();
+            // Avança para a próxima pergunta do array global
+            indicePerguntaGlobal++;
+            DefinirEConfigurarEtapaAtual();
         }
     }
 
-    private void MostrarJustificativasEResultados()
+    // =================================================================
+    // PROCESSAMENTO: ARRASTAR E SOLTAR
+    // =================================================================
+    private void ConfigurarEtapaArrastar(QuizQuestion pergunta)
     {
-        ExibindoJustificativa = true;
-        txtBtnConfirmar.text = "Avançar"; 
-
-        bool acertouTudoNessaQuestao = true;
-
-        foreach (QuizAlternativeUI altUI in alternativasNaTela)
-        {
-            altUI.RevelarResultado(); 
-
-            if (altUI.Dados.ehCorreta && !altUI.IsSelected) acertouTudoNessaQuestao = false;
-            if (!altUI.Dados.ehCorreta && altUI.IsSelected) acertouTudoNessaQuestao = false;
-        }
-
-        if (!acertouTudoNessaQuestao)
-        {
-            errouAlguma = true; 
-        }
+        if (textoPerguntaDragUI != null) textoPerguntaDragUI.text = pergunta.textoPergunta;
+        SpawnProximoObjetoDrag(pergunta);
     }
 
-    private void AvançarParaProxima()
+    private void SpawnProximoObjetoDrag(QuizQuestion pergunta)
     {
-        indicePerguntaAtual++;
-        
-        // LOG DETETIVE 1: Vendo se o contador está subindo corretamente
-        Debug.Log($"[FIM DE JOGO] Avançando. Índice Atual: {indicePerguntaAtual} | Total de Perguntas: {quizAtual.perguntas.Length}");
-
-        if (indicePerguntaAtual < quizAtual.perguntas.Length)
+        if (indiceDragItemLocal < pergunta.itensParaArrastar.Length)
         {
-            ExibirPergunta();
+            GameObject novoGo = Instantiate(prefabArrastavel, localSpawnElemento);
+            novoGo.SetActive(true);
+            
+            QuizDragElement scriptElemento = novoGo.GetComponent<QuizDragElement>();
+            scriptElemento.Configurar(pergunta.itensParaArrastar[indiceDragItemLocal], canvasPrincipal);
         }
         else
         {
-            // LOG DETETIVE 2: Entrou na condição de término?
-            Debug.Log("[FIM DE JOGO] Todas as perguntas foram respondidas! Chamando FinalizarRodada().");
-            FinalizarRodada();
+            // Acabaram os itens dessa pergunta de arrastar! Avança no índice global
+            indicePerguntaGlobal++;
+            DefinirEConfigurarEtapaAtual();
         }
     }
 
-    private void FinalizarRodada()
+    public void ProcessarDrop(QuizDragElement elemento, bool foiCorreto)
     {
-        Debug.Log("[FIM DE JOGO] Iniciou a execução do método FinalizarRodada().");
+        if (!foiCorreto) errouAlgumaNoQuizInteiro = true;
 
-        if (painelQuiz != null) painelQuiz.SetActive(false);
-        
-        // VALIDAÇÃO CRÍTICA: O painel existe no Inspector?
-        if (painelFimDeJogo != null)
-        {
-            painelFimDeJogo.SetActive(true);
-            Debug.Log("[FIM DE JOGO] Comando painelFimDeJogo.SetActive(true) executado com sucesso!");
-        }
+        elemento.ExecutarEfeitoEntrada();
+        CanvasGroup painelAlvo = foiCorreto ? canvasGroupFeedbackCorreto : canvasGroupFeedbackErrado;
+
+        if (painelAlvo != null)
+            StartCoroutine(EfeitoPiscaLentoFeedback(painelAlvo));
         else
-        {
-            Debug.LogError("[FIM DE JOGO] ERRO CRÍTICO: O slot 'Painel Fim De Jogo' está VAZIO no seu QuizManager no Inspector!");
-        }
+            StartCoroutine(AvançarDragSemFeedback());
+    }
 
-        // Proteções contra falta de atribuição dos botões finais
-        if (botaoIrNovamente != null) 
+    private IEnumerator EfeitoPiscaLentoFeedback(CanvasGroup canvasGroupAlvo)
+    {
+        float tempo = 0;
+        float duracaoFade = 0.4f;
+        while (tempo < duracaoFade)
         {
-            botaoIrNovamente.SetActive(true);
+            tempo += Time.deltaTime;
+            canvasGroupAlvo.alpha = tempo / duracaoFade;
+            yield return null;
         }
-        else 
+        yield return new WaitForSeconds(0.4f);
+        tempo = 0;
+        while (tempo < duracaoFade)
         {
-            Debug.LogWarning("[FIM DE JOGO] Aviso: O slot 'Botao Ir Novamente' está vazio.");
+            tempo += Time.deltaTime;
+            canvasGroupAlvo.alpha = 1f - (tempo / duracaoFade);
+            yield return null;
         }
+        canvasGroupAlvo.alpha = 0f;
 
+        indiceDragItemLocal++;
+        SpawnProximoObjetoDrag(quizAtual.perguntas[indicePerguntaGlobal]);
+    }
+
+    private IEnumerator AvançarDragSemFeedback()
+    {
+        yield return new WaitForSeconds(0.4f); 
+        indiceDragItemLocal++;
+        SpawnProximoObjetoDrag(quizAtual.perguntas[indicePerguntaGlobal]);
+    }
+
+    // =================================================================
+    // FINALIZAÇÃO E REINÍCIO ENCAPSULADO
+    // =================================================================
+    private void FinalizarRodadaGeral()
+    {
+        abaMultiplaEscolha.SetActive(false);
+        abaArrastar.SetActive(false);
+
+        if (painelFimDeJogo != null) painelFimDeJogo.SetActive(true);
+        if (botaoIrNovamente != null) botaoIrNovamente.SetActive(true);
+
+        // REGRA DE OURO UNIFICADA: O botão de fechar (avançar na fase) só liga se não errou nada
         if (botaoFechar != null) 
         {
-            botaoFechar.SetActive(!errouAlguma);
-        }
-        else 
-        {
-            Debug.LogWarning("[FIM DE JOGO] Aviso: O slot 'Botao Fechar' está vazio.");
+            botaoFechar.SetActive(!errouAlgumaNoQuizInteiro);
         }
     }
-    public void ReiniciarQuiz() => IniciarQuiz(quizAtual);
-    public void FecharQuiz() => painelFimDeJogo.SetActive(false);
+
+    public void ReiniciarQuizAtual()
+    {
+        IniciarQuizGeral(quizAtual);
+    }
 }
