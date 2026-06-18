@@ -254,4 +254,16 @@ public class QuizManager : MonoBehaviour
     {
         IniciarQuizGeral(quizAtual);
     }
+
+    public void EncerrarQuizComSucesso()
+    {
+        // 1. Desliga o painel principal
+        painelGeralQuiz.SetActive(false);
+        
+        // 2. Opcional: Avisar o restante do jogo que o quiz foi vencido
+        // Você pode disparar um evento aqui, por exemplo:
+        GameEvents.OnQuizCompletedSuccessfully?.Invoke(quizAtual.id);
+        
+        Debug.Log("Quiz finalizado com sucesso! Voltando ao jogo.");
+    }
 }

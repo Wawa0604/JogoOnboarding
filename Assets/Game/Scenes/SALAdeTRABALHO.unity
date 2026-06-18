@@ -539,6 +539,7 @@ Transform:
   - {fileID: 241194320}
   - {fileID: 411665410}
   - {fileID: 1725765466}
+  - {fileID: 1150224123}
   - {fileID: 1963827900}
   - {fileID: 147099631}
   m_Father: {fileID: 0}
@@ -1104,6 +1105,67 @@ PrefabInstance:
       insertIndex: 4
       addedObject: {fileID: 411255572}
   m_SourcePrefab: {fileID: 100100000, guid: 96a0e9c4e57c069439daf796fbbc5f8a, type: 3}
+--- !u!1 &1150224121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1150224123}
+  - component: {fileID: 1150224122}
+  m_Layer: 0
+  m_Name: QuizzManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1150224122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150224121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdae2a418eb57834bb5c5ee309653483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuizManager
+  painelGeralQuiz: {fileID: 1963827918}
+  abaMultiplaEscolha: {fileID: 1963827916}
+  abaArrastar: {fileID: 1963827915}
+  painelFimDeJogo: {fileID: 1963827917}
+  textoPerguntaMultiplaUI: {fileID: 1963827914}
+  textoPerguntaDragUI: {fileID: 1963827913}
+  containerAlternativas: {fileID: 1963827912}
+  prefabBotaoAlternativa: {fileID: 3381194858618243743, guid: 26ddb586d5ecb8643b4fcb8046211bc6, type: 3}
+  btnConfirmar: {fileID: 1963827911}
+  txtBtnConfirmar: {fileID: 1963827910}
+  canvasPrincipal: {fileID: 1963827909}
+  prefabArrastavel: {fileID: 2891474611790136284, guid: d1895a19521887a4e994c57558b9e76f, type: 3}
+  localSpawnElemento: {fileID: 1963827908}
+  canvasGroupFeedbackCorreto: {fileID: 1963827901}
+  canvasGroupFeedbackErrado: {fileID: 1963827905}
+  botaoIrNovamente: {fileID: 1963827907}
+  botaoFechar: {fileID: 1963827906}
+--- !u!4 &1150224123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150224121}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 375404099}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1204265603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1475,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 699908225861114962, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1150224122}
+    - target: {fileID: 699908225861114962, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReiniciarQuizAtual
+      objectReference: {fileID: 0}
     - target: {fileID: 774916019443471953, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1572,6 +1642,14 @@ PrefabInstance:
     - target: {fileID: 1638931027251040776, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939648727910888069, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1150224122}
+    - target: {fileID: 1939648727910888069, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EncerrarQuizComSucesso
       objectReference: {fileID: 0}
     - target: {fileID: 1978702714531949621, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1977,6 +2055,10 @@ PrefabInstance:
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: 9592a9068d7fe0e47ae54d7668f977d9, type: 2}
+    - target: {fileID: 4287980442194889348, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: gerenciador
+      value: 
+      objectReference: {fileID: 1150224122}
     - target: {fileID: 4563644585020995444, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_Name
       value: Canvas_Ui
@@ -2581,6 +2663,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8624924375618769287, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: gerenciador
+      value: 
+      objectReference: {fileID: 1150224122}
     - target: {fileID: 8673190664393024652, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2663,6 +2749,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3704880191382052629, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
   m_PrefabInstance: {fileID: 1963827899}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &1963827901 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7378854202458467426, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1963827902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2322891682248117322, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
@@ -2676,6 +2767,100 @@ GameObject:
 --- !u!328 &1963827904 stripped
 VideoPlayer:
   m_CorrespondingSourceObject: {fileID: 4264626081739525624, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &1963827905 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7346363190336475939, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1963827906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1970781897552456154, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1963827907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1572181307764795154, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1963827908 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1138816454285577358, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1963827909 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 856052898386914700, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1963827910 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6639929196939352567, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &1963827911 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5017838474967610586, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!224 &1963827912 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8553370822574557715, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1963827913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5605825527703976234, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &1963827914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5757433907851150630, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &1963827915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6106630616999864187, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1963827916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1180066232409882575, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1963827917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2715090148135642228, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 1963827899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1963827918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2584944745375389435, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
   m_PrefabInstance: {fileID: 1963827899}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

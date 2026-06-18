@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686406a89e255bf43b50dbe1021b76ec, type: 3}
+  m_Name: QuizComputadorEcriptografia_FocoEmResultado
+  m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
+  id: QuizComputadorEcriptografia_FocoEmResultado
+  perguntas:
+  - tipoDaEtapa: 0
+    textoPergunta: Quais duas atitudes abaixo representam o comportamento esperado
+      no dia a dia ou no trabalho remoto?
+    alternativas:
+    - textoAlternative: "Bloquear a tela usando o atalho 'Windows + L' sempre que
+        se afastar do posto de trabalho (mesmo em home office) e preferir redes Wi-Fi
+        seguras, evitando redes p\xFAblicas sem senha."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    - textoAlternative: "Compartilhar o notebook do CPQD com familiares em casa ou
+        utiliz\xE1-lo para navegar em sites de entretenimento pessoal fora do hor\xE1rio
+        de expediente."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Os equipamentos fornecidos pelo CPQD s\xE3o
+        de uso exclusivo para atividades profissionais. O uso pessoal e o compartilhamento
+        com terceiros (inclusive fam\xEDlia) abrem portas para incidentes de seguran\xE7a."
+    - textoAlternative: "Reportar imediatamente ao We Protect (weprotect@cpqd.com.br)
+        caso note lentid\xE3o excessiva ou comportamentos estranhos na m\xE1quina,
+        interrompendo o uso do aparelho se suspeitar de malware. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    - textoAlternative: "Se o computador apresentar notifica\xE7\xF5es estranhas
+        de v\xEDrus ou falhas frequentes, ignorar os avisos e continuar trabalhando
+        at\xE9 a m\xE1quina travar totalmente. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Incorreto! Lentid\xE3o extrema e alertas de
+        antiv\xEDrus s\xE3o sinais claros de poss\xEDveis incidentes. Continuar usando
+        a m\xE1quina pode espalhar o malware pela rede e agravar o problema."
+    itensParaArrastar: []

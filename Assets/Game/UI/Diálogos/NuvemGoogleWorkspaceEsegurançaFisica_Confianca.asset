@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe0e7d499db71a24ca9347d7d2354a3c, type: 3}
-  m_Name: ArmazenamentoEportaUSB_Confianca
+  m_Name: "NuvemGoogleWorkspaceEseguran\xE7aFisica_Confianca"
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
-  id: ArmazenamentoEportaUSB_Confianca
+  id: "NuvemGoogleWorkspaceEseguran\xE7aFisica_Confianca"
   iconeAvatar: {fileID: 21300000, guid: 4423566198bb37f41bea6732751efc45, type: 3}
   lines:
   - characterName: "Confian\xE7a"
@@ -56,5 +56,4 @@ MonoBehaviour:
   OnSequenceComplete:
     m_PersistentCalls:
       m_Calls: []
-  quizParaIniciar: {fileID: 0}
-  quizDragParaIniciar: {fileID: 11400000, guid: bdeea0b67f44c7e43addde27afa6bfd2, type: 2}
+  quizParaIniciar: {fileID: 11400000, guid: f8dc9c64fb6d5444eb5a90bb7cc267c7, type: 2}

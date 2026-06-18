@@ -399,6 +399,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 699908225861114962, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1888714577}
+    - target: {fileID: 699908225861114962, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReiniciarQuizAtual
+      objectReference: {fileID: 0}
+    - target: {fileID: 699908225861114962, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuizManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 774916019443471953, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -558,6 +570,18 @@ PrefabInstance:
     - target: {fileID: 1638931027251040776, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939648727910888069, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1888714577}
+    - target: {fileID: 1939648727910888069, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EncerrarQuizComSucesso
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939648727910888069, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuizManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1978702714531949621, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2419,6 +2443,17 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 856052898386914700, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
   m_PrefabInstance: {fileID: 775177220}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1888714577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1065107818328788477, guid: 0e29e0ca0c913bf46b2bd42ee2240678, type: 3}
+  m_PrefabInstance: {fileID: 6755992898888875657}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdae2a418eb57834bb5c5ee309653483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuizManager
 --- !u!114 &1900963378 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8138736043504429810, guid: dd3bf30e1f9d5df40a82a95edd31cedc, type: 3}

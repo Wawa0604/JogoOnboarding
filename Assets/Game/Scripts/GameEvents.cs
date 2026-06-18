@@ -14,4 +14,7 @@ public static class GameEvents
 
     // Evento dedicado para o botão "Jogar Novamente" avisar o QuizManager
     public static Action OnRestartDragQuizRequested;
+
+    //Avisa que o quiz foi concluído com sucesso
+    public static Action<string> OnQuizCompletedSuccessfully;
 }

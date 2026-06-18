@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic; // Adicionado para usar List
 
 public class MinimapManager : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class MinimapManager : MonoBehaviour
     [Header("Configurações de Animação")]
     [Tooltip("Velocidade com que o ícone viaja pelo mapa")]
     public float velocidadeNavegacao = 500f; 
+
+    [Header("Elementos do Mapa Grande")]
+    [Tooltip("Arraste para cá todos os slots/botões que só devem aparecer e funcionar no mapa expandido")]
+    public List<GameObject> elementosExclusivosMapaGrande = new List<GameObject>();
 
     private bool estaExpandido = false;
     private bool estaAnimando = false; // Bloqueia cliques extras durante a viagem
@@ -71,6 +76,9 @@ public class MinimapManager : MonoBehaviour
         molduraJanela.sizeDelta = tamanhoPequeno;
         molduraJanela.anchoredPosition = posicaoPequeno;
         
+        // Desativa os botões/slots para evitar cliques acidentais
+        AlternarElementosMapaGrande(false);
+
         SincronizarVisualGPS();
     }
 
@@ -83,6 +91,10 @@ public class MinimapManager : MonoBehaviour
         molduraJanela.anchoredPosition = Vector2.zero;
 
         mapaGrande.anchoredPosition = Vector2.zero;
+
+        // Ativa os botões/slots já que o mapa está aberto
+        AlternarElementosMapaGrande(true);
+
         SincronizarVisualGPS();
     }
 
@@ -151,6 +163,22 @@ public class MinimapManager : MonoBehaviour
         {
             // Só sincroniza automaticamente se não estiver no meio da animação de viagem
             playerIcon.anchoredPosition = posReal;
+        }
+    }
+
+    // --- FUNÇÃO AUXILIAR ---
+    
+    /// <summary>
+    /// Ativa ou desativa todos os elementos da lista de uma vez só.
+    /// </summary>
+    void AlternarElementosMapaGrande(bool status)
+    {
+        foreach (GameObject elemento in elementosExclusivosMapaGrande)
+        {
+            if (elemento != null)
+            {
+                elemento.SetActive(status);
+            }
         }
     }
 }

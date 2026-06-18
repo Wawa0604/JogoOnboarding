@@ -12,13 +12,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686406a89e255bf43b50dbe1021b76ec, type: 3}
   m_Name: "NuvemGoogleWorkspaceEseguran\xE7aFisica_Confianca"
   m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
-  id: "NuvemGoogleWorkspaceEseguran\xE7aFisica_Confianca"
+  id: QuizLicencasDeSoftwareEportasUSB_OrientacaoAoCliente
   perguntas:
   - tipoDaEtapa: 0
-    textoPergunta: 
-    alternativas: []
+    textoPergunta: "Quais alternativas s\xE3o corretas? (duas alternativas)"
+    alternativas:
+    - textoAlternative: "Devo salvar todos os meus documentos na mem\xF3ria do computador
+        e requisitar backups semanais para a TI."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Incorreto! A TI do CPQD n\xE3o realiza backups
+        dos discos r\xEDgidos das m\xE1quinas. Tudo deve ir para a nuvem."
+    - textoAlternative: "O sistema de nuvem que usamos para realizar as nossas atividades
+        de trabalho \xE9 o Google Workspace. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    - textoAlternative: "Devo armazenar tudo em nuvem no Google Drive, j\xE1 que
+        a equipe de TI n\xE3o realiza backups dos discos r\xEDgidos dos computadores. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 
+    - textoAlternative: "Caso eu n\xE3o consiga usar a nuvem por algum motivo especial,
+        posso salvar os arquivos direto no HD comum da m\xE1quina sem prote\xE7\xE3o
+        extra."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Incorreto! Se houver um caso especial onde voc\xEA
+        n\xE3o possa usar a nuvem, voc\xEA deve obrigatoriamente usar criptografia
+        e fazer suas pr\xF3prias c\xF3pias de seguran\xE7a."
     itensParaArrastar: []
   - tipoDaEtapa: 0
-    textoPergunta: 
-    alternativas: []
+    textoPergunta: Qual a conduta correta? (uma alternativa)
+    alternativas:
+    - textoAlternative: "Como os notebooks corporativos s\xE3o de alta resist\xEAncia,
+        n\xE3o h\xE1 necessidade de se preocupar com derramamentos de l\xEDquidos
+        ou exposi\xE7\xE3o ao calor no dia a dia."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Incorreto! Por serem f\xE1ceis de transportar,
+        os notebooks correm riscos f\xEDsicos constantes, e voc\xEA deve evitar quedas,
+        derramamentos de l\xEDquidos e exposi\xE7\xE3o ao calor."
+    - textoAlternative: "Evitar quedas, l\xEDquidos e exposi\xE7\xE3o ao calor protege
+        o notebook contra riscos f\xEDsicos, e em caso de perda ou roubo, a equipe
+        de seguran\xE7a deve ser acionada imediatamente para bloqueio remoto. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    - textoAlternative: "Deixar a op\xE7\xE3o de 'reprodu\xE7\xE3o autom\xE1tica
+        de arquivos execut\xE1veis' ligada nas configura\xE7\xF5es do Windows ajuda
+        a proteger o sistema contra v\xEDrus de pendrives."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Incorreto! Voc\xEA deve verificar se essa op\xE7\xE3o
+        est\xE1 desativada, justamente para dificultar infec\xE7\xF5es por malwares
+        quando m\xEDdias forem conectadas."
+    - textoAlternative: "Em caso de perda ou roubo, o colaborador deve tentar localizar
+        o aparelho por conta pr\xF3pria e s\xF3 avisar a TI se n\xE3o o encontrar
+        ap\xF3s alguns dias. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Incorreto! Se o seu dispositivo corporativo
+        for perdido ou roubado, o protocolo correto \xE9 reportar imediatamente \xE0
+        equipe de seguran\xE7a, bloquear o dispositivo remotamente (se poss\xEDvel)
+        e solicitar a revoga\xE7\xE3o de acessos aos sistemas."
     itensParaArrastar: []

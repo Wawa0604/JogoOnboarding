@@ -536,6 +536,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 699908225861114962, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1209750134}
+    - target: {fileID: 699908225861114962, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReiniciarQuizAtual
+      objectReference: {fileID: 0}
     - target: {fileID: 774916019443471953, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -695,6 +703,14 @@ PrefabInstance:
     - target: {fileID: 1638931027251040776, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939648727910888069, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1209750134}
+    - target: {fileID: 1939648727910888069, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EncerrarQuizComSucesso
       objectReference: {fileID: 0}
     - target: {fileID: 1978702714531949621, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1115,11 +1131,7 @@ PrefabInstance:
     - target: {fileID: 4287980442194889348, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: gerenciador
       value: 
-      objectReference: {fileID: 1361568326}
-    - target: {fileID: 4287980442194889348, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
-      propertyPath: idDestaZona
-      value: No
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1209750134}
     - target: {fileID: 4563644585020995444, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_Name
       value: Canvas_Ui
@@ -1243,6 +1255,22 @@ PrefabInstance:
     - target: {fileID: 5162964278287432096, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605825527703976234, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605825527703976234, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605825527703976234, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.15471691
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605825527703976234, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190119
       objectReference: {fileID: 0}
     - target: {fileID: 5788939888268319073, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: botaoTerminar
@@ -1727,11 +1755,7 @@ PrefabInstance:
     - target: {fileID: 8624924375618769287, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: gerenciador
       value: 
-      objectReference: {fileID: 1361568326}
-    - target: {fileID: 8624924375618769287, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
-      propertyPath: idDestaZona
-      value: Safe
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1209750134}
     - target: {fileID: 8673190664393024652, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1814,14 +1838,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2715090148135642228, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
   m_PrefabInstance: {fileID: 387494264}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &387494266 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4509151447130856545, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+--- !u!225 &387494266 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7378854202458467426, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
   m_PrefabInstance: {fileID: 387494264}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &387494267 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 279388342385274872, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+--- !u!225 &387494267 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7346363190336475939, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
   m_PrefabInstance: {fileID: 387494264}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &387494268 stripped
@@ -2445,31 +2469,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdae2a418eb57834bb5c5ee309653483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuizManager
-  painelQuiz: {fileID: 387494272}
+  painelGeralQuiz: {fileID: 387494272}
+  abaMultiplaEscolha: {fileID: 1478753129}
+  abaArrastar: {fileID: 1478753128}
   painelFimDeJogo: {fileID: 387494265}
-  textoPerguntaUI: {fileID: 387494271}
+  textoPerguntaMultiplaUI: {fileID: 387494271}
+  textoPerguntaDragUI: {fileID: 1478753127}
   containerAlternativas: {fileID: 387494270}
   prefabBotaoAlternativa: {fileID: 3381194858618243743, guid: 26ddb586d5ecb8643b4fcb8046211bc6, type: 3}
   btnConfirmar: {fileID: 387494269}
   txtBtnConfirmar: {fileID: 387494268}
-  botaoIrNovamente: {fileID: 387494267}
-  botaoFechar: {fileID: 387494266}
+  canvasPrincipal: {fileID: 1478753130}
+  prefabArrastavel: {fileID: 2891474611790136284, guid: d1895a19521887a4e994c57558b9e76f, type: 3}
+  localSpawnElemento: {fileID: 1478753126}
+  canvasGroupFeedbackCorreto: {fileID: 387494266}
+  canvasGroupFeedbackErrado: {fileID: 387494267}
+  botaoIrNovamente: {fileID: 1478753125}
+  botaoFechar: {fileID: 1478753124}
 --- !u!4 &1316601618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3760914694677694455, guid: 44be27dbc4941524ab0dd0ee7a390a20, type: 3}
   m_PrefabInstance: {fileID: 1880200808}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1361568326 stripped
+--- !u!1 &1478753124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1970781897552456154, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 387494264}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1478753125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1572181307764795154, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 387494264}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1478753126 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1138816454285577358, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 387494264}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1478753127 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3026324360907856235, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5605825527703976234, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
   m_PrefabInstance: {fileID: 387494264}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1c01abc722a0514eae6a8de44fd34a4, type: 3}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuizDragManager
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &1478753128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6106630616999864187, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 387494264}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1478753129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1180066232409882575, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 387494264}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1478753130 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 856052898386914700, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 387494264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1540438354
 GameObject:
   m_ObjectHideFlags: 0

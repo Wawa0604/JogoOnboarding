@@ -27,4 +27,4 @@ MonoBehaviour:
   OnSequenceComplete:
     m_PersistentCalls:
       m_Calls: []
-  quizParaIniciar: {fileID: 11400000, guid: 1739e1fcab31b7745b9f09c2ae0b5113, type: 2}
+  quizParaIniciar: {fileID: 11400000, guid: bb4715679e7f0e14cbd6464dcd876b02, type: 2}

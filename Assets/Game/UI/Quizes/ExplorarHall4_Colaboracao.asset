@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686406a89e255bf43b50dbe1021b76ec, type: 3}
+  m_Name: ExplorarHall4_Colaboracao
+  m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
+  id: ExplorarHall4_Colaboracao
+  perguntas:
+  - tipoDaEtapa: 0
+    textoPergunta: "Aqui no pr\xE9dio 4, posso conseguir aux\xEDlio com o TI?"
+    alternativas:
+    - textoAlternative: "Sim, sem hora marcada, s\xF3 aparecer."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: O time atende presencialmente, mas precisa de
+        agendamento pr\xE9vio pelo Jira ou email do helpdesk."
+    - textoAlternative: "N\xE3o, s\xF3 fazemos aconselhamentos de forma digital.
+        - falso. Justificativa: com hora marcada, o TI atende presencialmente."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 'Justificativa: com hora marcada, o TI atende presencialmente.'
+    - textoAlternative: "Sim, basta mandar um Jira ou email helpdesk para um hor\xE1rio."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    - textoAlternative: "Pode tamb\xE9m resolver de forma remota atrav\xE9s de um
+        chamado no Jira ou no email do helpdesk. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    itensParaArrastar: []
+  - tipoDaEtapa: 0
+    textoPergunta: "Qual o funcionamento das salas de reuni\xE3o outback?"
+    alternativas:
+    - textoAlternative: "Elas s\xE3o restritas para reuni\xF5es dos colaboradores
+        do pr\xE9dio 4"
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: basta reservar uma sala pelo google em uma agenda
+        de reuni\xE3o.\r\n"
+    - textoAlternative: "Se eu come\xE7ar a usar uma sem hora marcada, quem chegar
+        depois com reserva precisa esperar. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: \xC9 necess\xE1rio fazer reserva com uma agenda
+        via google."
+    - textoAlternative: "Se n\xE3o estiver reservada, posso reservar a sala para
+        minha reuni\xE3o no google agenda."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    itensParaArrastar: []
+  - tipoDaEtapa: 0
+    textoPergunta: "Utiliza\xE7\xE3o das salas de uso comum:"
+    alternativas:
+    - textoAlternative: "Qualquer um pode usar a sala de descanso em hor\xE1rios
+        de pausa. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    - textoAlternative: "Posso perder a no\xE7\xE3o do tempo na sala de descanso
+        relaxando \xE0 vontade."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: a sala de descanso \xE9 para hor\xE1rios de
+        pausa e n\xE3o atrapalhar o colaborador a trabalhar."
+    - textoAlternative: "Posso ir almo\xE7ar na copa do pr\xE9dio 4 e comprar produtos
+        da vendinha."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    - textoAlternative: 'Posso pegar as coisas da vendinha e esquecer de pagar que
+        a conta vem em folha de pagamento. '
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 'Justificativa:  a vendinha deve ser acertada na hora que retirar
+        o produto.'
+    itensParaArrastar: []

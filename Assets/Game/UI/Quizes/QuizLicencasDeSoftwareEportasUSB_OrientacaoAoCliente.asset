@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686406a89e255bf43b50dbe1021b76ec, type: 3}
+  m_Name: QuizLicencasDeSoftwareEportasUSB_OrientacaoAoCliente
+  m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
+  id: QuizLicencasDeSoftwareEportasUSB_OrientacaoAoCliente
+  perguntas:
+  - tipoDaEtapa: 0
+    textoPergunta: "Em rela\xE7\xE3o aos softwares utilizados para trabalho, escolha
+      a alternativa correta."
+    alternativas:
+    - textoAlternative: "Sempre usei um software seguro para trabalhar e tenho a
+        licen\xE7a. Como \xE9 seguro e a licen\xE7a j\xE1 est\xE1 paga, posso baixar
+        e continuar usando. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: todos os softwares devem ser analisados previamente
+        pela TI e n\xE3o \xE9 permitido o uso de licen\xE7as pessoais nos dispositivos
+        do CPQD."
+    - textoAlternative: "Conhe\xE7o um site para baixar o software que uso sem precisar
+        pagar a licen\xE7a. Basta abrir o download sem estar conectado \xE0 internet."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Se o software originalmente tem uma licen\xE7a,
+        esse site disponibiliza um software pirata, cuja instala\xE7\xE3o \xE9 proibida
+        nos dispositivos do CPQD. "
+    - textoAlternative: "Tem um software Open Source que conhe\xE7o e uso a anos,
+        posso baixar e continuar usando no meu trabalho no CPQD. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: "Justificativa: Apesar de ser Open Source, precisa ser previamente
+        avaliado pela equipe do TI. Pe\xE7a an\xE1lise do software em um chamado,
+        por jira ou email ao helpdesk."
+    - textoAlternative: "Tem um software necess\xE1rio para o meu trabalho que conhe\xE7o
+        e pago a licen\xE7a. Posso abrir um chamado via Jira para requisitar uma
+        licen\xE7a e instala\xE7\xE3o para a minha m\xE1quina. "
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    itensParaArrastar: []
+  - tipoDaEtapa: 1
+    textoPergunta: "Separe entre Seguros para serem plugados no computador do CPQD
+      e os N\xE3o Permitidos:"
+    alternativas: []
+    itensParaArrastar:
+    - idItem: MidiaRemovivel1
+      descricao: Pen drive pessoal
+      spriteObjeto: {fileID: 0}
+      idTargetCorreto: no
+    - idItem: MidiaRemovivel2
+      descricao: HD externo disponibilizado e criptografado pela TI
+      spriteObjeto: {fileID: 0}
+      idTargetCorreto: yes
+    - idItem: MidiaRemovivel3
+      descricao: Celular pessoal
+      spriteObjeto: {fileID: 0}
+      idTargetCorreto: no
+    - idItem: MidiaRemovivel4
+      descricao: HD externo pessoal
+      spriteObjeto: {fileID: 0}
+      idTargetCorreto: no
+    - idItem: MidiaRemovivel5
+      descricao: "Pen drive encontrado na cal\xE7ada do CPQD"
+      spriteObjeto: {fileID: 0}
+      idTargetCorreto: no
