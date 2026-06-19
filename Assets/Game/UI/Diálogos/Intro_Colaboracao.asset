@@ -16,18 +16,19 @@ MonoBehaviour:
   iconeAvatar: {fileID: 21300000, guid: 48a831e952638f34d871cc6372d04656, type: 3}
   lines:
   - characterName: "Colabora\xE7\xE3o"
-    text: "\u201CSeja muito bem-vindo(a) ao seu onboarding no CPQD!\L Preparamos
-      uma verdadeira aventura pelo nosso campus para te ajudar a se localizar melhor
+    text: "\u201CSeja muito bem-vindo(a) ao seu onboarding no CPQD! Preparamos uma
+      verdadeira aventura pelo nosso campus para te ajudar a se localizar melhor
       entre os pr\xE9dios, conhecer mais sobre o CPQD e descobrir todas as informa\xE7\xF5es
       importantes para o seu dia a dia conosco.\u201D"
   - characterName: "Colabora\xE7\xE3o"
-    text: "\"Eu sou a Colabora\xE7\xE3o, um do We Movers do CPQD, eu e meus irm\xE3os
-      representamos os valores do CPQD. Eu trago comigo a intens\xE3o do CPQD de
-      fazer e evolu\xEDr  juntos, criando valor para a organiza\xE7\xE3o, os clientes,
-      os parceiros e a sociedade.\""
+    text: "\"Eu sou a Colabora\xE7\xE3o, um dos We Movers do CPQD. Eu e meus irm\xE3os
+      representamos os valores fundamentais da nossa institui\xE7\xE3o. Eu trago
+      a Prontid\xE3o no peito! Isso significa que, por aqui, estamos sempre prontos
+      para estender a m\xE3o e encarar qualquer desafio. A frase 'esse trabalho n\xE3o
+      \xE9 meu' simplesmente n\xE3o existe no nosso vocabul\xE1rio!\u201D"
   - characterName: "Colabora\xE7\xE3o"
     text: "\u201CAntes de iniciarmos essa jornada, que tal personalizar seu avatar
-      para deix\xE1-lo com a sua identidade?\L Vamos l\xE1?\u201D"
+      para deix\xE1-lo com o seu jeito de ser? Vamos l\xE1?\u201D"
   missaoParaConcluir: {fileID: 0}
   OnSequenceComplete:
     m_PersistentCalls:

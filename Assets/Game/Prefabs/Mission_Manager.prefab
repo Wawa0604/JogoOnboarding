@@ -47,5 +47,14 @@ MonoBehaviour:
   todasAsMissoes:
   - {fileID: 11400000, guid: dea07769707fc3644bbfc1327e889837, type: 2}
   - {fileID: 11400000, guid: a1cec3056f8689f44a1c869ddf508b05, type: 2}
+  - {fileID: 11400000, guid: 7e54f555d5373074397e467ff8c50f1a, type: 2}
+  - {fileID: 11400000, guid: f52b880bff9fd50409c060da48a97b58, type: 2}
+  - {fileID: 11400000, guid: 0373d110f18e9c348bd4178d931ac6b6, type: 2}
+  - {fileID: 11400000, guid: 9238521c8ce408147a0e0b8f21387995, type: 2}
+  - {fileID: 11400000, guid: 9bdefbcdb6ff5e24694ec58ebfdfe406, type: 2}
+  - {fileID: 11400000, guid: d39e7c54322fa8a4289f0e437b235c26, type: 2}
+  - {fileID: 11400000, guid: 6ad455aef316c1545bf83416b0d5d891, type: 2}
+  - {fileID: 11400000, guid: 006ce2e2241e2ac40ae177b8b6991d3c, type: 2}
+  - {fileID: 11400000, guid: 6e06ab9097484e64c846be5c67a5b7db, type: 2}
   prefabMissao: {fileID: 6324697465083901312, guid: e564b1eae89976a4885702a38ebae356, type: 3}
   containerLista: {fileID: 0}

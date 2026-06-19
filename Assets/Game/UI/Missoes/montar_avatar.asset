@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: montar_avatar
   m_EditorClassIdentifier: Assembly-CSharp::MissaoData
   id: montar_avatar
-  descricao: Montar Avatar
+  descricao: Monte seu avatar

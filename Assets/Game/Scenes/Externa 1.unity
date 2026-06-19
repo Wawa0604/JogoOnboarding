@@ -804,7 +804,7 @@ PrefabInstance:
     - target: {fileID: 4264626081739525624, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 3bfd12848b92304498f00fd9f57fb251, type: 3}
+      objectReference: {fileID: 32900000, guid: dc1d0fd24371e8f4793713e47456d2bc, type: 3}
     - target: {fileID: 4264626081739525624, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AspectRatio
       value: 0

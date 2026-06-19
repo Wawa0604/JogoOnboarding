@@ -16,9 +16,9 @@ MonoBehaviour:
   iconeAvatar: {fileID: 21300000, guid: 22763f35c0cee0447bbd8e7351864444, type: 3}
   lines:
   - characterName: Tuca
-    text: "\u201CMuito bem-vindo(a)! Estamos muito felizes em ter voc\xEA conosco.\n\nGostaria
-      de me apresentar e compartilhar um pouco mais sobre o CPQD.\n\nQue tal iniciarmos
-      o v\xEDdeo?\u201D"
+    text: "\u201CMuito bem-vindo(a)! Eu sou o avatar do Tuca, o Presidente do CPQD.
+      Estamos muito felizes em ter voc\xEA conosco. Gostaria de me apresentar e compartilhar
+      um pouco mais sobre o CPQD.\r\nQue tal iniciarmos o v\xEDdeo?\u201D"
   missaoParaConcluir: {fileID: 11400000, guid: a1cec3056f8689f44a1c869ddf508b05, type: 2}
   OnSequenceComplete:
     m_PersistentCalls:
@@ -35,3 +35,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  quizParaIniciar: {fileID: 0}
