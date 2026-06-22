@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MissaoData
   id: ExplorarHall4_Colaboracao
   descricao: "Explore o Pr\xE9dio 4"
+  idQuizVinculado: ExplorarHall4_Colaboracao

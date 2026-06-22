@@ -33,16 +33,8 @@ public class MissionManager : MonoBehaviour
     }
 }
 
-    // --- NOVO: Se inscreve no evento de carregamento de cena ---
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += AoCarregarCena;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= AoCarregarCena;
-    }
+    [Tooltip("Cole aqui o ID exato do QuizUnificado que finaliza esta missão.")]
+    public string idQuizVinculado;
 
    // 1. Altera a função que recebe o evento do SceneManager
     private void AoCarregarCena(Scene cena, LoadSceneMode modo)

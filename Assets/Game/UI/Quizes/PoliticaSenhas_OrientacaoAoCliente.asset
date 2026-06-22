@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686406a89e255bf43b50dbe1021b76ec, type: 3}
   m_Name: PoliticaSenhas_OrientacaoAoCliente
   m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
-  id: 
+  id: PoliticaSenhas_OrientacaoAoCliente
   perguntas:
   - tipoDaEtapa: 0
     textoPergunta: "Para ajudar a lembrar senhas, uma pr\xE1tica segura e recomendada

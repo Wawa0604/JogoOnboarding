@@ -1684,6 +1684,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &775177223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6452719317292656476, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 775177220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!114 &775177224 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6639929196939352567, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
@@ -2080,6 +2091,17 @@ Transform:
   - {fileID: 1510392902}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1755254005 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6579374505035259608, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 775177220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1824860803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2639,9 +2661,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 775177226}
     - target: {fileID: 1065107818328788477, guid: 0e29e0ca0c913bf46b2bd42ee2240678, type: 3}
+      propertyPath: textoDesempenhoIdealUI
+      value: 
+      objectReference: {fileID: 775177223}
+    - target: {fileID: 1065107818328788477, guid: 0e29e0ca0c913bf46b2bd42ee2240678, type: 3}
       propertyPath: textoPerguntaMultiplaUI
       value: 
       objectReference: {fileID: 775177227}
+    - target: {fileID: 1065107818328788477, guid: 0e29e0ca0c913bf46b2bd42ee2240678, type: 3}
+      propertyPath: textoDesempenhoJogadorUI
+      value: 
+      objectReference: {fileID: 1755254005}
     - target: {fileID: 1065107818328788477, guid: 0e29e0ca0c913bf46b2bd42ee2240678, type: 3}
       propertyPath: canvasGroupFeedbackErrado
       value: 

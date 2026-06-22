@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MissaoData
   id: LicencasDeSoftwareEportasUSB_OrientacaoAoCliente
   descricao: "Instale softwares com seguran\xE7a"
+  idQuizVinculado: QuizLicencasDeSoftwareEportasUSB_OrientacaoAoCliente

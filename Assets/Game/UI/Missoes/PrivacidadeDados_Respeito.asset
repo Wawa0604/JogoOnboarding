@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MissaoData
   id: PrivacidadeDados_Respeito
   descricao: Pratique a privacidade de dados
+  idQuizVinculado: QuizPrivacidadeDados_Respeito

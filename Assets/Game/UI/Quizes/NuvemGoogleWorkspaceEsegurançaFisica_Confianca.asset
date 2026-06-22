@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686406a89e255bf43b50dbe1021b76ec, type: 3}
   m_Name: "NuvemGoogleWorkspaceEseguran\xE7aFisica_Confianca"
   m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
-  id: QuizLicencasDeSoftwareEportasUSB_OrientacaoAoCliente
+  id: "NuvemGoogleWorkspaceEseguran\xE7aFisica_Confianca"
   perguntas:
   - tipoDaEtapa: 0
     textoPergunta: "Quais alternativas s\xE3o corretas? (duas alternativas)"

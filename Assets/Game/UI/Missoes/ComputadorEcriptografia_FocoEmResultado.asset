@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MissaoData
   id: ComputadorEcriptografia_FocoEmResultado
   descricao: Cuidados computador e criptografia
+  idQuizVinculado: QuizComputadorEcriptografia_FocoEmResultado

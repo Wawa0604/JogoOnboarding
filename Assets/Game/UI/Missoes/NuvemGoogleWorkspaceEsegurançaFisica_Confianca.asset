@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MissaoData
   id: "NuvemGoogleWorkspaceEseguran\xE7aFisica_Confianca"
   descricao: Domine Nuvem e USB
+  idQuizVinculado: "NuvemGoogleWorkspaceEseguran\xE7aFisica_Confianca"

@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI; 
 using System.Collections;
 using System.Collections.Generic;
+using System.Text; 
 
 public class QuizManager : MonoBehaviour
 {
@@ -33,20 +34,29 @@ public class QuizManager : MonoBehaviour
     [SerializeField] private GameObject botaoIrNovamente;
     [SerializeField] private GameObject botaoFechar;
 
+    [Header("RELATÓRIO DE DESEMPENHO (Novos Slots)")]
+    [SerializeField] private TextMeshProUGUI textoDesempenhoJogadorUI;
+    [SerializeField] private TextMeshProUGUI textoDesempenhoIdealUI;
+
     // Variáveis de Controle de Fluxo
     private QuizSequence quizAtual;
-    private int indicePerguntaGlobal; // Qual pergunta do array estamos
-    private int indiceDragItemLocal;  // Qual objeto do arraste atual está na tela
+    private int indicePerguntaGlobal; 
+    private int indiceDragItemLocal;  
     private bool errouAlgumaNoQuizInteiro; 
     private bool exibindoJustificativa;
     
+    // Contadores locais para o relatório
+    private int dragItensCorretosNestaEtapa;
+    private StringBuilder relatorioJogador = new StringBuilder();
+    private StringBuilder relatorioIdeal = new StringBuilder();
+
     private List<QuizAlternativeUI> alternativasNaTela = new List<QuizAlternativeUI>();
     public bool ExibindoJustificativa => exibindoJustificativa;
 
     private void OnEnable()
     {
         GameEvents.OnQuizRequested += IniciarQuizGeral;
-        GameEvents.OnRestartDragQuizRequested += ReiniciarQuizAtual; // Escuta o botão jogar novamente
+        GameEvents.OnRestartDragQuizRequested += ReiniciarQuizAtual; 
     }
 
     private void OnDisable()
@@ -63,6 +73,9 @@ public class QuizManager : MonoBehaviour
         indicePerguntaGlobal = 0;
         errouAlgumaNoQuizInteiro = false;
 
+        relatorioJogador.Clear();
+        relatorioIdeal.Clear();
+
         painelGeralQuiz.SetActive(true);
         if (painelFimDeJogo != null) painelFimDeJogo.SetActive(false);
 
@@ -71,7 +84,6 @@ public class QuizManager : MonoBehaviour
 
     private void DefinirEConfigurarEtapaAtual()
     {
-        // Se passamos do limite do array, o quiz inteiro acabou!
         if (indicePerguntaGlobal >= quizAtual.perguntas.Length)
         {
             FinalizarRodadaGeral();
@@ -80,7 +92,6 @@ public class QuizManager : MonoBehaviour
 
         QuizQuestion etapaAtual = quizAtual.perguntas[indicePerguntaGlobal];
 
-        // Reseta os painéis de feedback visual
         if (canvasGroupFeedbackCorreto != null) canvasGroupFeedbackCorreto.alpha = 0f;
         if (canvasGroupFeedbackErrado != null) canvasGroupFeedbackErrado.alpha = 0f;
 
@@ -94,7 +105,8 @@ public class QuizManager : MonoBehaviour
         {
             abaMultiplaEscolha.SetActive(false);
             abaArrastar.SetActive(true);
-            indiceDragItemLocal = 0; // Começa o sub-contador de itens do zero
+            indiceDragItemLocal = 0; 
+            dragItensCorretosNestaEtapa = 0; 
             ConfigurarEtapaArrastar(etapaAtual);
         }
     }
@@ -140,22 +152,93 @@ public class QuizManager : MonoBehaviour
         {
             exibindoJustificativa = true;
             txtBtnConfirmar.text = "Avançar"; 
-            bool acertouTudoNessaQuestao = true;
 
+            int totalCorretasDaEtapa = 0;
+            int corretasMarcadasPeloJogador = 0;
+            int erradasMarcadasPeloJogador = 0;
+
+            // 1. Faz a varredura e contagem limpa dos botões
             foreach (QuizAlternativeUI altUI in alternativasNaTela)
             {
                 altUI.RevelarResultado(); 
-                if ((altUI.Dados.ehCorreta && !altUI.IsSelected) || (!altUI.Dados.ehCorreta && altUI.IsSelected))
-                {
-                    acertouTudoNessaQuestao = false;
-                }
+                
+                if (altUI.Dados.ehCorreta) totalCorretasDaEtapa++;
+
+                if (altUI.Dados.ehCorreta && altUI.IsSelected) corretasMarcadasPeloJogador++;
+                if (!altUI.Dados.ehCorreta && altUI.IsSelected) erradasMarcadasPeloJogador++;
             }
 
-            if (!acertouTudoNessaQuestao) errouAlgumaNoQuizInteiro = true; 
+            // 2. A MATEMÁTICA DA PRECISÃO: Separa substituições de excessos
+            int corretasEsquecidas = totalCorretasDaEtapa - corretasMarcadasPeloJogador;
+            
+            // Quantas erradas apenas tentaram ocupar o lugar de uma certa que faltou
+            int erradasQueSubstituem = Mathf.Min(erradasMarcadasPeloJogador, corretasEsquecidas);
+            
+            // Quantas erradas realmente passaram do limite total de respostas da pergunta
+            int marcadasAMais = erradasMarcadasPeloJogador - erradasQueSubstituem;
+            
+            // Quantas certas ficaram em branco sem nenhuma errada tentando "substituí-las"
+            int naoMarcadasPuras = corretasEsquecidas - erradasQueSubstituem;
+
+            string resultadoTexto = "";
+            int numeroEtapa = indicePerguntaGlobal + 1;
+
+            // 3. MONTAGEM DO TEXTO BASEADO NOS SEUS EXEMPLOS
+            
+            // Cenário 100% Correto (Exemplos X e Z)
+            if (corretasMarcadasPeloJogador == totalCorretasDaEtapa && erradasMarcadasPeloJogador == 0)
+            {
+                resultadoTexto = totalCorretasDaEtapa == 1 ? "Acertou" : $"{totalCorretasDaEtapa} Certas";
+            }
+            // Cenário 100% Errado puro (Exemplo B)
+            else if (corretasMarcadasPeloJogador == 0 && erradasQueSubstituem == 1 && marcadasAMais == 0 && naoMarcadasPuras == 0)
+            {
+                resultadoTexto = "Errou";
+            }
+            // Cenários Mistos Customizados (Exemplos Y, A, C, D e o seu novo caso)
+            else
+            {
+                List<string> partes = new List<string>();
+
+                // Componente de acertos
+                if (corretasMarcadasPeloJogador > 0) 
+                {
+                    partes.Add(corretasMarcadasPeloJogador == 1 ? "1 Correta" : $"{corretasMarcadasPeloJogador} Certas");
+                }
+
+                // Componente de erros que substituíram uma certa
+                if (erradasQueSubstituem > 0) 
+                {
+                    partes.Add(erradasQueSubstituem == 1 ? "1 Errada" : $"{erradasQueSubstituem} Erradas");
+                }
+
+                // Componente de certas esquecidas puras (sem substituição)
+                if (naoMarcadasPuras > 0) 
+                {
+                    partes.Add(naoMarcadasPuras == 1 ? "1 Não marcada" : $"{naoMarcadasPuras} Não marcadas");
+                }
+
+                // Componente de cliques que estouraram o orçamento
+                if (marcadasAMais > 0) 
+                {
+                    partes.Add(marcadasAMais == 1 ? "1 Marcada a mais" : $"{marcadasAMais} Marcadas a mais");
+                }
+
+                resultadoTexto = string.Join(", ", partes);
+            }
+
+            // Gravação final nos painéis de texto do fim de jogo
+            relatorioIdeal.AppendLine($"Pergunta {numeroEtapa}: Selecionar a(s) {totalCorretasDaEtapa} alternativa(s) correta(s)");
+            relatorioJogador.AppendLine($"Pergunta {numeroEtapa}: {resultadoTexto}");
+
+            // Validação para bloquear o avanço se houver qualquer deslize
+            if (corretasMarcadasPeloJogador != totalCorretasDaEtapa || erradasMarcadasPeloJogador > 0)
+            {
+                errouAlgumaNoQuizInteiro = true;
+            }
         }
         else
         {
-            // Avança para a próxima pergunta do array global
             indicePerguntaGlobal++;
             DefinirEConfigurarEtapaAtual();
         }
@@ -182,7 +265,28 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            // Acabaram os itens dessa pergunta de arrastar! Avança no índice global
+            int numeroEtapa = indicePerguntaGlobal + 1;
+            int totalItensEtapa = pergunta.itensParaArrastar.Length;
+            int itensErrados = totalItensEtapa - dragItensCorretosNestaEtapa;
+
+            string resultadoDragTexto = "";
+
+            if (itensErrados == 0)
+            {
+                resultadoDragTexto = totalItensEtapa == 1 ? "Acertou" : $"{totalItensEtapa} Certas";
+            }
+            else if (dragItensCorretosNestaEtapa == 0)
+            {
+                resultadoDragTexto = itensErrados == 1 ? "Errou" : $"{itensErrados} Erradas";
+            }
+            else
+            {
+                resultadoDragTexto = $"{dragItensCorretosNestaEtapa} Certa(s), {itensErrados} Errada(s)";
+            }
+
+            relatorioIdeal.AppendLine($"Etapa {numeroEtapa} (Arrasto): Encaixar os {totalItensEtapa} itens locais corretos");
+            relatorioJogador.AppendLine($"Etapa {numeroEtapa} (Arrasto): {resultadoDragTexto}");
+
             indicePerguntaGlobal++;
             DefinirEConfigurarEtapaAtual();
         }
@@ -190,7 +294,14 @@ public class QuizManager : MonoBehaviour
 
     public void ProcessarDrop(QuizDragElement elemento, bool foiCorreto)
     {
-        if (!foiCorreto) errouAlgumaNoQuizInteiro = true;
+        if (foiCorreto)
+        {
+            dragItensCorretosNestaEtapa++;
+        }
+        else
+        {
+            errouAlgumaNoQuizInteiro = true;
+        }
 
         elemento.ExecutarEfeitoEntrada();
         CanvasGroup painelAlvo = foiCorreto ? canvasGroupFeedbackCorreto : canvasGroupFeedbackErrado;
@@ -243,10 +354,18 @@ public class QuizManager : MonoBehaviour
         if (painelFimDeJogo != null) painelFimDeJogo.SetActive(true);
         if (botaoIrNovamente != null) botaoIrNovamente.SetActive(true);
 
-        // REGRA DE OURO UNIFICADA: O botão de fechar (avançar na fase) só liga se não errou nada
         if (botaoFechar != null) 
         {
             botaoFechar.SetActive(!errouAlgumaNoQuizInteiro);
+        }
+
+        if (textoDesempenhoJogadorUI != null) 
+        {
+            textoDesempenhoJogadorUI.text = relatorioJogador.ToString();
+        }
+        if (textoDesempenhoIdealUI != null) 
+        {
+            textoDesempenhoIdealUI.text = relatorioIdeal.ToString();
         }
     }
 
@@ -257,13 +376,8 @@ public class QuizManager : MonoBehaviour
 
     public void EncerrarQuizComSucesso()
     {
-        // 1. Desliga o painel principal
         painelGeralQuiz.SetActive(false);
-        
-        // 2. Opcional: Avisar o restante do jogo que o quiz foi vencido
-        // Você pode disparar um evento aqui, por exemplo:
         GameEvents.OnQuizCompletedSuccessfully?.Invoke(quizAtual.id);
-        
         Debug.Log("Quiz finalizado com sucesso! Voltando ao jogo.");
     }
 }

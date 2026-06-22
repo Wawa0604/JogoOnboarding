@@ -216,6 +216,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &238451134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6452719317292656476, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 949514985}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &238451135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6579374505035259608, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+  m_PrefabInstance: {fileID: 949514985}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!114 &568161176 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6639929196939352567, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
@@ -2505,6 +2527,8 @@ MonoBehaviour:
   canvasGroupFeedbackErrado: {fileID: 778846407}
   botaoIrNovamente: {fileID: 778846409}
   botaoFechar: {fileID: 778846408}
+  textoDesempenhoJogadorUI: {fileID: 238451135}
+  textoDesempenhoIdealUI: {fileID: 238451134}
 --- !u!20 &1713061443 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2605601872652594046, guid: e471e6c05284f314ab7660ffb9a20960, type: 3}

@@ -9,4 +9,7 @@ public class MissaoData : ScriptableObject
     
     [System.NonSerialized] 
     public bool completa;
+
+    [Tooltip("Cole aqui o ID exato do QuizUnificado que finaliza esta missão.")]
+    public string idQuizVinculado;
 }
