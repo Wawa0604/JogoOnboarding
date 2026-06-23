@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.SceneManagement; // IMPORTANTE: Adicionado para gerenciar cenas
 
 public class MissionManager : MonoBehaviour
 {
@@ -13,74 +12,57 @@ public class MissionManager : MonoBehaviour
     
     [Header("Configurações de UI")]
     public GameObject prefabMissao;      
-    public Transform containerLista;     
+    private Transform containerLista; // Removeu o [SerializeField] pois agora é automático     
 
     private void Awake()
-{
-    // Se o MissionManager tiver um pai (como o GameManager), usamos o objeto pai para o DontDestroyOnLoad
-    GameObject objetoParaPersistir = transform.parent != null ? transform.parent.gameObject : gameObject;
-
-    if (Instance == null) 
     {
-        Instance = this;
-        DontDestroyOnLoad(objetoParaPersistir); // Persiste o grupo inteiro corretamente
-        CarregarProgresso();
-    }
-    else
-    {
-        Destroy(gameObject);
-        return;
-    }
-}
+        GameObject objetoParaPersistir = transform.parent != null ? transform.parent.gameObject : gameObject;
 
-    [Tooltip("Cole aqui o ID exato do QuizUnificado que finaliza esta missão.")]
-    public string idQuizVinculado;
-
-   // 1. Altera a função que recebe o evento do SceneManager
-    private void AoCarregarCena(Scene cena, LoadSceneMode modo)
-    {
-        // Em vez de chamar direto, iniciamos uma Coroutine para esperar o Unity estabilizar
-        StartCoroutine(EsperarParaReconectar());
-    }
-
-    private IEnumerator EsperarParaReconectar()
-    {
-        // Espera até ao final do frame atual para que o Unity termine de carregar tudo
-        yield return new WaitForEndOfFrame();
-        ReconectarUI();
-    }
-
-    private void ReconectarUI()
-    {
-        // Esta versão busca inclusive em objetos desativados
-        GameObject[] todosOsObjetos = Resources.FindObjectsOfTypeAll<GameObject>();
-        GameObject painel = null;
-
-        foreach (GameObject go in todosOsObjetos)
+        if (Instance == null) 
         {
-            if (go.name == "fundo_painel" && go.scene == SceneManager.GetActiveScene())
-            {
-                painel = go;
-                break;
-            }
-        }
-        
-        if (painel != null)
-        {
-            containerLista = painel.transform;
-            Debug.Log("<color=cyan>MissionManager: Encontrado com sucesso!</color>");
-            AtualizarInterface();
+            Instance = this;
+            DontDestroyOnLoad(objetoParaPersistir); 
+            CarregarProgresso();
         }
         else
         {
-            Debug.LogError("MissionManager: O objeto 'fundo_painel' não foi encontrado na cena atual!");
+            Destroy(gameObject);
+            return;
         }
     }
-    // -------------------------------------------------------
 
-    private void Start() 
+    // ➔ O NOVO PORTAL DE CONEXÃO BLINDADO:
+    // Chamado automaticamente pelo script MissionPanelUI de qualquer cena
+    public void RegistrarContainer(Transform novoContainer)
     {
-        if(containerLista != null) AtualizarInterface();
+        containerLista = novoContainer;
+        Debug.Log("<color=cyan>MissionManager: Nova UI de missões conectada com sucesso!</color>");
+        
+        // Força a interface a desenhar as missões daquela cena específica
+        AtualizarInterface();
+    }
+
+    private void OnEnable()
+    {
+        GameEvents.OnQuizCompletedSuccessfully += AoConcluirQuizComSucesso; 
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnQuizCompletedSuccessfully -= AoConcluirQuizComSucesso; 
+    }
+
+    private void AoConcluirQuizComSucesso(string idQuizVencido)
+    {
+        if (string.IsNullOrEmpty(idQuizVencido)) return;
+
+        MissaoData missaoVinculada = todasAsMissoes.Find(x => x.idQuizVinculado == idQuizVencido);
+
+        if (missaoVinculada != null)
+        {
+            Debug.Log($"<color=green>[MISSION] Quiz '{idQuizVencido}' concluído! Finalizando missão: '{missaoVinculada.id}'</color>");
+            ConcluirMissao(missaoVinculada.id); 
+        }
     }
 
     public void ConcluirMissao(string id)
@@ -93,7 +75,6 @@ public class MissionManager : MonoBehaviour
             SalvarProgressoInterno(id);
             GameEvents.OnMissionCompleted?.Invoke(id);
             
-            // Verificação de segurança para não quebrar a Coroutine se a UI sumir
             if(containerLista != null)
                 StartCoroutine(ExecutarAnimacaoVisual(id));
         }
@@ -129,7 +110,6 @@ public class MissionManager : MonoBehaviour
 
     public void AtualizarInterface()
     {
-        // Se não houver lista nesta cena (ex: menu inicial), não faz nada
         if (containerLista == null) return;
 
         foreach (Transform child in containerLista) Destroy(child.gameObject);
