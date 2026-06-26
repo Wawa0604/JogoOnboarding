@@ -11,7 +11,7 @@ public static class GameEvents
 
     // PORTAL ÚNICO: O único evento necessário para iniciar QUALQUER quiz (Misto, Arrastar ou Regular)
     public static Action<QuizSequence> OnQuizRequested;
-
+ 
     // Evento dedicado para o botão "Jogar Novamente" avisar o QuizManager
     public static Action OnRestartDragQuizRequested;
 

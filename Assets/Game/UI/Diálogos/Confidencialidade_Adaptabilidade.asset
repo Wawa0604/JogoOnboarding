@@ -16,40 +16,29 @@ MonoBehaviour:
   iconeAvatar: {fileID: 21300000, guid: 99a9e747aeae9f64a82a4f10bb73edbb, type: 3}
   lines:
   - characterName: Adaptabilidade
-    text: "\u201COl\xE1! Eu, a Adaptabilidade, levo as pessoas a solucionar problemas
-      de formas simples e pr\xE1ticas, trazendo agilidade e visando um trabalho sem
-      complexidade desnecess\xE1ria e mais solu\xE7\xF5es que obst\xE1culos. Assim
-      criamos um esquema simples para manter a confidencialidade na empresa!\u201D"
+    text: "\"Ol\xE1! Eu sou a Adaptabilidade. Adoro ver nossa equipe resolvendo problemas
+      de forma \xE1gil, pr\xE1tica e sem complexidade desnecess\xE1ria. E para proteger
+      o que temos de mais valioso \u2014 a informa\xE7\xE3o \u2014, o CPQD criou
+      um sistema super simples de classifica\xE7\xE3o de sigilo integrado ao Google
+      Workspace!\""
   - characterName: Adaptabilidade
-    text: "\u201CA empresa, assim como as pessoas, t\xEAm informa\xE7\xF5es p\xFAblicas,
-      de acesso a alguns e informa\xE7\xF5es privadas. E essas informa\xE7\xF5es
-      precisam de privacidade. E para isso o CPQD utiliza um sistema que classifica
-      a informa\xE7\xE3o em 4 n\xEDveis de sigilo acoplados ao Google Workspace.\u201D"
+    text: "\"Nossos dados s\xE3o divididos em 4 n\xEDveis claros: o N\xEDvel 1 (Irrestrito),
+      que s\xE3o informa\xE7\xF5es p\xFAblicas; o N\xEDvel 2 (Reservado), de interesse
+      apenas interno; o N\xEDvel 3 (Confidencial), com dados cr\xEDticos nossos ou
+      de clientes; e o N\xEDvel 4 (Secreto), focado em estrat\xE9gias de alt\xEDssimo
+      impacto.\""
   - characterName: Adaptabilidade
-    text: "\u201COs n\xEDveis s\xE3o: o N\xEDvel 1 (Irrestrito), cuja divulga\xE7\xE3o
-      n\xE3o compromete a empresa; o N\xEDvel 2 (Reservado), de interesse interno;
-      o N\xEDvel 3 (Confidencial), com dados importantes internos ou de clientes
-      e fornecedores; e o N\xEDvel 4 (Secreto), focado em informa\xE7\xF5es estrat\xE9gicas
-      que exigem medidas excepcionais.\u201D"
+    text: "\"Se dados dos n\xEDveis 2, 3 ou 4 vazarem, o CPQD perde vantagem competitiva
+      e prejudica a confian\xE7a dos nossos clientes. Ent\xE3o, fa\xE7a a sua parte:
+      use o compartilhamento do Google Drive com as permiss\xF5es corretas e nunca
+      envie dados sigilosos por WhatsApp, Teams ou e-mails sem criptografia.\""
   - characterName: Adaptabilidade
-    text: "\u201CSe dados dos n\xEDveis 2, 3 ou 4 ca\xEDrem nas m\xE3os de concorrentes,
-      perdemos vantagem competitiva, produtividade e prejudicamos a imagem da empresa
-      e a confian\xE7a dos clientes. Por isso, seu papel \xE9 fundamental! Use sempre
-      o compartilhamento do Google Drive com as permiss\xF5es corretas.\u201D"
-  - characterName: Adaptabilidade
-    text: "\u201CEvite dispositivos m\xF3veis como pen drives ou HDs externos para
-      dados cr\xEDticos e nunca use redes Wi-Fi p\xFAblicas. Se precisar, use ferramentas
-      de criptografia homologadas, bloqueie seu computador ao se ausentar e evite
-      conversar sobre assuntos sens\xEDveis em locais p\xFAblicos, como restaurantes
-      ou \xF4nibus.\u201D"
-  - characterName: Adaptabilidade
-    text: "\u201CSe tiver d\xFAvidas, consulte o Confluence, l\xE1 voc\xEA encontra
-      a \xEDntegra de todas as pol\xEDticas (Pol\xEDtica de Prote\xE7\xE3o de Dados,
-      Pol\xEDtica de Seguran\xE7a da Informa\xE7\xE3o, Pol\xEDtica de Senhas, Pol\xEDtica
-      de Uso de Recursos de TIC, etc.) Ou acione o helpdesk@cpqd.com.br!\u201D"
+    text: "\"E lembre-se: nada de conversar sobre projetos sens\xEDveis em restaurantes,
+      \xF4nibus ou locais p\xFAblicos, combinado? Se tiver qualquer d\xFAvida sobre
+      as nossas diretrizes, a \xEDntegra de todas as Pol\xEDticas de Seguran\xE7a
+      est\xE1 dispon\xEDvel para consulta r\xE1pida no nosso Confluence!\""
   missaoParaConcluir: {fileID: 0}
   OnSequenceComplete:
     m_PersistentCalls:
       m_Calls: []
   quizParaIniciar: {fileID: 11400000, guid: a7ea838063adc3c47949f05a3ce72f24, type: 2}
-  quizDragParaIniciar: {fileID: 0}

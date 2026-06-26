@@ -16,26 +16,21 @@ MonoBehaviour:
   iconeAvatar: {fileID: 21300000, guid: 99a9e747aeae9f64a82a4f10bb73edbb, type: 3}
   lines:
   - characterName: Adaptabilidade
-    text: "\u201COi! Eu sou a Adaptabilidade! Trago o lema: 'Evolu\xEDmos continuamente
-      em dire\xE7\xE3o ao novo'! E uma evolu\xE7\xE3o do mercado moderno possibilitou
-      que as pessoas tivessem seus pr\xF3prios dispositivos eletr\xF4nicos.\u201D"
+    text: "\"Oi! A Adaptabilidade tem tudo a ver com flexibilidade t\xE1tica. E o
+      mercado moderno trouxe uma facilidade incr\xEDvel: o BYOD (Bring Your Own Device),
+      que permite o uso de dispositivos particulares para agilizar nosso dia a dia.\" "
   - characterName: Adaptabilidade
-    text: "\u201CIsso trouxe, para o ambiente corporativo, o BYOD (Bring Your Own
-      Device) \u2014 o uso de dispositivos particulares no ambiente corporativo.\u201D"
+    text: "\"No CPQD, o BYOD \xE9 100% opcional e restrito estritamente ao ecossistema
+      do Google Workspace, que opera de forma protegida em nuvem. \xC9 expressamente
+      proibido baixar ou armazenar arquivos e dados confidenciais do CPQD direto
+      na mem\xF3ria do seu celular ou tablet pessoal!\""
   - characterName: Adaptabilidade
-    text: "\"No CPQD, concedemos o uso do BYOD para facilitar sua rotina, mas aten\xE7\xE3o:
-      ele \xE9 totalmente opcional e restrito apenas ao uso do Google Workspace,
-      que opera de forma protegida em nuvem.\u201D"
-  - characterName: Adaptabilidade
-    text: "\u201C\xC9 expressamente proibido armazenar arquivos ou informa\xE7\xF5es
-      confidenciais do CPQD diretamente na mem\xF3ria do seu aparelho particular!\""
-  - characterName: Adaptabilidade
-    text: "\u201CNunca salve senhas corporativas no navegador do celular e, em caso
-      de perda ou roubo do aparelho, fa\xE7a o B.O., mude as senhas e avise a TI
-      imediatamente pelo e-mail ou intranet do Helpdesk.\""
+    text: "\"Nunca salve suas senhas corporativas no navegador do seu aparelho pessoal.
+      E caso o seu celular com acessos da empresa seja perdido ou roubado: fa\xE7a
+      o Boletim de Ocorr\xEAncia, mude suas senhas imediatamente e alerte a TI atrav\xE9s
+      do Helpdesk!\""
   missaoParaConcluir: {fileID: 0}
   OnSequenceComplete:
     m_PersistentCalls:
       m_Calls: []
   quizParaIniciar: {fileID: 11400000, guid: a8dfd5b9760c780489222bad4503d962, type: 2}
-  quizDragParaIniciar: {fileID: 0}

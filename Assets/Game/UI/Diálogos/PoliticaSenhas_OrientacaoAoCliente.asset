@@ -16,47 +16,29 @@ MonoBehaviour:
   iconeAvatar: {fileID: 21300000, guid: 4773a519812edad4dbac3536ff29a188, type: 3}
   lines:
   - characterName: "Orienta\xE7\xE3o Ao Cliente"
-    text: "\u201COl\xE1! Como o valor Orienta\xE7\xE3o ao Cliente prezamos pela aten\xE7\xE3o
-      aos detalhes nas nossas solu\xE7\xF5es para obtermos qualidade de ponta. Quando
-      falamos da nossa primeira linha de defesa, as senhas, essa aten\xE7\xE3o \xE9
-      imprescind\xEDvel. "
+    text: "\"Ol\xE1 novamente! Como Orienta\xE7\xE3o ao Cliente, eu sei bem que a
+      excel\xEAncia est\xE1 nos pequenos detalhes. E quando falamos da nossa primeira
+      linha de defesa \u2014 as nossas senhas \u2014, essa aten\xE7\xE3o minuciosa
+      salva vidas (e dados)!\""
   - characterName: "Orienta\xE7\xE3o Ao Cliente"
-    text: "\u201CMuitas vezes, pela conveni\xEAncia, cometemos o erro de criar senhas
-      fracas, repeti-las em v\xE1rios sites ou anot\xE1-las em pap\xE9is ao lado
-      da tela. Isso \xE9 um prato cheio para criminosos realizarem fraudes em seu
-      nome e prejudicarem a privacidade e a reputa\xE7\xE3o da nossa organiza\xE7\xE3o!\u201D"
+    text: "\"Por conveni\xEAncia, muita gente comete o erro de usar senhas f\xE1ceis,
+      repeti-las em v\xE1rios sites ou anot\xE1-las em um post-it colado no monitor.
+      Isso \xE9 um perigo! No CPQD, temos regras r\xEDgidas: senhas de usu\xE1rio
+      valem por 3 meses e as administrativas expiram a cada 1 m\xEAs.\""
   - characterName: "Orienta\xE7\xE3o Ao Cliente"
-    text: "\u201CNo CPQD, temos regras claras que todos devem seguir: as senhas s\xE3o
-      pessoais, intransfer\xEDveis e possuem validade de 3 meses. O sistema avisa
-      com 10 dias de anteced\xEAncia para voc\xEA alter\xE1-la. Se esquecer e errar
-      a senha 10 vezes, sua conta ser\xE1 bloqueada! Na hora de criar, sua senha
-      precisa ter: no m\xEDnimo 10 caracteres, misturando letras mai\xFAsculas, min\xFAsculas,
-      n\xFAmeros e caracteres especiais.\""
+    text: "\"O sistema te avisa com 10 dias de anteced\xEAncia para trocar. Se voc\xEA
+      esquecer e errar a senha 10 vezes seguidas, sua conta ser\xE1 bloqueada automaticamente
+      por seguran\xE7a! Na hora de criar, use a Regra dos 10: pelo menos 10 caracteres
+      misturando mai\xFAsculas, min\xFAsculas, n\xFAmeros e s\xEDmbolos.\" "
   - characterName: "Orienta\xE7\xE3o Ao Cliente"
-    text: "\"Aten\xE7\xE3o: n\xE3o use palavras comuns, g\xEDrias, nomes de pessoas,
-      sobrenomes, nomes de pets, personagens de fic\xE7\xE3o, datas de anivers\xE1rio
-      ou documentos como CPF e RG. Para te ajudar, uma \xF3tima pr\xE1tica \xE9 usar
-      as iniciais de uma frase ou m\xFAsica que voc\xEA goste, como 'Olha que coisa
-      mais linda, mais cheia de gra\xE7a' e a senha fica: OqcM1+mcdg!.\u201D"
+    text: "\"Nada de usar nomes de parentes, pets ou datas! Use o truque das iniciais
+      de uma frase. Por exemplo: 'Olha que coisa mais linda, mais cheia de gra\xE7a'
+      vira OqcM1+mcdg!. Para guardar tudo, use o nosso gerenciador oficial: o BitWarden.\""
   - characterName: "Orienta\xE7\xE3o Ao Cliente"
-    text: "\u201CAl\xE9m disso, ative sempre o MFA (Autentica\xE7\xE3o de M\xFAltiplo
-      Fator) para adicionar uma camada extra de prote\xE7\xE3o via c\xF3digo enviado
-      por SMS, e-mail ou telefone. Nunca use a op\xE7\xE3o de 'lembrar senhas' dos
-      navegadores, n\xE3o envie credenciais por e-mail ou telefone e nunca use seu
-      usu\xE1rio corporativo em servi\xE7os externos da internet.\u201D"
-  - characterName: "Orienta\xE7\xE3o Ao Cliente"
-    text: "\u201CPara gerenciar tudo isso, o CPQD disponibiliza corporativamente
-      o cofre de senhas Vault (acess\xEDvel via VPN no link vault.cpqd.com.br). Para
-      senhas pessoais de uso cotidiano, a empresa aceita gerenciadores como Bitwarden,
-      LastPass e 1Password. Caso voc\xEA lide com senhas de clientes, o cuidado \xE9
-      redobrado: o coordenador do projeto deve ter controle estrito do acesso, garantindo
-      que apenas um colaborador acesse aquela conta.\u201D"
-  - characterName: "Orienta\xE7\xE3o Ao Cliente"
-    text: "\u201CSitua\xE7\xF5es especiais com clientes devem ser submetidas \xE0
-      gest\xE3o, informadas ao cliente e enviadas por e-mail para o gestor do produto
-      com c\xF3pia para o DPO no endere\xE7o dpo@cpqd.com.br. Se suspeitar que sua
-      senha foi comprometida, informe imediatamente a DGTIC pelos canais do Helpdesk
-      e aguarde as instru\xE7\xF5es!\u201D"
+    text: "\"Ah, e ative sempre o MFA (Autentica\xE7\xE3o de M\xFAltiplo Fator),
+      nunca use a op\xE7\xE3o 'lembrar senha' do navegador e jamais use seu e-mail
+      corporativo em servi\xE7os externos pessoais. Se desconfiar que sua senha vazou,
+      avise a DGTIC imediatamente pelo Helpdesk!\""
   missaoParaConcluir: {fileID: 0}
   OnSequenceComplete:
     m_PersistentCalls:

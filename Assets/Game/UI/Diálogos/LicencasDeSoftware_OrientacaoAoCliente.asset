@@ -16,36 +16,36 @@ MonoBehaviour:
   iconeAvatar: {fileID: 21300000, guid: 4773a519812edad4dbac3536ff29a188, type: 3}
   lines:
   - characterName: "Orienta\xE7\xE3o ao Cliente"
-    text: "\u201COl\xE1! Eu sou a Orienta\xE7\xE3o ao Cliente. N\xF3s, como empresa,
-      prezamos pela nossa imagem e como o mercado nos percebe. E para manter essa
-      reputa\xE7\xE3o incr\xEDvel que constru\xEDmos ao longo de d\xE9cadas, a integridade
-      \xE9 fundamental \u2014 inclusive na forma como lidamos com as nossas ferramentas
-      de trabalho!\u201D"
+    text: "\"Ol\xE1! Eu sou a Orienta\xE7\xE3o ao Cliente. N\xF3s prezamos muito
+      pela nossa imagem e pela forma como o mercado nos percebe. Para manter nossa
+      reputa\xE7\xE3o intacta, a integridade \xE9 fundamental \u2014 inclusive nos
+      softwares que usamos!\""
   - characterName: "Orienta\xE7\xE3o ao Cliente"
-    text: "\"Quando adquirimos um software, recebemos apenas uma licen\xE7a de uso,
-      que possui valor de contrato legal. Utilizar programas fora dessas condi\xE7\xF5es
-      ou instalar programas crackeados caracteriza o crime de pirataria de software!
-      As Leis de Software (9609/98) e de Direito Autoral (9610/98) preveem multas
-      pesadas de at\xE9 3000 vezes o valor do programa e at\xE9 4 anos de pris\xE3o
-      para os envolvidos.\""
+    text: "\"Instalar programas pirateados ou 'crackeados' \xE9 considerado crime
+      e abre as portas para malwares perigosos que podem paralisar a empresa. O CPQD
+      tem toler\xE2ncia zero para pirataria. Lembre-se: licen\xE7as de uso pessoal
+      tamb\xE9m n\xE3o s\xE3o permitidas nas m\xE1quinas corporativas.\""
   - characterName: "Orienta\xE7\xE3o ao Cliente"
-    text: "\u201CPor isso, aqui no CPQD, n\xE3o toleramos a pirataria. Programas
-      piratas podem trazer malwares violentos embutidos e o uso deles destr\xF3i
-      a nossa imagem de mercado, al\xE9m de impactar negativamente a carreira do
-      pr\xF3prio profissional.\u201D"
+    text: "\"Precisa de um programa novo para trabalhar? \xC9 super simples resolver
+      isso com total seguran\xE7a! O primeiro passo \xE9 consultar a lista homologada
+      no Confluence procurando por 'padr\xF5es de recursos de TIC' ou usando o atalho
+      r\xE1pido: go.cpqd.com.br/padraosw.\""
   - characterName: "Orienta\xE7\xE3o ao Cliente"
-    text: "\u201CPrecisa de um programa para trabalhar? \xC9 super simples resolver
-      isso com total seguran\xE7a! Consulte a lista homologada no Confluence pesquisando
-      por 'padr\xF5es de recursos de TIC' ou direto pelo link: go.cpqd.com.br/padraosw.\u201D"
+    text: "\"Se o software j\xE1 estiver nessa lista e voc\xEA usa Windows, abra
+      um chamado no Helpdesk (Jira) para liberarmos o seu perfil administrativo de
+      instala\xE7\xE3o. Se usa Linux, pode instalar direto pelo reposit\xF3rio oficial
+      da sua distribui\xE7\xE3o, desde que n\xE3o exija acesso de superusu\xE1rio
+      (root).\""
   - characterName: "Orienta\xE7\xE3o ao Cliente"
-    text: "\u201CSe voc\xEA utiliza o sistema Windows, basta abrir um chamado no
-      Helpdesk para a libera\xE7\xE3o do perfil administrativo de instala\xE7\xE3o.
-      Se utiliza Linux, pode instalar direto, desde que o software esteja no reposit\xF3rio
-      oficial da sua distribui\xE7\xE3o e n\xE3o exija acesso de superusu\xE1rio.\u201D"
+    text: "\"E se o programa n\xE3o estiver na lista? Sem p\xE2nico! Basta abrir
+      um chamado no Jira explicando a sua necessidade para que a equipe de TI fa\xE7a
+      a valida\xE7\xE3o de seguran\xE7a. Ah, e lembre-se: licen\xE7as de uso pessoal
+      n\xE3o entram nas m\xE1quinas da empresa, combinado?\""
   - characterName: "Orienta\xE7\xE3o ao Cliente"
-    text: "\u201CS\xF3 lembrando: licen\xE7as de uso pessoal n\xE3o s\xE3o permitidas
-      nos nossos computadores corporativos, e qualquer instala\xE7\xE3o fora da lista
-      de homologados deve ser validada previamente pela TI, combinado?\u201D"
+    text: "\u201CPor falar em seguran\xE7a f\xEDsica da sua m\xE1quina, olho vivo
+      nas portas USB! Dispositivos desconhecidos ou pessoais podem esconder c\xF3digos
+      maliciosos perigosos. Que tal um teste r\xE1pido para ver se voc\xEA sabe o
+      que pode e o que n\xE3o pode plugar por aqui?\u201D"
   missaoParaConcluir: {fileID: 0}
   OnSequenceComplete:
     m_PersistentCalls:

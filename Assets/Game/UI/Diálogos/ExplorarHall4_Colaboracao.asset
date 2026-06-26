@@ -16,9 +16,14 @@ MonoBehaviour:
   iconeAvatar: {fileID: 21300000, guid: 48a831e952638f34d871cc6372d04656, type: 3}
   lines:
   - characterName: "Colabora\xE7\xE3o"
-    text: "\u201COlha s\xF3! Voc\xEA encontrou o pr\xE9dio 4! Aqui fica o atendimento
-      presencial do TI, salas Outback de reuni\xE3o, nossa sala de descanso de uso
-      comum e uma copa maravilhosa no segundo andar com uma vendinha de snacks.\u201D"
+    text: "\u201COlha s\xF3! Voc\xEA encontrou o pr\xE9dio 4! Como a Colabora\xE7\xE3o,
+      determino que no CPQD as \xE1reas n\xE3o se fecham em silos e trabalham como
+      um grande equipe, voltada a procurar melhores solu\xE7\xF5es de trabalho.\u201D"
+  - characterName: "Colabora\xE7\xE3o"
+    text: "\u201CE aqui no pr\xE9dio 4, temos o atendimento presencial do T, para
+      auxiliar com quaisquer quest\xF5es com os dispositivos do CPQD. As salas Outback
+      de reuni\xE3o, nossa sala de descanso de uso comum e uma copa maravilhosa no
+      segundo andar com uma vendinha de snacks.\u201D"
   - characterName: "Colabora\xE7\xE3o"
     text: "\u201CPara garantir que nossa conviv\xEAncia por aqui seja nota dez, que
       tal um pequeno aquecimento sobre as rotinas do Pr\xE9dio 4? Vamos ver se voc\xEA

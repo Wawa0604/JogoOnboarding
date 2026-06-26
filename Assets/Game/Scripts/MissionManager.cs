@@ -12,7 +12,7 @@ public class MissionManager : MonoBehaviour
     
     [Header("Configurações de UI")]
     public GameObject prefabMissao;      
-    private Transform containerLista; // Removeu o [SerializeField] pois agora é automático     
+    private Transform containerLista; // Automático via MissionPanelUI
 
     private void Awake()
     {
@@ -31,7 +31,6 @@ public class MissionManager : MonoBehaviour
         }
     }
 
-    // ➔ O NOVO PORTAL DE CONEXÃO BLINDADO:
     // Chamado automaticamente pelo script MissionPanelUI de qualquer cena
     public void RegistrarContainer(Transform novoContainer)
     {
@@ -73,20 +72,31 @@ public class MissionManager : MonoBehaviour
         {
             m.completa = true;
             SalvarProgressoInterno(id);
+            
+            // Dispara o evento global de missão concluída
             GameEvents.OnMissionCompleted?.Invoke(id);
             
-            if(containerLista != null)
+            // --- CONEXÃO COM O SCORM MANAGER PARA A NEOLUDE ---
+            if (ScormManager.Instance != null)
+            {
+                ScormManager.Instance.DispararAtualizacaoLMS();
+            }
+            
+            if (containerLista != null)
                 StartCoroutine(ExecutarAnimacaoVisual(id));
         }
     }
 
     public int ObterPorcentagemConcluida()
     {
-        if (todasAsMissoes.Count == 0) return 0;
+        if (todasAsMissoes == null || todasAsMissoes.Count == 0) return 0;
 
         int totalMissoes = todasAsMissoes.Count;
-        int concluidas = todasAsMissoes.FindAll(m => m.completa).Count;
-        float porcentagemTotal = ((float)concluidas / totalMissoes) * 100;
+        
+        // Conta sem alocar uma nova lista em memória
+        int concluidas = todasAsMissoes.Count(m => m.completa); 
+        
+        float porcentagemTotal = ((float)concluidas / totalMissoes) * 100f;
 
         return Mathf.RoundToInt(porcentagemTotal);
     }
@@ -114,6 +124,7 @@ public class MissionManager : MonoBehaviour
 
         foreach (Transform child in containerLista) Destroy(child.gameObject);
 
+        // Mantém as ativas no topo e as completas embaixo
         List<MissaoData> ordenadas = todasAsMissoes.OrderBy(m => m.completa).ToList();
 
         foreach (MissaoData m in ordenadas)
@@ -122,7 +133,7 @@ public class MissionManager : MonoBehaviour
             go.GetComponent<ItemMissaoUI>().Configurar(m.descricao, m.completa);
         }
     }
-
+ 
     private void SalvarProgressoInterno(string id)
     {
         PlayerPrefs.SetInt("ProgressoMissao_" + id, 1);

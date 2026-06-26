@@ -16,33 +16,21 @@ MonoBehaviour:
   iconeAvatar: {fileID: 21300000, guid: 030b1dec792f4b242b26bc065cd8e6d7, type: 3}
   lines:
   - characterName: Respeito
-    text: "\u201COl\xE1! Eu sou o Respeito. Agir com respeito \xE9  tratar as outras
-      pessoas com grande aten\xE7\xE3o e considera\xE7\xE3o De forma igualit\xE1ria
-      n\xE3o importando as diferen\xE7as de g\xEAnero, cor, etnia etc.\u201D"
+    text: "\"Ol\xE1! Eu sou o Respeito. Para n\xF3s, agir com respeito significa
+      tratar cada pessoa com m\xE1xima aten\xE7\xE3o, equidade e considera\xE7\xE3o,
+      valorizando nossa diversidade de g\xEAnero, cor e etnia. E garantir esse ambiente
+      de respeito tamb\xE9m envolve proteger a intimidade e os dados de todos!\" "
   - characterName: Respeito
-    text: "\u201CGarantir esse ambiente de equidade e respeito tamb\xE9m significa
-      proteger as informa\xE7\xF5es fundamentais e a intimidade de todos.\u201D"
+    text: "\"Por isso, o CPQD cumpre \xE0 risca a LGPD (Lei Geral de Prote\xE7\xE3o
+      de Dados). Pratique sempre o compartilhamento consciente: s\xF3 envie dados
+      pessoais se houver uma finalidade clara em contrato, protegendo os arquivos
+      e tomando muito cuidado com o que fica exposto na sua tela em reuni\xF5es online
+      do Meet ou Teams.\""
   - characterName: Respeito
-    text: "\u201CVoc\xEA sabe o que s\xE3o Dados Pessoais? \xC9 qualquer informa\xE7\xE3o
-      que identifica ou pode identificar uma pessoa, como nome, CPF, RG, e-mail e
-      telefone.\u201D"
-  - characterName: Respeito
-    text: "\u201CJ\xE1 os Dados Pessoais Sens\xEDveis exigem um cuidado ainda maior,
-      pois s\xE3o dados sobre origem racial ou \xE9tnica, convic\xE7\xE3o religiosa,
-      opini\xE3o pol\xEDtica, sa\xFAde, vida sexual, dados gen\xE9ticos ou biom\xE9tricos.\u201D"
-  - characterName: Respeito
-    text: "\u201CPratique sempre o compartilhamento consciente: dados pessoais s\xF3
-      podem ser compartilhados com finalidade espec\xEDfica e com prote\xE7\xE3o
-      adequada.\u201D"
-  - characterName: Respeito
-    text: "\u201CEvite o envio desnecess\xE1rio por e-mail ou outros meios sem criptografia.
-      Tomando cuidado tamb\xE9m com o que aparece no compartilhamento de tela nas
-      reuni\xF5es."
-  - characterName: Respeito
-    text: "\u201CE lembre-se dos direitos dos titulares: se voc\xEA receber qualquer
-      questionamento ou d\xFAvida de terceiros sobre a LGPD, nunca responda diretamente.
-      Encaminhe imediatamente para o nosso Encarregado de Dados (DPO) atrav\xE9s
-      do e-mail dpo@cpqd.com.br.\u201D"
+    text: "\"Uma regra de ouro absoluta: se algum cliente ou terceiro entrar em contato
+      com voc\xEA fazendo perguntas formais sobre a LGPD ou exigindo exclus\xE3o
+      de dados, nunca responda diretamente. Encaminhe a mensagem imediatamente para
+      o nosso DPO no e-mail dpo@cpqd.com.br!\""
   missaoParaConcluir: {fileID: 0}
   OnSequenceComplete:
     m_PersistentCalls:
