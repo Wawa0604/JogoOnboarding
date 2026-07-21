@@ -2382,6 +2382,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6653334938154336774, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
+      propertyPath: amplitude
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6973540762500713780, guid: 6b482c24295673c4fbff84c1d1b9b628, type: 3}
       propertyPath: m_Name
       value: Canvas_interactions

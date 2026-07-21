@@ -17,4 +17,7 @@ public static class GameEvents
 
     //Avisa que o quiz foi concluído com sucesso
     public static Action<string> OnQuizCompletedSuccessfully;
+
+    //item coletado
+    public static Action<string> OnItemCollected;
 }

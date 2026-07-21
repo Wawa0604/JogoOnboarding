@@ -13,11 +13,21 @@ public class NPCInteractive : MonoBehaviour
     void Awake()
     {
         _inputActions = new PlayerControls();
-        _inputActions.Player.Click.performed += ctx => DetectarAlvo();
+        // A LINHA ABAIXO FOI REMOVIDA PARA EVITAR O ERRO DA UI
+        // _inputActions.Player.Click.performed += ctx => DetectarAlvo();
     }
 
     void OnEnable() => _inputActions.Enable();
     void OnDisable() => _inputActions.Disable();
+
+    // ADICIONADO: O Update garante que o clique e a UI estejam sincronizados no mesmo frame
+    void Update()
+    {
+        if (_inputActions.Player.Click.WasPerformedThisFrame())
+        {
+            DetectarAlvo();
+        }
+    }
 
     private void DetectarAlvo()
     {

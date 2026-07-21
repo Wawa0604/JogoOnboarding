@@ -17,6 +17,8 @@ public class buttonsManager : MonoBehaviour
     public GameObject painelQuizArrasta;
     public GameObject painelQuizArrastaFimDeJogo;
 
+    
+
     private const string CHAVE_CONVERSA_NPC = "ConversouNPC_MontarAvatar";
 
     // Quando o script acorda, ele inscreve-se no evento global de diálogos
@@ -128,4 +130,5 @@ public class buttonsManager : MonoBehaviour
         // ➔ DISPARA O SINAL VISANDO REINICIAR O QUIZ
         GameEvents.OnRestartDragQuizRequested?.Invoke(); 
     }
+
 }
