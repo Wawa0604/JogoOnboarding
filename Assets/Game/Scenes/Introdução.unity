@@ -520,6 +520,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3522464248323588411, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: todosOsColetaveis.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522464248323588411, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
+      propertyPath: 'todosOsColetaveis.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: db641a9ee75315a47ae58d89474ccc38, type: 2}
     - target: {fileID: 7225772305203912987, guid: 9306938400296d2499c89f1bb3754f65, type: 3}
       propertyPath: containerLista
       value: 
@@ -3607,6 +3615,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7247612191317465457, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7257610532854116426, guid: bed4c5dd4c087294ca212edb10c01033, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4249,63 +4261,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44be27dbc4941524ab0dd0ee7a390a20, type: 3}
---- !u!1001 &5523255677792220076
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2936428095841379564, guid: 78d5f0881d5f2de41b9fc6ccf1950c1c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2936428095841379564, guid: 78d5f0881d5f2de41b9fc6ccf1950c1c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2936428095841379564, guid: 78d5f0881d5f2de41b9fc6ccf1950c1c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2936428095841379564, guid: 78d5f0881d5f2de41b9fc6ccf1950c1c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2936428095841379564, guid: 78d5f0881d5f2de41b9fc6ccf1950c1c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2936428095841379564, guid: 78d5f0881d5f2de41b9fc6ccf1950c1c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2936428095841379564, guid: 78d5f0881d5f2de41b9fc6ccf1950c1c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2936428095841379564, guid: 78d5f0881d5f2de41b9fc6ccf1950c1c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2936428095841379564, guid: 78d5f0881d5f2de41b9fc6ccf1950c1c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2936428095841379564, guid: 78d5f0881d5f2de41b9fc6ccf1950c1c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6407105653726249134, guid: 78d5f0881d5f2de41b9fc6ccf1950c1c, type: 3}
-      propertyPath: m_Name
-      value: Coletavel
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 78d5f0881d5f2de41b9fc6ccf1950c1c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4315,4 +4270,3 @@ SceneRoots:
   - {fileID: 335593647}
   - {fileID: 511365457}
   - {fileID: 575388568}
-  - {fileID: 5523255677792220076}

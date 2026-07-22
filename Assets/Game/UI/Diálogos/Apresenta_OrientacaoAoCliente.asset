@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0e7d499db71a24ca9347d7d2354a3c, type: 3}
+  m_Name: Apresenta_OrientacaoAoCliente
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  id: Apresenta_OrientacaoAoCliente
+  iconeAvatar: {fileID: 21300000, guid: 4773a519812edad4dbac3536ff29a188, type: 3}
+  lines:
+  - characterName: "Orienta\xE7\xE3o ao Cliente"
+    text: "Eu sou o Orienta\xE7\xE3o ao Cliente, e a defini\xE7\xE3o do meu valor
+      \xE9: \u201CEntendemos os desafios e o prop\xF3sito de nossos clientes, parceiros
+      e sociedade, e juntos buscamos solu\xE7\xF5es que impulsionam o crescimento
+      m\xFAtuo e geram valor ao neg\xF3cio\u201D."
+  missaoParaConcluir: {fileID: 0}
+  OnSequenceComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  quizParaIniciar: {fileID: 0}

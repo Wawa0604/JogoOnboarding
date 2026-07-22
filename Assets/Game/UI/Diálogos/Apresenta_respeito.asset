@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0e7d499db71a24ca9347d7d2354a3c, type: 3}
+  m_Name: Apresenta_respeito
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  id: Apresenta_Respeito
+  iconeAvatar: {fileID: 21300000, guid: 030b1dec792f4b242b26bc065cd8e6d7, type: 3}
+  lines:
+  - characterName: Respeito
+    text: "Eu sou o Respeito, e a defini\xE7\xE3o do meu valor \xE9: \u201CAgimos
+      com aten\xE7\xE3o, considera\xE7\xE3o e integridade em todas as rela\xE7\xF5es.\u201D"
+  missaoParaConcluir: {fileID: 0}
+  OnSequenceComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  quizParaIniciar: {fileID: 0}
