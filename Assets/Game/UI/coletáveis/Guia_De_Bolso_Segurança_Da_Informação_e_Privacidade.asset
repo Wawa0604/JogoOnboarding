@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a0af7f25a765a469c0cf5d66d29a73, type: 3}
+  m_Name: "Guia_De_Bolso_Seguran\xE7a_Da_Informa\xE7\xE3o_e_Privacidade"
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleData
+  id: "Guia_De_Bolso_Seguran\xE7a_Da_Informa\xE7\xE3o_e_Privacidade"
+  nomeItem: "Guia de bolso Seguran\xE7a da Informa\xE7\xE3o e Privacidade"
+  descricao: "Para ajudar a lembrar de todas as pr\xE1ticas de seguran\xE7a da informa\xE7\xF5a
+    e privacidade de dados. Al\xE9m das perguntas mais frequentes."
+  foto: {fileID: 0}
+  urlExterno: https://drive.google.com/drive/search?hl=pt-br

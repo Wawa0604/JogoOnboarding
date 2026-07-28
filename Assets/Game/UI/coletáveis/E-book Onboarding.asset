@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a0af7f25a765a469c0cf5d66d29a73, type: 3}
+  m_Name: E-book Onboarding
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleData
+  id: E-book Onboarding
+  nomeItem: E-book Onboarding
+  descricao: PDF para download de Onboarding
+  foto: {fileID: 0}
+  urlExterno: https://cpqd-vlec-files.s3.sa-east-1.amazonaws.com/html5/3838/attachments/638544071023967241.pdf?X-Amz-Expires=86400&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ43RDQLARRLRVWET%2F20260728%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260728T111237Z&X-Amz-SignedHeaders=host&X-Amz-Signature=a1cefd69e260c8437beeaf6ad52472a624235be01ab1f268ede6ccb7a7baf3b0

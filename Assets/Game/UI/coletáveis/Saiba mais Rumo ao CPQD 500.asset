@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a0af7f25a765a469c0cf5d66d29a73, type: 3}
+  m_Name: Saiba mais Rumo ao CPQD 500
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleData
+  id: Saiba mais Rumo ao CPQD 500
+  nomeItem: Saiba mais Rumo ao CPQD 500
+  descricao: "Que bom ter voc\xEA aqui com a gente!\r\nAcreditamos que uma jornada
+    de sucesso depende da soma dos esfor\xE7os e atitudes de cada um e convidamos
+    voc\xEA a juntar-se a n\xF3s nesse desafio rumo a mais um cap\xEDtulo na hist\xF3ria
+    do CPQD.\r\nO CPQD 500 \xE9 o nosso grande plano estrat\xE9gico que visa posicionar
+    o CPQD como refer\xEAncia global em inova\xE7\xE3o e tecnologia.\r\n\r\nPara
+    saber mais, acesse:"
+  foto: {fileID: 0}
+  urlExterno: https://intranet.cpqd.com.br/cpqd500
