@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0e7d499db71a24ca9347d7d2354a3c, type: 3}
+  m_Name: "VideoTucaSalaDeReuniao_Confian\xE7a"
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  id: "VideoTucaSalaDeReuniao_Confian\xE7a"
+  iconeAvatar: {fileID: 21300000, guid: 4423566198bb37f41bea6732751efc45, type: 3}
+  lines:
+  - characterName: "Confian\xE7a"
+    text: "\u201COl\xE1! Eu sou a Confian\xE7a. Aqui, quero te falar sobre um comportamento
+      que transforma carreiras por onde passa: a Iniciativa! Ter iniciativa \xE9
+      ter a coragem de dar o primeiro passo, agir com proatividade e n\xE3o esperar
+      passivamente que as coisas aconte\xE7am para come\xE7ar a fazer a diferen\xE7a.\""
+  - characterName: "Confian\xE7a"
+    text: "\"E para voc\xEA iniciar sua trajet\xF3ria no CPQD com o p\xE9 direito
+      e total clareza do nosso rumo, este \xE9 o espa\xE7o perfeito para conhecer
+      o nosso prop\xF3sito fundamental: a nossa Miss\xE3o, Vis\xE3o e Valores, al\xE9m
+      de entender para onde estamos caminhando com o plano CPQD 500!\""
+  - characterName: "Confian\xE7a"
+    text: "\"Nossa lideran\xE7a preparou um v\xEDdeo especial para te inspirar a
+      ser o grande protagonista da sua hist\xF3ria por aqui. Assista aos v\xEDdeos
+      no painel e, em seguida, mostre a sua proatividade em um teste r\xE1pido!\u201D"
+  missaoParaConcluir: {fileID: 0}
+  OnSequenceComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  quizParaIniciar: {fileID: 0}
