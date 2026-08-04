@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7615846880781105844}
   - component: {fileID: 6099814380367243318}
   - component: {fileID: 4010108650708886536}
-  - component: {fileID: 2835834376297021138}
   - component: {fileID: 2849048785873371158}
+  - component: {fileID: 7548221843758677012}
   m_Layer: 5
   m_Name: icone
   m_TagString: Untagged
@@ -77,19 +77,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2835834376297021138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8278673938683684568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c4b46e5fcb7124e88bee4ebe0b22b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  nomeDaCena: Externa 1
 --- !u!114 &2849048785873371158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,15 +121,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MinimapManager, Assembly-CSharp
-        m_MethodName: SelecionarDestino
-        m_Mode: 2
+      - m_Target: {fileID: 7548221843758677012}
+        m_TargetAssemblyTypeName: MapNodeButton, Assembly-CSharp
+        m_MethodName: AoClicar
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2835834376297021138}
-          m_ObjectArgumentAssemblyTypeName: MapLocation, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7548221843758677012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8278673938683684568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f030c62cc6e4e6469364af2ee9af826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapNodeButton
+  nomeDaCena: Externa 1

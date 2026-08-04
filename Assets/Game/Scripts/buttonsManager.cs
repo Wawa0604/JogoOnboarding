@@ -8,9 +8,9 @@ public class buttonsManager : MonoBehaviour
     public GameObject painelCustomisacao;
     public GameObject painelVideo;
     public GameObject painelTutorial;
-    //botoes que ficam invisiveis quando liga o painel de video
-    public GameObject botaoMissao;
-    public GameObject botaoMapa;
+    //Mapa
+    public GameObject painelMapa;
+    public GameObject botaoMapaSair;
     // botão play que desativa quando termina o vídeo
     public GameObject botaoPlay;
     //Botões para fechar quizes ou ir novamente no quiz arrasta
@@ -129,6 +129,18 @@ public class buttonsManager : MonoBehaviour
         
         // ➔ DISPARA O SINAL VISANDO REINICIAR O QUIZ
         GameEvents.OnRestartDragQuizRequested?.Invoke(); 
+    }
+
+    public void AbreMapa()
+    {
+        painelMapa.SetActive(true);
+        botaoMapaSair.SetActive(true);
+    }
+
+    public void FechaMapa()
+    {
+        painelMapa.SetActive(false);
+        botaoMapaSair.SetActive(false);
     }
 
 }

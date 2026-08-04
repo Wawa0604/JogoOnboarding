@@ -1,5 +1,5 @@
 using UnityEngine;
-using System;// precisa para usar o Action
+using System;
 using System.Collections.Generic;
 
 public class TabController : MonoBehaviour
@@ -25,7 +25,6 @@ public class TabController : MonoBehaviour
     public event Action<SlotItemData> OnSlotButtonSelected;
     
     private void Awake()
-
     {
         tabPageUIControllers.ForEach(tabPage =>
         {
@@ -39,15 +38,13 @@ public class TabController : MonoBehaviour
             slot.SetVisibility(false);// oculta todas
             slot.OnSlotButtonClicked += HandleSlotSelected;// cria método para quando selecionado
         });
-
     }
 
-    private void HandlePageSelected(TabePageUIController tabPageUIController) // precisa do parametro tabpageuicontroller pois o OnPageSelected ta dentro dele
-
+    // Faltava este método que acabou se perdendo
+    private void HandlePageSelected(TabePageUIController tabPageUIController)
     {
-        selectedTabePageUI = tabPageUIController;// recebe o tab page ui controller
-        // só pode ter uma aba selecionada por vez
-        // então criamo o método que desativa todas as tabs diferentes dessa que estamos selecionando
+        selectedTabePageUI = tabPageUIController;
+        
         tabPageUIControllers.ForEach(tabPageUI =>
         {
             if (tabPageUI == selectedTabePageUI)
@@ -69,56 +66,47 @@ public class TabController : MonoBehaviour
 
         if (selectedTabePageUI != null)
         {
-            //por ultimo invocamos o OnPageSelected selecionando o tabpage
             OnPageSelected?.Invoke(selectedTabePageUI.TabPage);
         }
     }
 
+    // Apenas UMA versão deste método
     private void HandleSlotSelected(TabSlot tabSlot)
     {
-        // Aqui chamamos passando o slot clicado
-
         SelectSlotButton(tabSlot);
 
-        SlotItemData slotItemData;// por isso pegamos a referencia aqui do struct
-        slotItemData.sprite = tabSlot.Sprite; // atualiza a variavel sprite que recebe o sprite dentro de slot selecionado
-        slotItemData.tabIdentifier = selectedTabePageUI.TabPage.identificador;
-        slotItemData.itemIndex = tabSlots.IndexOf(tabSlot);// encontra o índice do slot clicado na lista de slots ativos
-        OnSlotButtonSelected?.Invoke(slotItemData);// espera o struct
+        SlotItemData slotItemData;
+        slotItemData.sprite = tabSlot.Sprite;
+        
+        // Pega as informações de origem do próprio slot
+        slotItemData.tabIdentifier = tabSlot.groupIdentifier;
+        slotItemData.itemIndex = tabSlot.indexInGroup; 
+        
+        OnSlotButtonSelected?.Invoke(slotItemData);
     }
-
 
     // boa prática tirar as assinaturas de eventos que não estejam mais sendo utilizados
     private void OnDestroy()
-
     {
         tabPageUIControllers.ForEach(tabPage => tabPage.OnPageSelected -= HandlePageSelected);
         tabSlots.ForEach(tabSlot => tabSlot.OnSlotButtonClicked -= HandleSlotSelected);
     }
 
     private void SelectSlotButton(TabSlot tabSlot)
-
     {
-        // for para navegar em cada slot
-        // começando no i=0, indo até que o i seja menor que a quantidade de slots incrementando o i+1
        for (int i = 0; i < tabSlots.Count; i++)
         {
-            // só um slot pode ser selecionado
             var slot = tabSlots[i];
             if (slot == tabSlot)
             {
-                // verdadeiro se só um for selecionado
                 slot.Select(true);
-                // sempre q o slot for selecionado tem que atualizar o indice
                 if (selectedTabePageUI != null)
                 {
-                    // atualiza o index no tabpage
                     selectedTabePageUI.TabPage.selectedSlotIndex = i;
                 }
             }
             else
             {
-                // se mais de um selecionado, é falso
                 slot.Select(false);
             }
         }
@@ -126,35 +114,47 @@ public class TabController : MonoBehaviour
 
     private void SetUpTabSlots(TabPage tabPage)
     {
-        for (int i = 0; i < tabSlots.Count; i++)
+        int currentSlotIndex = 0;
+
+        // Percorre todos os grupos dentro da aba
+        foreach (var grupo in tabPage.grupos)
         {
-            var tabSlot = tabSlots[i];
-            if(i < tabPage.sprites.Count)
+            for (int i = 0; i < grupo.sprites.Count; i++)
             {
-                tabSlot.SetVisibility(true);
-                tabSlot.Sprite = tabPage.sprites[i];
+                if (currentSlotIndex < tabSlots.Count)
+                {
+                    var tabSlot = tabSlots[currentSlotIndex];
+                    tabSlot.SetVisibility(true);
+                    tabSlot.Sprite = grupo.sprites[i];
+                    
+                    // Salvamos a origem do dado direto no botão
+                    tabSlot.groupIdentifier = grupo.identificador;
+                    tabSlot.indexInGroup = i;
+                    
+                    currentSlotIndex++;
+                }
             }
-            else
-            {
-                tabSlot.SetVisibility(false);
-            }
+        }
+
+        // Oculta os slots que não foram usados
+        for (int i = currentSlotIndex; i < tabSlots.Count; i++)
+        {
+            tabSlots[i].SetVisibility(false);
         }
     }
 
     // método para adicionar uma tab e receber um objeto do tipo TabPage
     public void AddTabPage(TabPage tabPage)
     {
-        //checar se existe uma tab disponivel
         TabePageUIController tabePageUIController = tabPageUIControllers.Find(tab => !tab.IsVisible);
-        if (tabePageUIController != null) // caso retorne uma aba 
+        if (tabePageUIController != null) 
         {
-            tabePageUIController.SetVisibility(true);// deixar ele visivel
-            tabePageUIController.TabPage = tabPage;// atualiza o tab page
+            tabePageUIController.SetVisibility(true);
+            tabePageUIController.TabPage = tabPage;
         }
     }
 
     public void SelectTabByIndex(int index)
-
     {
         if (index >= 0 && index < tabPageUIControllers.Count)
         {
@@ -163,15 +163,10 @@ public class TabController : MonoBehaviour
     }
 }
 
-// struct para representar o objeto do slot, ao envez de classe
-// da mesma forma que uma classe, ele também aceita atributos
-// como se fosse uma classe mais simples que não precisa ser instanciada
-// podemos alterar os dados diretamente na instancia da struct
-// indicadas para representar dados simple como esses
+// struct para representar o objeto do slot
 public struct SlotItemData
 {
     public string tabIdentifier;
     public Sprite sprite;
     public int itemIndex; //Adicionado para saber a posição do item
 }
-

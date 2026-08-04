@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Pants
   m_EditorClassIdentifier: Assembly-CSharp::TabUIData
   icon: {fileID: 21300000, guid: ceb94685d5656f54da2cb3e9f292ddbb, type: 3}
-  identificador: Pants
-  sprites:
-  - {fileID: 21300000, guid: 3b23252481caa8749a3575b8bc0bded9, type: 3}
-  - {fileID: 21300000, guid: 2532d737c68b6734fa168a393d36866f, type: 3}
-  - {fileID: 21300000, guid: 246cae66d80f71e40b59ff1bcc420880, type: 3}
-  useColor: 1
+  nomeDaAba: Pants
+  grupos:
+  - identificador: Pants
+    useColor: 1
+    sprites:
+    - {fileID: 21300000, guid: 3b23252481caa8749a3575b8bc0bded9, type: 3}
+    - {fileID: 21300000, guid: 246cae66d80f71e40b59ff1bcc420880, type: 3}
+    - {fileID: 21300000, guid: 2532d737c68b6734fa168a393d36866f, type: 3}
   colors:
   - {r: 1, g: 0.8196079, b: 0.20000002, a: 0}
   - {r: 0.5686275, g: 0.8705883, b: 0.43921572, a: 0}

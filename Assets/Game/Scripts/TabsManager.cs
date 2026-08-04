@@ -1,53 +1,52 @@
 using UnityEngine;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 
-
-
-// para que seja o primeiro rodado na cena
 [DefaultExecutionOrder(-1)]
-
 public class TabsManager : MonoBehaviour
 {
-     // Singleton pattern: onde só existe um tipo desse objeto na cena
     public static TabsManager Instance = null; 
 
-    // referencia do tab ui controller para controlar o sistema de abas
     [SerializeField] private TabController tabController;
-    // lista contendo as informações de cada tab
     [SerializeField] private List<TabUIData> data;
-    // lista de botões de controllers
     [SerializeField] private List<CoresSprites> colorButtons = new List<CoresSprites>();
 
     public event Action<SlotItemData> OnBodyPartChange;
-    // evento de cor
     public event Action<string, Color> OnColorChange;
+
+    private TabUIData currentActiveTabData;
+    private CoresSprites lastSelectedColorButton = null;
+
+    private Dictionary<string, int> currentSelectedParts = new Dictionary<string, int>();
+    private Dictionary<string, Color> currentSelectedColors = new Dictionary<string, Color>();
 
     private void Awake()
     {
-            Instance = this;
+        // Garante que a instância aponta para o TabsManager DA CENA ATUAL
+        Instance = this;
     }
 
     void Start()
     {
-        // inicializar as abas
-        // para isso o for na lista de tabUIData
+        // ==========================================
+        // NOVO: Recupera o progresso do Game_Manager para não salvar vazio!
+        // ==========================================
+        if (Game_Manager.Instance != null)
+        {
+            currentSelectedParts = new Dictionary<string, int>(Game_Manager.Instance.avatarParts);
+            currentSelectedColors = new Dictionary<string, Color>(Game_Manager.Instance.avatarColors);
+            Debug.Log("<color=green>[TabsManager]</color> Dicionários locais sincronizados com o Game_Manager.");
+        }
+
         data.ForEach(tabUIData =>
         {
-            // chamando o método de tab page passando uma instancia de tab page
-           tabController.AddTabPage(new TabPage()
-           {
-            // passando as informações 
+            tabController.AddTabPage(new TabPage()
+            {
                 icon = tabUIData.icon,
-                sprites = tabUIData.sprites,
-                identificador = tabUIData.identificador,
-           });
+                grupos = tabUIData.grupos 
+            });
         });
-        // manager precisa ser avisado quando uma tab é selecionada
-        // assinar o on page selected e criar o método do handle
-        // que será executado quando o evento for disparado
+
         tabController.OnPageSelected += HandlePageSelected;
         tabController.OnSlotButtonSelected += HandleSlotButtonSelected;
         tabController.SelectTabByIndex(0);
@@ -55,56 +54,74 @@ public class TabsManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        // removendo a subscrição do page selected
-        tabController.OnPageSelected -= HandlePageSelected;
+        if(tabController != null)
+        {
+            tabController.OnPageSelected -= HandlePageSelected;
+            tabController.OnSlotButtonSelected -= HandleSlotButtonSelected;
+        }
     }
 
     private void HandlePageSelected(TabPage obj)
-{
-    //Debug.Log("Tentando selecionar aba: " + obj.identificador);
-    
-    var currentTabUIData = data.Find(tabUIData => tabUIData.identificador == obj.identificador);
-    
-    if (currentTabUIData == null)
     {
-        Debug.LogError("ERRO: Não encontrei nenhum TabUIData com o ID: " + obj.identificador + 
-                       ". Verifique se o nome no ScriptableObject é idêntico ao da TabPage.");
-        return;
-    }
+        currentActiveTabData = data.Find(t => t.icon == obj.icon); 
+        if (currentActiveTabData == null) return;
 
-    //Debug.Log("Dados encontrados! UseColor: " + currentTabUIData.useColor + " | Total de cores: " + currentTabUIData.colors.Count);
+        bool abaUsaCor = currentActiveTabData.grupos.Exists(g => g.useColor);
+        lastSelectedColorButton = null; 
 
-    for (int i = 0; i < colorButtons.Count; i++)
-    {
-        // Se a aba usa cor E o índice atual existe na lista de cores
-        if (currentTabUIData.useColor && i < currentTabUIData.colors.Count)
+        for (int i = 0; i < colorButtons.Count; i++)
         {
-            colorButtons[i].gameObject.SetActive(true);
-            colorButtons[i].Setup(currentTabUIData.identificador, currentTabUIData.colors[i]);
-           // Debug.Log("Botão " + i + " ativado com a cor: " + currentTabUIData.colors[i]);
-        }
-        else
-        {
-            colorButtons[i].gameObject.SetActive(false);
-           // Debug.Log("o botão" + i + "foi desativado");
+            if (abaUsaCor && i < currentActiveTabData.colors.Count)
+            {
+                colorButtons[i].gameObject.SetActive(true);
+                colorButtons[i].Setup(currentActiveTabData.colors[i]);
+                colorButtons[i].SetSelected(false); 
+            }
+            else
+            {
+                colorButtons[i].gameObject.SetActive(false);
+            }
         }
     }
-}
 
-    //metodo que os botoes chamam ao serem clicados
-    public void NotifyColorClick(string id, Color cor)
+    public void NotifyColorClick(CoresSprites clickedButton, Color cor)
     {
-        TabsManager.Instance.OnColorChange?.Invoke(id, cor);
+        if (lastSelectedColorButton != null)
+        {
+            lastSelectedColorButton.SetSelected(false);
+        }
+        clickedButton.SetSelected(true);
+        lastSelectedColorButton = clickedButton;
+
+        if (currentActiveTabData != null)
+        {
+            foreach (var grupo in currentActiveTabData.grupos)
+            {
+                if (grupo.useColor)
+                {
+                    OnColorChange?.Invoke(grupo.identificador, cor);
+                    currentSelectedColors[grupo.identificador] = cor; 
+                }
+            }
+        }
     }
 
     private void HandleSlotButtonSelected(SlotItemData obj)
     {
-        TabsManager.Instance.OnBodyPartChange?.Invoke(obj);
-        // ID EXATO que você escreveu no ScriptableObject da missão
+        OnBodyPartChange?.Invoke(obj);
+        currentSelectedParts[obj.tabIdentifier] = obj.itemIndex;
+
         if (MissionManager.Instance != null)
         {
             MissionManager.Instance.ConcluirMissao("montar_avatar");
         }
     }
 
+    public void SalvarCustomizacaoEFechar()
+    {
+        Debug.Log($"<color=green>[TabsManager]</color> Botão Salvar clicado! Enviando {currentSelectedParts.Count} peças e {currentSelectedColors.Count} cores para o Game_Manager.");
+        GameEvents.OnAvatarSaved?.Invoke(currentSelectedParts, currentSelectedColors);
+        
+        gameObject.SetActive(false);
+    }
 }

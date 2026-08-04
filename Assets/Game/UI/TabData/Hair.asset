@@ -13,15 +13,22 @@ MonoBehaviour:
   m_Name: Hair
   m_EditorClassIdentifier: Assembly-CSharp::TabUIData
   icon: {fileID: 21300000, guid: f260a27839cd2be4bbc63a54482f45a4, type: 3}
-  identificador: Hair
-  sprites:
-  - {fileID: 0}
-  - {fileID: 21300000, guid: 36e333223c968704f9f97ec29d1c862f, type: 3}
-  - {fileID: 21300000, guid: d906844cf1e14c34aa60b520db2b9bbd, type: 3}
-  - {fileID: 21300000, guid: 27104a24228ac9247a4c2357afacd056, type: 3}
-  - {fileID: 21300000, guid: 4b930a7eadd3d094db126502f68ce54c, type: 3}
-  - {fileID: 21300000, guid: 6c0c855d140b9e844affa6f6dfb14309, type: 3}
-  useColor: 1
+  nomeDaAba: Hair
+  grupos:
+  - identificador: Hair
+    useColor: 1
+    sprites:
+    - {fileID: 21300000, guid: 27104a24228ac9247a4c2357afacd056, type: 3}
+    - {fileID: 21300000, guid: d906844cf1e14c34aa60b520db2b9bbd, type: 3}
+    - {fileID: 21300000, guid: 36e333223c968704f9f97ec29d1c862f, type: 3}
+    - {fileID: 21300000, guid: 4b930a7eadd3d094db126502f68ce54c, type: 3}
+    - {fileID: 21300000, guid: 6c0c855d140b9e844affa6f6dfb14309, type: 3}
+  - identificador: Bangs
+    useColor: 1
+    sprites:
+    - {fileID: 21300000, guid: 4bf8bc4dbd6f5de458ca12b3f215bb96, type: 3}
+    - {fileID: 21300000, guid: d66d8bd0b381a1742a7bde211d5aaa66, type: 3}
+    - {fileID: 21300000, guid: c5a6bcee1bf33ed4db3c9623c5de84d4, type: 3}
   colors:
   - {r: 0.9372549, g: 0.92941177, b: 0.92941177, a: 0}
   - {r: 0.5803922, g: 0.5803922, b: 0.5803922, a: 0}

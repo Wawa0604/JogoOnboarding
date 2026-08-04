@@ -10,18 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26c24cbcaf766dc43b5095bbd8303b9d, type: 3}
-  m_Name: Face
+  m_Name: Skin
   m_EditorClassIdentifier: Assembly-CSharp::TabUIData
   icon: {fileID: 21300000, guid: aac0fdc90697cff489d44d3d10b71765, type: 3}
-  identificador: Face
-  sprites:
-  - {fileID: 21300000, guid: f190a2fb55668bf4b9b9083958d04f3b, type: 3}
-  - {fileID: 21300000, guid: 50dbad56f6621aa4f92fb4ed18f63489, type: 3}
-  - {fileID: 21300000, guid: d55ec4de71cf58b4281a3219db33debe, type: 3}
-  - {fileID: 21300000, guid: 905e5fcde9ef06b40a09ada3560fbf45, type: 3}
-  - {fileID: 21300000, guid: 4b6e413ce10b39e4d9199f79304ace53, type: 3}
-  - {fileID: 21300000, guid: 80aa0261c78bc784d958c91f2821138a, type: 3}
-  useColor: 1
+  nomeDaAba: Skin
+  grupos:
+  - identificador: Face
+    useColor: 1
+    sprites:
+    - {fileID: 21300000, guid: f190a2fb55668bf4b9b9083958d04f3b, type: 3}
+    - {fileID: 21300000, guid: 50dbad56f6621aa4f92fb4ed18f63489, type: 3}
+    - {fileID: 21300000, guid: d55ec4de71cf58b4281a3219db33debe, type: 3}
+    - {fileID: 21300000, guid: 905e5fcde9ef06b40a09ada3560fbf45, type: 3}
+    - {fileID: 21300000, guid: 4b6e413ce10b39e4d9199f79304ace53, type: 3}
+    - {fileID: 21300000, guid: 80aa0261c78bc784d958c91f2821138a, type: 3}
+  - identificador: Body
+    useColor: 1
+    sprites:
+    - {fileID: 21300000, guid: 1518fd2b44be3dd4a9830f1d7b015ed5, type: 3}
+    - {fileID: 21300000, guid: e75c94b644d0c4e42bddf5bf0d8ab25e, type: 3}
   colors:
   - {r: 0.3647059, g: 0.18039216, b: 0.1254902, a: 0}
   - {r: 0.4901961, g: 0.2392157, b: 0.20784315, a: 0}

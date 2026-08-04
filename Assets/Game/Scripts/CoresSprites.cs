@@ -1,48 +1,31 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class CoresSprites : MonoBehaviour
 {
-    [SerializeField] private Image buttonBackground; // O "Frame" de seleção (Pai)
-    [SerializeField] private Image buttonIcon;       // O círculo de cor (Filho)
+    [SerializeField] private Image buttonBackground; 
+    [SerializeField] private Image buttonIcon;       
 
-    [SerializeField] private string currentId;
-    [SerializeField] private Color currentColor; 
+    private Color currentColor; 
 
-    
-    // Chamado pelo TabsManager para "pintar" o botão
-    public void Setup(string id, Color cor)
+    public void Setup(Color cor)
     {
-        currentId = id;
         currentColor = cor;
-        
-        // 1. Mudamos a cor do ícone (o círculo colorido)
-        // Garantimos que o alpha do ícone seja sempre 1 (100%) para ele aparecer
         cor.a = 1f; 
         buttonIcon.color = cor;
-        
-        // 2. Opcional: Se você quer que o FRAME (Background) comece invisível 
-        // toda vez que troca de aba, mantenha as linhas abaixo.
-        // Se quiser que ele mantenha o estado anterior, remova estas linhas:
+    }
+
+    // Chamado pelo TabsManager para ligar/desligar a bordinha
+    public void SetSelected(bool isSelected)
+    {
         Color c = buttonBackground.color;
-        c.a = 0f; // Começa transparente (toggle desligado)
+        c.a = isSelected ? 1f : 0f;
         buttonBackground.color = c;
     }
 
     public void OnClick()
     {
-        // Avisa o Manager que este botão foi clicado
-        TabsManager.Instance.NotifyColorClick(currentId, currentColor);
-
-        // Lógica do Toggle de Alpha no Background
-        // Como 'buttonBackground' já é do tipo Image, acessamos .color direto
-        Color tempColor = buttonBackground.color;
-
-        // Toggle do Alpha: se for 0, vira 1. Se for qualquer outra coisa, vira 0.
-        tempColor.a = (tempColor.a == 0f) ? 1f : 0f;
-
-        // Aplica de volta
-        buttonBackground.color = tempColor;
+        // Envia este botão como referência para o Manager deselecionar os outros
+        TabsManager.Instance.NotifyColorClick(this, currentColor);
     }
 }

@@ -1,13 +1,19 @@
 using UnityEngine;
+using System.Collections.Generic; // Necessário para os Dicionários
 
 public class Game_Manager : MonoBehaviour
 {
     public static Game_Manager Instance { get; private set; }
 
-    [Header("Dados do Jogador")]
-    public string currentPlayerEmail = "usuario_scorm";
-    
-    // Referência interna para o gerenciador de missões
+    [Header("Dados de Navegação")]
+    public Vector2 ultimaPosicaoSalva = Vector2.zero;
+
+    // ==========================================
+    // NOVO: Memória do Avatar para persistir entre as cenas
+    // ==========================================
+    public Dictionary<string, int> avatarParts = new Dictionary<string, int>();
+    public Dictionary<string, Color> avatarColors = new Dictionary<string, Color>();
+
     private MissionDataManager missionDataManager;
 
     private void Awake()
@@ -16,46 +22,52 @@ public class Game_Manager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            
-            // Tenta encontrar o MissionDataManager no mesmo objeto
             missionDataManager = GetComponent<MissionDataManager>();
         }
         else
         {
             Destroy(gameObject);
         }
-        
     }
 
-    public void SavePlayer(string email)
+    private void OnEnable()
     {
-        if (string.IsNullOrEmpty(email)) return;
+        GameEvents.OnMapPositionSaved += SalvarPosicaoMapa;
         
-        currentPlayerEmail = email;
-        Debug.Log("Jogador definido como: " + email);
-        
-        // Salva o e-mail no PlayerPrefs para persistência entre sessões
-        PlayerPrefs.SetString("PlayerEmail", email);
-        PlayerPrefs.Save();
+        // Escuta o evento de salvar o avatar
+        GameEvents.OnAvatarSaved += SalvarDadosDoAvatar; 
     }
 
-    // Método chamado pelo DialogueController ao terminar uma conversa
+    private void OnDisable()
+    {
+        GameEvents.OnMapPositionSaved -= SalvarPosicaoMapa;
+        GameEvents.OnAvatarSaved -= SalvarDadosDoAvatar;
+    }
+
+    // Guarda os dados enviados pelo painel de customização
+    private void SalvarDadosDoAvatar(Dictionary<string, int> parts, Dictionary<string, Color> colors)
+    {
+        avatarParts = new Dictionary<string, int>(parts);
+        avatarColors = new Dictionary<string, Color>(colors);
+        Debug.Log("Game_Manager: Dados do Avatar guardados com sucesso para as próximas cenas!");
+    }
+
+    private void SalvarPosicaoMapa(Vector2 novaPosicao)
+    {
+        ultimaPosicaoSalva = novaPosicao;
+    }
+
+
     public void RegistrarFimDeDialogo()
     {
         Debug.Log("Game_Manager: Processando fim de diálogo...");
-
-        // 1. Salva o progresso numericamente no PlayerPrefs
         int conversasLidas = PlayerPrefs.GetInt("ConversasFinalizadas", 0);
         conversasLidas++;
         PlayerPrefs.SetInt("ConversasFinalizadas", conversasLidas);
         PlayerPrefs.Save();
 
-        Debug.Log($"Progresso salvo: {conversasLidas} diálogos concluídos.");
-
-        // 2. Avisa o MissionDataManager para atualizar o status das missões
         if (missionDataManager != null)
         {
-            // Aqui você chama o método de atualizar missões do seu script
             // missionDataManager.CheckMissionProgress(); 
         }
     }

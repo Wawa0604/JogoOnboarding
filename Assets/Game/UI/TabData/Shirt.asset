@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: Shirt
   m_EditorClassIdentifier: Assembly-CSharp::TabUIData
   icon: {fileID: 21300000, guid: 844cdb61bba066c45aa2992a2f3f7353, type: 3}
-  identificador: Shirt
-  sprites:
-  - {fileID: 21300000, guid: faf5ba1513edb934995ff6727797df32, type: 3}
-  - {fileID: 21300000, guid: 7a38ceaad23197949b31901a4e896c55, type: 3}
-  - {fileID: 21300000, guid: 137cffa781b654246abbfcb5603037df, type: 3}
-  - {fileID: 21300000, guid: 86a4fcb9c3336b745aa1ef3b8256e60b, type: 3}
-  useColor: 1
+  nomeDaAba: Shir
+  grupos:
+  - identificador: Shirt
+    useColor: 1
+    sprites:
+    - {fileID: 21300000, guid: 4ce95a81f058de645afc0eb21bacd503, type: 3}
+    - {fileID: 21300000, guid: 22fe3ef77fd0da84d874eb925679b5b1, type: 3}
+    - {fileID: 21300000, guid: d734989638dbd8b40b961c5a5484392b, type: 3}
+    - {fileID: 21300000, guid: 86a4fcb9c3336b745aa1ef3b8256e60b, type: 3}
   colors:
   - {r: 1, g: 0.8196079, b: 0.20000002, a: 0}
   - {r: 0.5686275, g: 0.8705883, b: 0.43921572, a: 0}

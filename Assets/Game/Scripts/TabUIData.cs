@@ -1,27 +1,24 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
-//caminho na unity para criar
-[CreateAssetMenu(fileName = "TabUIData", menuName = "Scriptable Objects/TabUIData")]
-
-public class TabUIData : ScriptableObject
-// onde vamos guardar od dados das nossas tabs
+// Classe que agrupa as informações de cada categoria dentro da aba
+[System.Serializable]
+public class AvatarGroupData
 {
-
-    // icone que vai aparecer na aba
-    public Sprite icon;
-    // identificador da aba
-    public string identificador;
-    //guardar a lista de sprites de cada aba
-    public List<Sprite> sprites;
-    //boleana para identificar se o objeto daquela aba vai ser alterado pela cor dela
+    public string identificador; // ex: "camisas", "jaquetas"
     public bool useColor;
-    // lista de cores que aquela aba usa
-    public List <Color> colors;
+    public List<Sprite> sprites;
+}
 
-   
-
-
-
+[CreateAssetMenu(fileName = "TabUIData", menuName = "Scriptable Objects/TabUIData")]
+public class TabUIData : ScriptableObject
+{
+    public Sprite icon;
+    public string nomeDaAba; // Nome descritivo (opcional)
+    
+    [Header("Grupos desta Aba")]
+    public List<AvatarGroupData> grupos; // Substitui o 'identificador' único
+    
+    [Header("Paleta de Cores da Aba")]
+    public List<Color> colors; // Cores que serão compartilhadas
 }

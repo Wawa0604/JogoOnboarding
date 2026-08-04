@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic; // <- Faltava esta linha para o Dictionary funcionar
 
 public static class GameEvents 
 {
@@ -20,4 +21,15 @@ public static class GameEvents
 
     //item coletado
     public static Action<string> OnItemCollected;
+
+    // Evento disparado quando um botão é clicado (passa o destino e a cena alvo)
+    public static Action<Vector2, string> OnTravelRequested;
+    
+    // Evento para atualizar e salvar as coordenadas finais
+    public static Action<Vector2> OnMapPositionSaved;
+
+    // Evento disparado quando o painel de avatar é salvo e fechado.
+    // Dicionário 1: "identificador" -> itemIndex
+    // Dicionário 2: "identificador" -> Color
+    public static Action<Dictionary<string, int>, Dictionary<string, Color>> OnAvatarSaved;
 }

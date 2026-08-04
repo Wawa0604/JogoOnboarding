@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Shoes
   m_EditorClassIdentifier: Assembly-CSharp::TabUIData
   icon: {fileID: 21300000, guid: 9a7cf912d44213a458bfbbe9a9fee493, type: 3}
-  identificador: Shoes
-  sprites:
-  - {fileID: 21300000, guid: cb7a9e4ece5d73b4293d105829a4765f, type: 3}
-  useColor: 1
+  nomeDaAba: Shoes
+  grupos:
+  - identificador: Shoes
+    useColor: 1
+    sprites:
+    - {fileID: 21300000, guid: cb7a9e4ece5d73b4293d105829a4765f, type: 3}
   colors:
   - {r: 1, g: 0.8196079, b: 0.20000002, a: 0}
   - {r: 0.5686275, g: 0.8705883, b: 0.43921572, a: 0}

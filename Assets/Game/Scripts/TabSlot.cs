@@ -15,6 +15,8 @@ public class TabSlot : MonoBehaviour
     [SerializeField] private Color selectedColor;
     // cor de quando não tiver selecionado
     [SerializeField] private Color unselectedColor;
+    [HideInInspector] public string groupIdentifier;
+    [HideInInspector] public int indexInGroup;
 
     //propriedade do tipo sprite e sempre que ela for alterada, a imagem do botão vai ser alterada
     private Sprite sprite;
