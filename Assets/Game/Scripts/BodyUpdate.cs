@@ -15,30 +15,25 @@ public class BodyUpdate : MonoBehaviour
 
     private void Start() 
     {
-        TabsManager.Instance.OnBodyPartChange += HandleBodyPartChange;
-        TabsManager.Instance.OnColorChange += HandleColorChange;
+        // NOVO: Lê diretamente do GameEvents que nunca falha!
+        GameEvents.OnPreviewBodyPartChanged += HandleBodyPartChange;
+        GameEvents.OnPreviewColorChanged += HandleColorChange;
 
         int indexInicial = 0;
 
-        // ==========================================
-        // NOVO: Recupera o visual salvo para a nova cena!
-        // ==========================================
         if (Game_Manager.Instance != null)
         {
-            // Descobre o corpo global (Thin/Large)
             if (Game_Manager.Instance.avatarParts.ContainsKey("Body"))
             {
                 CorpoAtualIndex = Game_Manager.Instance.avatarParts["Body"];
             }
 
-            // Descobre o índice salvo desta peça específica
             if (Game_Manager.Instance.avatarParts.ContainsKey(identificador))
             {
                 indexInicial = Game_Manager.Instance.avatarParts[identificador];
                 ultimoItemSelecionadoIndex = indexInicial;
             }
 
-            // Descobre a cor salva
             if (Game_Manager.Instance.avatarColors.ContainsKey(identificador))
             {
                 corSalva = Game_Manager.Instance.avatarColors[identificador];
@@ -47,17 +42,13 @@ public class BodyUpdate : MonoBehaviour
             }
         }
 
-        // Força a inicialização usando o index recuperado do Game_Manager
         AtualizarFilhos(indexInicial); 
     }
 
     private void OnDestroy()
     {
-        if (TabsManager.Instance != null)
-        {
-            TabsManager.Instance.OnBodyPartChange -= HandleBodyPartChange;
-            TabsManager.Instance.OnColorChange -= HandleColorChange;
-        }
+        GameEvents.OnPreviewBodyPartChanged -= HandleBodyPartChange;
+        GameEvents.OnPreviewColorChanged -= HandleColorChange;
     }
 
     private void HandleBodyPartChange(SlotItemData slotItemData)

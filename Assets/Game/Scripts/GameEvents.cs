@@ -32,4 +32,8 @@ public static class GameEvents
     // Dicionário 1: "identificador" -> itemIndex
     // Dicionário 2: "identificador" -> Color
     public static Action<Dictionary<string, int>, Dictionary<string, Color>> OnAvatarSaved;
+
+    // Eventos em tempo real para o preview não depender da UI
+    public static Action<SlotItemData> OnPreviewBodyPartChanged;
+    public static Action<string, Color> OnPreviewColorChanged;
 }

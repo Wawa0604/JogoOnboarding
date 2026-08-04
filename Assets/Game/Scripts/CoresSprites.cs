@@ -7,6 +7,11 @@ public class CoresSprites : MonoBehaviour
     [SerializeField] private Image buttonIcon;       
 
     private Color currentColor; 
+    
+    // ==========================================
+    // ESTA É A LINHA QUE FALTAVA: Permite que o TabsManager leia a cor deste botão
+    // ==========================================
+    public Color CurrentColor => currentColor;
 
     public void Setup(Color cor)
     {
@@ -15,7 +20,6 @@ public class CoresSprites : MonoBehaviour
         buttonIcon.color = cor;
     }
 
-    // Chamado pelo TabsManager para ligar/desligar a bordinha
     public void SetSelected(bool isSelected)
     {
         Color c = buttonBackground.color;
@@ -25,7 +29,6 @@ public class CoresSprites : MonoBehaviour
 
     public void OnClick()
     {
-        // Envia este botão como referência para o Manager deselecionar os outros
         TabsManager.Instance.NotifyColorClick(this, currentColor);
     }
 }

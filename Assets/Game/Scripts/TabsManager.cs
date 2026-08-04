@@ -11,31 +11,25 @@ public class TabsManager : MonoBehaviour
     [SerializeField] private List<TabUIData> data;
     [SerializeField] private List<CoresSprites> colorButtons = new List<CoresSprites>();
 
-    public event Action<SlotItemData> OnBodyPartChange;
-    public event Action<string, Color> OnColorChange;
-
     private TabUIData currentActiveTabData;
     private CoresSprites lastSelectedColorButton = null;
 
     private Dictionary<string, int> currentSelectedParts = new Dictionary<string, int>();
     private Dictionary<string, Color> currentSelectedColors = new Dictionary<string, Color>();
 
+    public Dictionary<string, int> GetCurrentParts() => currentSelectedParts;
+
     private void Awake()
     {
-        // Garante que a instância aponta para o TabsManager DA CENA ATUAL
         Instance = this;
     }
 
     void Start()
     {
-        // ==========================================
-        // NOVO: Recupera o progresso do Game_Manager para não salvar vazio!
-        // ==========================================
         if (Game_Manager.Instance != null)
         {
             currentSelectedParts = new Dictionary<string, int>(Game_Manager.Instance.avatarParts);
             currentSelectedColors = new Dictionary<string, Color>(Game_Manager.Instance.avatarColors);
-            Debug.Log("<color=green>[TabsManager]</color> Dicionários locais sincronizados com o Game_Manager.");
         }
 
         data.ForEach(tabUIData =>
@@ -69,13 +63,34 @@ public class TabsManager : MonoBehaviour
         bool abaUsaCor = currentActiveTabData.grupos.Exists(g => g.useColor);
         lastSelectedColorButton = null; 
 
+        Color corSalvaDaAba = Color.clear;
+        bool temCorSalva = false;
+        foreach (var grupo in currentActiveTabData.grupos)
+        {
+            if (grupo.useColor && currentSelectedColors.ContainsKey(grupo.identificador))
+            {
+                corSalvaDaAba = currentSelectedColors[grupo.identificador];
+                temCorSalva = true;
+                break;
+            }
+        }
+
         for (int i = 0; i < colorButtons.Count; i++)
         {
             if (abaUsaCor && i < currentActiveTabData.colors.Count)
             {
                 colorButtons[i].gameObject.SetActive(true);
                 colorButtons[i].Setup(currentActiveTabData.colors[i]);
-                colorButtons[i].SetSelected(false); 
+
+                if (temCorSalva && colorButtons[i].CurrentColor == corSalvaDaAba)
+                {
+                    colorButtons[i].SetSelected(true);
+                    lastSelectedColorButton = colorButtons[i];
+                }
+                else
+                {
+                    colorButtons[i].SetSelected(false);
+                }
             }
             else
             {
@@ -99,7 +114,8 @@ public class TabsManager : MonoBehaviour
             {
                 if (grupo.useColor)
                 {
-                    OnColorChange?.Invoke(grupo.identificador, cor);
+                    // Usa o evento global
+                    GameEvents.OnPreviewColorChanged?.Invoke(grupo.identificador, cor);
                     currentSelectedColors[grupo.identificador] = cor; 
                 }
             }
@@ -108,7 +124,8 @@ public class TabsManager : MonoBehaviour
 
     private void HandleSlotButtonSelected(SlotItemData obj)
     {
-        OnBodyPartChange?.Invoke(obj);
+        // Usa o evento global
+        GameEvents.OnPreviewBodyPartChanged?.Invoke(obj);
         currentSelectedParts[obj.tabIdentifier] = obj.itemIndex;
 
         if (MissionManager.Instance != null)
@@ -119,9 +136,7 @@ public class TabsManager : MonoBehaviour
 
     public void SalvarCustomizacaoEFechar()
     {
-        Debug.Log($"<color=green>[TabsManager]</color> Botão Salvar clicado! Enviando {currentSelectedParts.Count} peças e {currentSelectedColors.Count} cores para o Game_Manager.");
         GameEvents.OnAvatarSaved?.Invoke(currentSelectedParts, currentSelectedColors);
-        
         gameObject.SetActive(false);
     }
 }
