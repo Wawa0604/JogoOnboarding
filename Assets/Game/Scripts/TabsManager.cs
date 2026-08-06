@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [DefaultExecutionOrder(-1)]
 public class TabsManager : MonoBehaviour
 {
-    public static TabsManager Instance = null; 
+    // REMOVIDO: public static TabsManager Instance = null; 
 
     [SerializeField] private TabController tabController;
     [SerializeField] private List<TabUIData> data;
@@ -18,11 +18,6 @@ public class TabsManager : MonoBehaviour
     private Dictionary<string, Color> currentSelectedColors = new Dictionary<string, Color>();
 
     public Dictionary<string, int> GetCurrentParts() => currentSelectedParts;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
 
     void Start()
     {
@@ -114,7 +109,6 @@ public class TabsManager : MonoBehaviour
             {
                 if (grupo.useColor)
                 {
-                    // Usa o evento global
                     GameEvents.OnPreviewColorChanged?.Invoke(grupo.identificador, cor);
                     currentSelectedColors[grupo.identificador] = cor; 
                 }
@@ -124,7 +118,6 @@ public class TabsManager : MonoBehaviour
 
     private void HandleSlotButtonSelected(SlotItemData obj)
     {
-        // Usa o evento global
         GameEvents.OnPreviewBodyPartChanged?.Invoke(obj);
         currentSelectedParts[obj.tabIdentifier] = obj.itemIndex;
 
@@ -136,7 +129,16 @@ public class TabsManager : MonoBehaviour
 
     public void SalvarCustomizacaoEFechar()
     {
-        GameEvents.OnAvatarSaved?.Invoke(currentSelectedParts, currentSelectedColors);
-        gameObject.SetActive(false);
+        Debug.Log($"<color=yellow>[TabsManager]</color> Botão clicado! Preparando para enviar {currentSelectedParts.Count} peças e {currentSelectedColors.Count} cores.");
+        
+        if (GameEvents.OnAvatarSaved != null)
+        {
+            GameEvents.OnAvatarSaved.Invoke(currentSelectedParts, currentSelectedColors);
+            Debug.Log("<color=green>[TabsManager]</color> Evento de salvamento enviado com sucesso!");
+        }
+        else
+        {
+            Debug.LogError("<color=red>[TabsManager]</color> ERRO: O evento foi chamado, mas ninguém (Game_Manager) está escutando!");
+        }
     }
 }

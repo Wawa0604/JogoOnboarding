@@ -15,7 +15,7 @@ public class BodyUpdate : MonoBehaviour
 
     private void Start() 
     {
-        // NOVO: Lê diretamente do GameEvents que nunca falha!
+        // NOVO: Lê diretamente do GameEvents, ignorando a existência do TabsManager
         GameEvents.OnPreviewBodyPartChanged += HandleBodyPartChange;
         GameEvents.OnPreviewColorChanged += HandleColorChange;
 

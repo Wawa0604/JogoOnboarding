@@ -113,4 +113,4 @@ public class MapAvatarIcon : MonoBehaviour
             }
         }
     }
-}
+} 

@@ -9992,9 +9992,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1961548937298611510}
-        m_TargetAssemblyTypeName: TabsManager, Assembly-CSharp
-        m_MethodName: SalvarCustomizacaoEFechar
+      - m_Target: {fileID: 7296358957218059048}
+        m_TargetAssemblyTypeName: buttonsManager, Assembly-CSharp
+        m_MethodName: FechaMapa
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11015,7 +11015,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1961548937298611510}
         m_TargetAssemblyTypeName: TabsManager, Assembly-CSharp
         m_MethodName: SalvarCustomizacaoEFechar
         m_Mode: 1

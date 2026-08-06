@@ -8,9 +8,6 @@ public class CoresSprites : MonoBehaviour
 
     private Color currentColor; 
     
-    // ==========================================
-    // ESTA É A LINHA QUE FALTAVA: Permite que o TabsManager leia a cor deste botão
-    // ==========================================
     public Color CurrentColor => currentColor;
 
     public void Setup(Color cor)
@@ -29,6 +26,11 @@ public class CoresSprites : MonoBehaviour
 
     public void OnClick()
     {
-        TabsManager.Instance.NotifyColorClick(this, currentColor);
+        // ATUALIZADO PARA A UNITY 6: FindAnyObjectByType
+        TabsManager manager = FindAnyObjectByType<TabsManager>();
+        if (manager != null)
+        {
+            manager.NotifyColorClick(this, currentColor);
+        }
     }
 }
