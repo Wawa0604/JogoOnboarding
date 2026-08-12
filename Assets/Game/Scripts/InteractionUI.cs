@@ -14,6 +14,12 @@ public class InteractionUI : MonoBehaviour
     [SerializeField] private Button btnPrevious;
     [SerializeField] private Button btnNext;
 
+    [Header("UI de Áudio (Novo)")]
+    [SerializeField] private Button btnAudio;
+    [SerializeField] private Image imgAudioIcon;
+    [SerializeField] private Sprite iconPlay;
+    [SerializeField] private Sprite iconPause;
+
     public void SetDialogue(string characterName, string text, Sprite avatarSprite)
     {
         if (characterNameText != null) characterNameText.text = characterName;
@@ -26,6 +32,22 @@ public class InteractionUI : MonoBehaviour
         if (btnPrevious != null) btnPrevious.interactable = hasPrevious;
         if (btnNext != null) btnNext.interactable = hasNext;
     }
+
+    // Configura a visibilidade do botão de áudio e atualiza seu ícone
+    public void SetAudioButtonState(bool hasAudio, bool isPlaying)
+    {
+        if (btnAudio != null)
+        {
+            btnAudio.gameObject.SetActive(hasAudio);
+            if (imgAudioIcon != null)
+            {
+                imgAudioIcon.sprite = isPlaying ? iconPause : iconPlay;
+            }
+        }
+    }
+
+    // Método para vincular o clique do botão no inspector ou por código
+    public Button GetAudioButton() => btnAudio;
 
     public void Show() 
     {

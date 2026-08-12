@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-// Devolvido aqui para o Unity voltar a reconhecer as linhas de texto!
 [System.Serializable]
 public class DialogueLine
 {
     public string characterName;
     [TextArea(3, 10)] public string text;
+    public AudioClip audioClip; // <- NOVO: Áudio referente a esta fala
 }
 
 [CreateAssetMenu(menuName = "Dialogue/Dialogue Sequence")]
