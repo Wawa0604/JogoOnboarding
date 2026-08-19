@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686406a89e255bf43b50dbe1021b76ec, type: 3}
+  m_Name: QuizRecepcao_Colaboracao
+  m_EditorClassIdentifier: Assembly-CSharp::QuizSequence
+  id: QuizRecepcao_Colaboracao
+  perguntas:
+  - tipoDaEtapa: 0
+    textoPergunta: "Qual dos cart\xF5es a seguir devo passar quando entro no fretado
+      de manh\xE3 e na sa\xEDda do fretado no fim do expediente?"
+    alternativas:
+    - textoAlternative: "Cart\xE3o do Polis"
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    - textoAlternative: "Crach\xE1 de identifica\xE7\xE3o"
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 
+    itensParaArrastar: []
+  - tipoDaEtapa: 0
+    textoPergunta: "Qual a alternativa correta em rela\xE7\xE3o ao crach\xE1?"
+    alternativas:
+    - textoAlternative: "N\xE3o preciso mant\xEA-lo comigo o tempo todo, caso n\xE3o
+        tenha problemas com a facial."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 
+    - textoAlternative: "Ele atua como meu passe do fretado e identifica\xE7\xE3o,
+        por isso devo manter ele sempre comigo"
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 0
+      justificativa: 
+    - textoAlternative: "Ele, em conjunto com a tag, libera a entrada com o carro
+        na portaria e devo sempre ter ele comigo e vis\xEDvel por seguran\xE7a e
+        identifica\xE7\xE3o."
+      spriteAlternativa: {fileID: 0}
+      ehCorreta: 1
+      justificativa: 
+    itensParaArrastar: []

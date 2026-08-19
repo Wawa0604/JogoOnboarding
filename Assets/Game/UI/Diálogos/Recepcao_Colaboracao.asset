@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0e7d499db71a24ca9347d7d2354a3c, type: 3}
+  m_Name: Recepcao_Colaboracao
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  id: Recepcao_Colaboracao
+  iconeAvatar: {fileID: 21300000, guid: 48a831e952638f34d871cc6372d04656, type: 3}
+  lines:
+  - characterName: "Colabora\xE7\xE3o"
+    text: "Ol\xE1! Aqui \xE9 a recep\xE7\xE3o do pr\xE9dio 2 e eu sou a Colabora\xE7\xE3o.
+      Para mim, o verdadeiro trabalho em equipe acontece quando unimos nossas for\xE7as
+      em um esfor\xE7o coletivo, onde cada pessoa se dedica ao m\xE1ximo para resolvermos
+      qualquer desafio juntos!"
+    audioClip: {fileID: 0}
+  - characterName: "Colabora\xE7\xE3o"
+    text: "\xC9 nesse pr\xE9dio que ficam concentradas as \xE1reas estrat\xE9gicas
+      que trabalham unidas como uma engrenagem para nossa organiza\xE7\xE3o funcionar
+      perfeitamente: o RH, a Comunica\xE7\xE3o, o time de Facilities e a nossa Presid\xEAncia."
+    audioClip: {fileID: 0}
+  - characterName: "Colabora\xE7\xE3o"
+    text: "Como voc\xEA acabou de ingressar nessa jornada conosco, \xE9 aqui, nessa
+      recp\xE7\xE3o, que voc\xEA retira suas credenciais de identifica\xE7\xE3o e
+      acesso: o seu crach\xE1 corporativo, que deve ficar sempre vis\xEDvel por seguran\xE7a,
+      e o seu cart\xE3o do P\xF3lis, para o uso do fretado."
+    audioClip: {fileID: 0}
+  - characterName: "Colabora\xE7\xE3o"
+    text: "Para garantir que voc\xEA saiba exatamente a quem recorrer e como usar
+      suas credenciais por aqui, que tal um teste r\xE1pido sobre a estrutura do
+      Pr\xE9dio 2? Avance e mostre que voc\xEA j\xE1 joga no nosso time!"
+    audioClip: {fileID: 0}
+  missaoParaConcluir: {fileID: 0}
+  OnSequenceComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  quizParaIniciar: {fileID: 11400000, guid: 49f771a79ae15ff43a3f4f6e7a885154, type: 2}
